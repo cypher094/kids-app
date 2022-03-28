@@ -10,7 +10,7 @@ import SwiftUI
 struct SignUpView: View {
     @EnvironmentObject var auth: AuthManager
     @ObservedObject var viewModel: SignUpViewModel
-    
+    @State var isLoading = false
     @State var firstName = ""
     @State var lastName = ""
     @State var email = ""
@@ -32,6 +32,9 @@ struct SignUpView: View {
                 }
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
+                if isLoading {
+                    Loading()
+                }
             }
         }.navigationBarHidden(true)
     }
@@ -42,10 +45,11 @@ struct SignUpView: View {
             CustomTF(image: "person", title: "LAST NAME", value: $lastName, animation: animation)
             CustomTF(image: "lock", title: "PASSWORD", value: $password, animation: animation)
                 .autocapitalization(.none)
-            CustomTF(image: "phone", title: "PHONE NUMBER", value: $phoneNumber, animation: animation)
-                .keyboardType(.numberPad)
             CustomTF(image: "envelope", title: "EMAIL ADDRESS", value: $email, animation: animation)
+                .keyboardType(.emailAddress)
                 .autocapitalization(.none)
+            CustomTF(image: "phone", title: "PHONE NUMBER", value: $phoneNumber, animation: animation)
+                .keyboardType(.phonePad)
         }
     }
     
@@ -82,8 +86,9 @@ struct SignUpView: View {
             
             VStack(alignment: .trailing) {
                 Button(action: {
+                    self.isLoading = true
                     guard !email.isEmpty, !password.isEmpty else { return }
-                    auth.signUp(email: email, password: password)
+                    auth.signUp(email: email, firstName: firstName, lastName: lastName, password: password)
                 }) {
                     HStack(spacing: 10) {
 //                        NavigationLink(destination: TutorialView(viewModel: TutorialViewModel()), isActive: $viewModel.isNextScreenPresenting) {

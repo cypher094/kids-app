@@ -13,18 +13,23 @@ struct SignInView: View {
     @State var email = ""
     @State var password = ""
     @State var isPresented = false
+    @State var isLoading = false
     @Namespace var animation
     
     var body: some View {
-        VStack {
-            Spacer()
-            headerView
-            inputs
-            signInButton
-            Spacer()
-            createAccountButton
+        ZStack {
+            VStack {
+                Spacer()
+                headerView
+                inputs
+                signInButton
+                Spacer()
+                createAccountButton
+            }
+            if isLoading {
+                Loading()
+            }
         }
-        .loading(isShowing: self.$auth.isLoading)
     }
     
     private var headerView: some View {
@@ -60,6 +65,7 @@ struct SignInView: View {
             
             VStack(alignment: .trailing) {
                 Button(action: {
+                    isLoading = true
                     guard !email.isEmpty, !password.isEmpty else { return }
                     auth.signIn(email: email, password: password)
                 }) {
