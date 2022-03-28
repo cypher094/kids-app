@@ -12,8 +12,8 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            if viewModel.signedIn {
-                HomeView(selecedCard: creditCards[0])
+            if viewModel.userIsAuthenticatedAndSynced {
+                HomeView(selecedCard: CreditCard(number: "4141444411112222", type: CardType.Platinum, company: "Visa", name: "\(viewModel.user?.firstName ?? "") \(viewModel.user?.lastName ?? "")"))
                     .navigationBarHidden(true)
                     .navigationBarBackButtonHidden(true)
                 
@@ -22,9 +22,6 @@ struct ContentView: View {
                     .navigationBarHidden(true)
                     .navigationBarBackButtonHidden(true)
             }
-        }
-        .onAppear {
-            viewModel.signedIn = viewModel.isSignedIn
         }
     }
 }

@@ -28,7 +28,7 @@
 		B461D42727DB8CF4003ACBE8 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461D42627DB8CF4003ACBE8 /* GraphView.swift */; };
 		B461D42927DB8D2C003ACBE8 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461D42827DB8D2C003ACBE8 /* CardDetailView.swift */; };
 		B46EC1C427EC031A0071DCAD /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B48A7ABB27EDAAF600A6E73B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B48A7ABA27EDAAF500A6E73B /* GoogleService-Info.plist */; };
+		B48A7ABF27F1BE4300A6E73B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B48A7ABE27F1BE4300A6E73B /* GoogleService-Info.plist */; };
 		B4D3625927DF7B0F004A37DA /* PersonalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3625827DF7B0F004A37DA /* PersonalDetailView.swift */; };
 		B4D3625C27EA1481004A37DA /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3625B27EA1481004A37DA /* SideMenuView.swift */; };
 		B4D3625E27EA148E004A37DA /* SideMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3625D27EA148E004A37DA /* SideMenuHeaderView.swift */; };
@@ -106,7 +106,7 @@
 		B461D42827DB8D2C003ACBE8 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		B46EC1C627EC03330071DCAD /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46EC1C727EC03330071DCAD /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B48A7ABA27EDAAF500A6E73B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B48A7ABE27F1BE4300A6E73B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B4D3625827DF7B0F004A37DA /* PersonalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailView.swift; sourceTree = "<group>"; };
 		B4D3625B27EA1481004A37DA /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		B4D3625D27EA148E004A37DA /* SideMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuHeaderView.swift; sourceTree = "<group>"; };
@@ -210,8 +210,8 @@
 				B4F8BC2F27020E440028D2EF /* Registration */,
 				B4F8BC3B270219BD0028D2EF /* Home */,
 				B461D42127DB8BE8003ACBE8 /* CardDetails */,
-				B4F8BC64270375470028D2EF /* TutorialView.swift */,
 				B4F8BC212701FA240028D2EF /* ContentView.swift */,
+				B4F8BC64270375470028D2EF /* TutorialView.swift */,
 				B461D41527DB7D83003ACBE8 /* CardView.swift */,
 				B461D41727DB81A0003ACBE8 /* PagerView.swift */,
 				B461D41927DB83AF003ACBE8 /* MenuHeaderView.swift */,
@@ -273,8 +273,8 @@
 				B461D41427DB7D6E003ACBE8 /* Views */,
 				B4F8BC432702342D0028D2EF /* LottieFiles */,
 				B4F8BC1F2701FA240028D2EF /* KidsApp.swift */,
+				B48A7ABE27F1BE4300A6E73B /* GoogleService-Info.plist */,
 				B4F8BC232701FA270028D2EF /* Assets.xcassets */,
-				B48A7ABA27EDAAF500A6E73B /* GoogleService-Info.plist */,
 				B4F8BC252701FA270028D2EF /* Preview Content */,
 			);
 			path = KidsApp;
@@ -473,7 +473,7 @@
 				B43A7E122706274700244A76 /* kidView4.json in Resources */,
 				B4F8BC242701FA270028D2EF /* Assets.xcassets in Resources */,
 				B4F8BC48270234F60028D2EF /* loading.json in Resources */,
-				B48A7ABB27EDAAF600A6E73B /* GoogleService-Info.plist in Resources */,
+				B48A7ABF27F1BE4300A6E73B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

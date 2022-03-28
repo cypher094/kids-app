@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var viewModel: AuthManager
     @ObservedObject var cardManager = CardManager()
     @State private var currentPage = 0
     @State var selecedCard: CreditCard
@@ -22,17 +23,17 @@ struct HomeView: View {
             VStack {
                 TopBarView(show: $show)
                 
-                PagerView(pageCount: creditCards.count, currentIndex: $currentPage) {
-                    ForEach(creditCards) { card in
-                        CardView(card: card)
+//                PagerView(pageCount: creditCards.count, currentIndex: $currentPage) {
+//                    ForEach(creditCards) { card in
+                        CardView(card: CreditCard(number: "4141444411112222", type: CardType.Platinum, company: "Visa", name: "\(viewModel.user?.firstName ?? "") \(viewModel.user?.lastName ?? "")"))
                             .onTapGesture {
                                 withAnimation {
-                                    selecedCard = card
+//                                    selecedCard = card
                                     selecedCard.selected = true
                                 }
                             }
-                    }
-                }
+//                    }
+//                }
                 .frame(height: 240)
 //                .opacity(startAnimation ? 1.0 : 0.0)
 //                .animation(Animation.easeIn(duration: 0.5))

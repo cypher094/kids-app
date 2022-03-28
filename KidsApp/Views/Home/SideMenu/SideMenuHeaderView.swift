@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SideMenuHeaderView: View {
+    @EnvironmentObject var auth: AuthManager
     @Binding var isShowing: Bool
-    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,7 +28,7 @@ struct SideMenuHeaderView: View {
             }
             
             HStack {
-                Text("Oleh Haidar")
+                Text("\(auth.user?.firstName ?? "") \(auth.user?.lastName ?? "")")
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundColor(.white)
                 Spacer()

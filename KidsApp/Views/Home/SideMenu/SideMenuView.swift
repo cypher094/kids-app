@@ -22,7 +22,18 @@ struct SideMenuView: View {
                 ForEach(SideMenuViewModel.allCases, id: \.self) { cell in
                     NavigationLink(
                         destination:
-                            Text(cell.title),
+                            VStack {
+                                switch cell.title {
+                                case "Profile":
+                                    PersonalDetailView(viewModel: PersonalDetailViewModel())
+                                case "Tutorial":
+                                    TutorialView(viewModel: TutorialViewModel())
+                                case "Info":
+                                    Text(cell.title)
+                                default:
+                                    Text(cell.title)
+                                }
+                            },
                         label: {
                             SideMenuCellView(viewModel: cell)
                         })

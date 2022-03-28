@@ -24,7 +24,6 @@ class TutorialViewModel: ObservableObject {
 }
 
 struct TutorialView: View {
-    @EnvironmentObject var auth: AuthManager
     @ObservedObject var viewModel: TutorialViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -113,7 +112,6 @@ struct TutorialView: View {
                     self.currentStep += 1
                 } else {
                     presentationMode.wrappedValue.dismiss()
-                    auth.signedIn = true
                 }
             }) {
                 HStack(spacing: 10) {
