@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1053323775639-fi9evtsv3tkpf7arsif5cki6fsdg4732.apps.googleusercontent.com</string>
+	<string>579264511711-077lvv77no9qabk09poe35itcur0m3qq.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1053323775639-fi9evtsv3tkpf7arsif5cki6fsdg4732</string>
+	<string>com.googleusercontent.apps.579264511711-077lvv77no9qabk09poe35itcur0m3qq</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCSbi9d2hHpxWbVH5nbj1ab4PZz05Zy-W0</string>
+	<string>AIzaSyBko8yg3O4DMo2P226GMblIpW5ifXABZhg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1053323775639</string>
+	<string>579264511711</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>Oleh.KidsApp</string>
 	<key>PROJECT_ID</key>
-	<string>kidsapp-e4c4e</string>
+	<string>kidsapp-8f915</string>
 	<key>STORAGE_BUCKET</key>
-	<string>kidsapp-e4c4e.appspot.com</string>
+	<string>kidsapp-8f915.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1053323775639:ios:85263d3249904f4a6323d2</string>
+	<string>1:579264511711:ios:f7c1ef9246f37beba3b36a</string>
 </dict>
 </plist>
