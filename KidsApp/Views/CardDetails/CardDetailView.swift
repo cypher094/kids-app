@@ -12,6 +12,7 @@ struct CardDetailView: View {
     @Binding var card: CreditCard
     @ObservedObject var cardManager: CardManager
     @State var startAnimation = false
+    @State var showCardNumber: Bool = false
     
     var body: some View {
         ZStack {
@@ -23,7 +24,7 @@ struct CardDetailView: View {
                 
                 ZStack {
                     GeometryReader { geometry in
-                        CardView(card: card)
+                        CardView(showCardNumber: $showCardNumber, card: card)
                             .rotationEffect(startAnimation ? Angle.degrees(90) : Angle.degrees(0))
                             .offset(x: startAnimation ? -geometry.size.width/2 : 0)
                     }
@@ -32,7 +33,7 @@ struct CardDetailView: View {
                     CardInfoView()
                         .padding(.leading, 80)
                         .opacity(startAnimation ? 1.0 : 0.0)
-                        .animation(Animation.easeIn(duration: 0.5).delay(1.0))
+                        .animation(Animation.easeIn(duration: 0.5).delay(0.7))
                     
                 }
                 .padding(.top, 40)
@@ -51,7 +52,6 @@ struct CardDetailView: View {
             withAnimation(Animation.linear(duration: 1.0)) {
                 startAnimation = true
             }
-            
         }
     }
 }
