@@ -20,7 +20,7 @@ extension View {
 struct Loading: View {
     var body: some View {
         VStack {
-            LottieView(fileName: "loading")
+            LottieView(fileName: "loadingDots")
                 .frame(width: 200, height: 200)
         }
     }
@@ -28,7 +28,7 @@ struct Loading: View {
 
 struct SQLoading: ViewModifier {
     
-    private static let transition = AnyTransition.opacity.animation(.easeInOut(duration: 0.3))
+    private static let transition = AnyTransition.opacity.animation(.easeInOut(duration: 0.5))
     
     @Binding var isShowing: Bool
     
