@@ -25,7 +25,11 @@ struct SideMenuView: View {
                             VStack {
                                 switch cell.title {
                                 case "Profile":
-                                    PersonalDetailView(viewModel: PersonalDetailViewModel())
+                                    ProfileView(profileData: ProfileViewModel())
+                                case "Card Detail":
+                                    AddKidView()
+                                case "Add kid":
+                                    AddKidView()
                                 case "Tutorial":
                                     TutorialView(viewModel: TutorialViewModel())
                                 case "Info":

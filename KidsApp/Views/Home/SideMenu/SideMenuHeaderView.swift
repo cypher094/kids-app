@@ -14,7 +14,7 @@ struct SideMenuHeaderView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image("img1")
+                Image(auth.user?.image ?? "")
                     .resizable()
                     .scaledToFill()
                     .clipped()
