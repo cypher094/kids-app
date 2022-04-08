@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ColorConstants {
-    static let primary = Color.init(red: 47/255, green: 16/255, blue: 118/255)
+    static let primary = Color.init(red: 45/255, green: 20/255, blue: 125/255)
+    static let gray = Color.init(red: 215/255, green: 215/255, blue: 215/255)
+    static let menuColor = Color.init(red: 35/255, green: 0/255, blue: 85/255)
     static let secondary = Color.init(red: 142/255, green: 119/255, blue: 204/255)
     static let imageTint = Color.init(red: 182/255, green: 152/255, blue: 255/255)
     static let imageTint2 = Color.init(red: 120/255, green: 90/255, blue: 201/255)
@@ -26,6 +28,11 @@ struct ColorConstants {
         gradient: Gradient(colors: [cardTopRight, cardBottomLeft]),
         startPoint: .topTrailing,
         endPoint: .bottomLeading)
+    
+    static let gradient = LinearGradient(
+        gradient: .init(colors: [Color("navy"), Color.purple]),
+        startPoint: .leading,
+        endPoint: .trailing)
     
     static let barBackground = LinearGradient(
         gradient: Gradient(colors: [graphBar.opacity(0.2), graphBar.opacity(0.8)]),
