@@ -11,4 +11,5 @@ enum CardType: String {
     case Silver
     case Gold
     case Platinum
+    case KidBasic
 }

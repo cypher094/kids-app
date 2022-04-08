@@ -18,7 +18,7 @@ struct TopBarView: View {
                     show = true
                 }
             }, label: {
-                Image(systemName: "line.3.horizontal.decrease")
+                Image(systemName: "line.3.horizontal")
             })
             
             Spacer()

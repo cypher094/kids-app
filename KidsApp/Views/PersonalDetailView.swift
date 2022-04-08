@@ -12,6 +12,7 @@ class PersonalDetailViewModel: ObservableObject {
 }
 
 struct PersonalDetailView: View {
+    @EnvironmentObject var auth: AuthManager
     @ObservedObject var viewModel: PersonalDetailViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     

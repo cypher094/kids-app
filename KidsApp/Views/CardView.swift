@@ -8,48 +8,78 @@
 import SwiftUI
 
 struct CardView: View {
+    @EnvironmentObject var viewModel: AuthManager
+    @Binding var showCardNumber: Bool
+    
     let card: CreditCard
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 30)
-                .fill(ColorConstants.cardBackground)
+            RoundedRectangle(cornerRadius: 20)
+                .fill(ColorConstants.gradient)
             
             VStack {
                 HStack {
                     VStack(alignment: .leading) {
                         Text(card.name.uppercased())
-                            .font(.system(size: 14))
-                            .bold()
+                            .font(.system(size: 16, weight: .heavy))
                             .kerning(5.0)
+                            .lineLimit(nil)
                         Text(card.type.rawValue.uppercased())
-                            .font(.system(size: 14))
-                            .bold()
+                            .font(.system(size: 14, weight: .semibold))
                             .kerning(2.0)
                     }
                     
                     Spacer()
                     
-                    Text(card.company.uppercased())
-                        .font(.system(size: 28, weight: Font.Weight.heavy))
-                        .italic()
+                    VStack(alignment: .trailing) {
+                        Text(card.company.uppercased())
+                            .font(.system(size: 28, weight: Font.Weight.heavy))
+                            .italic()
+
+                        Text("DEBIT")
+                            .font(.system(size: 14, weight: .semibold))
+                            .kerning(2.0)
+                    }
                 }
                 
                 Spacer()
                 
-                HStack {
-                    ForEach(0..<3) { i in
-                        Text("****")
-                            .kerning(3.0)
+                HStack(alignment: .firstTextBaseline, spacing: 4) {
+                    Text("₴")
+                        .font(.system(size: 18, weight: Font.Weight.bold, design: Font.Design.rounded))
+                        .foregroundColor(ColorConstants.secondary)
+                    Text(viewModel.user!.balance)
+                        .font(.system(size: 25, weight: Font.Weight.bold, design: Font.Design.rounded))
+                        .foregroundColor(.white)
                         
-                        Spacer()
-                    }
+                    Spacer()
                     
-                    Text(card.getLastFourDigit())
-                        .kerning(3.0)
+                    Image(systemName: "dot.radiowaves.right")
+                }
+                
+                Spacer()
+                
+                if showCardNumber {
+                    HStack {
+                        Text(card.number.applyCardPattern())
+                            .kerning(5.0)
+                            .font(.system(size: 16, weight: .semibold))
+                    }
+                } else {
+                    HStack {
+                        ForEach(0..<3) { i in
+                            Text("**** ")
+                                .kerning(5.0)
+                                .font(.system(size: 16, weight: .semibold))
+                        }
+                        
+                        Text(card.getLastFourDigit())
+                            .kerning(5.0)
+                            .font(.system(size: 16, weight: .semibold))
+                    }
                 }
             }
             .padding(.all, 40)
-            
         }
         .foregroundColor(.white)
         .padding(.leading, 20)
@@ -57,8 +87,3 @@ struct CardView: View {
     }
 }
 
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(card: creditCards[0])
-    }
-}

@@ -88,13 +88,11 @@ struct SignUpView: View {
                 Button(action: {
                     self.isLoading = true
                     guard !email.isEmpty, !password.isEmpty else { return }
-                    auth.signUp(email: email, firstName: firstName, lastName: lastName, password: password)
+                    auth.signUp(email: email, firstName: firstName, lastName: lastName, password: password, phoneNumber: phoneNumber)
                 }) {
                     HStack(spacing: 10) {
-//                        NavigationLink(destination: TutorialView(viewModel: TutorialViewModel()), isActive: $viewModel.isNextScreenPresenting) {
-                            Text("SIGN UP")
-                                .fontWeight(.heavy)
-//                        }
+                        Text("SIGN UP")
+                            .fontWeight(.heavy)
                         Image(systemName: "arrow.right")
                             .font(.title2)
                     }

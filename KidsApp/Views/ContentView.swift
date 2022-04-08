@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             if viewModel.userIsAuthenticatedAndSynced {
-                HomeView(selecedCard: CreditCard(number: "4141444411112222", type: CardType.Platinum, company: "Visa", name: "\(viewModel.user?.firstName ?? "") \(viewModel.user?.lastName ?? "")"))
+                HomeView(selecedCard: CreditCard(number: "4141444411112222", type: CardType.KidBasic, company: "Visa", name: "\(viewModel.user?.firstName ?? "") \(viewModel.user?.lastName ?? "")"))
                     .navigationBarHidden(true)
                     .navigationBarBackButtonHidden(true)
                 

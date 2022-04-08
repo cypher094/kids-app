@@ -14,6 +14,7 @@ struct HomeView: View {
     @State var selecedCard: CreditCard
     @State var startAnimation = false
     @State var show: Bool = false
+    @State var showCardNumber: Bool = false
     
     var body: some View {
         ZStack {
@@ -25,25 +26,30 @@ struct HomeView: View {
                 
 //                PagerView(pageCount: creditCards.count, currentIndex: $currentPage) {
 //                    ForEach(creditCards) { card in
-                        CardView(card: CreditCard(number: "4141444411112222", type: CardType.Platinum, company: "Visa", name: "\(viewModel.user?.firstName ?? "") \(viewModel.user?.lastName ?? "")"))
+                CardView(showCardNumber: $showCardNumber, card: CreditCard(number: "4141444411112222", type: CardType.KidBasic, company: "Visa", name: "\(viewModel.user?.firstName ?? "") \(viewModel.user?.lastName ?? "")"))
                             .onTapGesture {
                                 withAnimation {
 //                                    selecedCard = card
                                     selecedCard.selected = true
                                 }
                             }
+                            .onLongPressGesture(minimumDuration: 0.1) {
+                                withAnimation {
+                                    showCardNumber = true
+                                }
+                            }
 //                    }
 //                }
                 .frame(height: 240)
-//                .opacity(startAnimation ? 1.0 : 0.0)
-//                .animation(Animation.easeIn(duration: 0.5))
+                .opacity(startAnimation ? 1.0 : 0.0)
+                .animation(Animation.easeIn(duration: 0.3))
                 
                 Group {
                     MenuHeaderView(title: "Transactions", imageName: "arrow.up.arrow.down")
                     TransactionListView(currentIndex: $currentPage, cardManager: cardManager)
                 }
-//                .opacity(startAnimation ? 1.0 : 0.0)
-//                .animation(Animation.easeIn(duration: 0.5).delay(1.0))
+                .opacity(startAnimation ? 1.0 : 0.0)
+                .animation(Animation.easeIn(duration: 0.5).delay(1.0))
                 
                 Spacer()
             }
@@ -68,7 +74,7 @@ struct HomeView: View {
         .onAppear {
             show = false
             withAnimation {
-                startAnimation.toggle()
+                startAnimation = true
             }
         }
     }

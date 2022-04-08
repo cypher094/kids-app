@@ -14,11 +14,11 @@ class AuthManager: ObservableObject {
     let auth = Auth.auth()
     
     @Published var signedIn = false
-    @Published var isLoading = false
     
     @Published var user: User?
     
     private let db = Firestore.firestore()
+    
     var uuid: String? {
         auth.currentUser?.uid
     }
@@ -33,8 +33,12 @@ class AuthManager: ObservableObject {
         return auth.currentUser != nil
     }
     
+    init() {
+        sync()
+    }
+    
     func signIn(email: String, password: String) {
-        self.isLoading = true
+        
         auth.signIn(withEmail: email,
                     password: password) { [weak self] result, error in
             guard result != nil, error == nil else { return }
@@ -42,22 +46,20 @@ class AuthManager: ObservableObject {
             DispatchQueue.main.async {
                 self?.sync()
             }
-        }
-        self.isLoading = false
+        } 
     }
     
-    func signUp(email: String, firstName: String, lastName: String, password: String) {
-        self.isLoading = true
+    func signUp(email: String, firstName: String, lastName: String, password: String, phoneNumber: String) {
+        
         auth.createUser(withEmail: email,
                         password: password) { [weak self] result, error in
             guard result != nil, error == nil else { return }
             
             DispatchQueue.main.async {
-                self?.add(User(firstName: firstName, lastName: lastName))
+                self?.add(User(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, balance: "500.00", image: "img2"))
                 self?.sync()
             }
         }
-        self.isLoading = false
     }
     
     func signOut() {
@@ -71,7 +73,7 @@ class AuthManager: ObservableObject {
     
     //Firestore funcs
     
-    private func sync() {
+    func sync() {
         guard userIsAuthenticated else {
             return
         }
