@@ -26,6 +26,15 @@ struct Loading: View {
     }
 }
 
+struct LoadingSuccess: View {
+    var body: some View {
+        VStack {
+            LottieView(fileName: "loadingSuccess")
+                .frame(width: 200, height: 200)
+        }
+    }
+}
+
 struct SQLoading: ViewModifier {
     
     private static let transition = AnyTransition.opacity.animation(.easeInOut(duration: 0.5))
