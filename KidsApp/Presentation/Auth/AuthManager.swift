@@ -49,14 +49,14 @@ class AuthManager: ObservableObject {
         } 
     }
     
-    func signUp(email: String, firstName: String, lastName: String, password: String, phoneNumber: String) {
+    func signUp(email: String, firstName: String, lastName: String, password: String, phoneNumber: String, city: String, school: String, age: String) {
         
         auth.createUser(withEmail: email,
                         password: password) { [weak self] result, error in
             guard result != nil, error == nil else { return }
             
             DispatchQueue.main.async {
-                self?.add(User(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, balance: "500.00", image: "img2"))
+                self?.add(User(firstName: firstName, lastName: lastName, email: email, city: city, school: school, age: age, phoneNumber: phoneNumber, balance: "500.00", image: "img2"))
                 self?.sync()
             }
         }

@@ -11,6 +11,9 @@ struct User: Codable {
     var firstName: String
     var lastName: String
     var email: String
+    var city: String
+    var school: String
+    var age: String
     var phoneNumber: String
     var balance: String
     var image: String
