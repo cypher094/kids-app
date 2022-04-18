@@ -15,6 +15,8 @@ struct HomeView: View {
     @State var startAnimation = false
     @State var show: Bool = false
     @State var showCardNumber: Bool = false
+    @State var showTransferView: Bool = false
+    @State var showSaveView: Bool = false
     
     var body: some View {
         ZStack {
@@ -23,26 +25,27 @@ struct HomeView: View {
             
             VStack {
                 TopBarView(show: $show)
-                
 //                PagerView(pageCount: creditCards.count, currentIndex: $currentPage) {
 //                    ForEach(creditCards) { card in
-                CardView(showCardNumber: $showCardNumber, card: CreditCard(number: "4141444411112222", type: CardType.KidBasic, company: "Visa", name: "\(viewModel.user?.firstName ?? "") \(viewModel.user?.lastName ?? "")"))
-                            .onTapGesture {
-                                withAnimation {
+                CardView(showCardNumber: $showCardNumber, card: CreditCard(number: "4141444411112222", type: CardType.Kid, company: "Visa", name: "\(viewModel.user?.firstName ?? "") \(viewModel.user?.lastName ?? "")"))
+                    .onTapGesture {
+                        withAnimation {
 //                                    selecedCard = card
-                                    selecedCard.selected = true
-                                }
-                            }
-                            .onLongPressGesture(minimumDuration: 0.1) {
-                                withAnimation {
-                                    showCardNumber = true
-                                }
-                            }
-//                    }
-//                }
-                .frame(height: 240)
-                .opacity(startAnimation ? 1.0 : 0.0)
-                .animation(Animation.easeIn(duration: 0.3))
+                            selecedCard.selected = true
+                        }
+                    }
+                    .onLongPressGesture(minimumDuration: 0.1) {
+                        withAnimation {
+                            showCardNumber = true
+                        }
+                    }
+                //                    }
+                //                }
+                    .frame(height: 240)
+                    .opacity(startAnimation ? 1.0 : 0.0)
+                    .animation(Animation.easeIn(duration: 0.3))
+                
+                TransferSaveView()
                 
                 Group {
                     MenuHeaderView(title: "Transactions", imageName: "arrow.up.arrow.down")
@@ -66,7 +69,6 @@ struct HomeView: View {
 //                    .onTapGesture {
 //                        self.show.toggle()
 //                    }
-            
 //            SideMenuCustomView(currentTab: $currentTab)
             
         }

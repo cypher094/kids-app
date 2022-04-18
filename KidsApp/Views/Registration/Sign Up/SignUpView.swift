@@ -14,6 +14,9 @@ struct SignUpView: View {
     @State var firstName = ""
     @State var lastName = ""
     @State var email = ""
+    @State var city = ""
+    @State var school = ""
+    @State var age = ""
     @State var password = ""
     @State var phoneNumber = ""
     @Namespace var animation
@@ -32,9 +35,9 @@ struct SignUpView: View {
                 }
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
-                if isLoading {
-                    Loading()
-                }
+            }
+            if isLoading {
+                Loading()
             }
         }.navigationBarHidden(true)
     }
@@ -48,6 +51,10 @@ struct SignUpView: View {
             CustomTF(image: "envelope", title: "EMAIL ADDRESS", value: $email, animation: animation)
                 .keyboardType(.emailAddress)
                 .autocapitalization(.none)
+            CustomTF(image: "building.2", title: "CITY", value: $city, animation: animation)
+            CustomTF(image: "graduationcap", title: "SCHOOL", value: $school, animation: animation)
+            CustomTF(image: "calendar", title: "AGE", value: $age, animation: animation)
+                .keyboardType(.numberPad)
             CustomTF(image: "phone", title: "PHONE NUMBER", value: $phoneNumber, animation: animation)
                 .keyboardType(.phonePad)
         }
@@ -88,7 +95,7 @@ struct SignUpView: View {
                 Button(action: {
                     self.isLoading = true
                     guard !email.isEmpty, !password.isEmpty else { return }
-                    auth.signUp(email: email, firstName: firstName, lastName: lastName, password: password, phoneNumber: phoneNumber)
+                    auth.signUp(email: email, firstName: firstName, lastName: lastName, password: password, phoneNumber: phoneNumber, city: city, school: school, age: age)
                 }) {
                     HStack(spacing: 10) {
                         Text("SIGN UP")

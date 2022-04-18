@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B428097727FF1AE2002F9365 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B428097627FF1AE2002F9365 /* LaunchScreen.storyboard */; };
+		B4367836280DAD8900189041 /* loadingPurple.json in Resources */ = {isa = PBXBuildFile; fileRef = B4367835280DAD8900189041 /* loadingPurple.json */; };
+		B436783A280DB18500189041 /* loadingSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = B4367839280DB18500189041 /* loadingSuccess.json */; };
 		B43A7E122706274700244A76 /* kidView4.json in Resources */ = {isa = PBXBuildFile; fileRef = B43A7E0F2706274700244A76 /* kidView4.json */; };
 		B43A7E132706274700244A76 /* kidView2.json in Resources */ = {isa = PBXBuildFile; fileRef = B43A7E102706274700244A76 /* kidView2.json */; };
 		B43A7E142706274700244A76 /* kidView3.json in Resources */ = {isa = PBXBuildFile; fileRef = B43A7E112706274700244A76 /* kidView3.json */; };
@@ -28,6 +30,10 @@
 		B461D42527DB8CAE003ACBE8 /* CardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461D42427DB8CAE003ACBE8 /* CardInfoView.swift */; };
 		B461D42727DB8CF4003ACBE8 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461D42627DB8CF4003ACBE8 /* GraphView.swift */; };
 		B461D42927DB8D2C003ACBE8 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461D42827DB8D2C003ACBE8 /* CardDetailView.swift */; };
+		B46225232809D2920020B810 /* CustomHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46225222809D2920020B810 /* CustomHomeButton.swift */; };
+		B4622525280D864C0020B810 /* TransferSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4622524280D864C0020B810 /* TransferSaveView.swift */; };
+		B4622527280D8A080020B810 /* SavingMoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4622526280D8A080020B810 /* SavingMoneyView.swift */; };
+		B4622529280D97560020B810 /* CardTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4622528280D97560020B810 /* CardTransfer.swift */; };
 		B46EC1C427EC031A0071DCAD /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B48A7ABF27F1BE4300A6E73B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B48A7ABE27F1BE4300A6E73B /* GoogleService-Info.plist */; };
 		B4D3625927DF7B0F004A37DA /* PersonalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3625827DF7B0F004A37DA /* PersonalDetailView.swift */; };
@@ -52,7 +58,7 @@
 		B4F8BC47270234F60028D2EF /* loaderYellow.json in Resources */ = {isa = PBXBuildFile; fileRef = B4F8BC44270234F60028D2EF /* loaderYellow.json */; };
 		B4F8BC48270234F60028D2EF /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B4F8BC45270234F60028D2EF /* loading.json */; };
 		B4F8BC49270234F60028D2EF /* save.json in Resources */ = {isa = PBXBuildFile; fileRef = B4F8BC46270234F60028D2EF /* save.json */; };
-		B4F8BC4B2702351F0028D2EF /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F8BC4A2702351F0028D2EF /* LottieView.swift */; };
+		B4F8BC4B2702351F0028D2EF /* 			LottieViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F8BC4A2702351F0028D2EF /* 			LottieViewLoading.swift */; };
 		B4F8BC4D27023A2B0028D2EF /* loadingView.json in Resources */ = {isa = PBXBuildFile; fileRef = B4F8BC4C27023A2B0028D2EF /* loadingView.json */; };
 		B4F8BC4F27023D720028D2EF /* load.json in Resources */ = {isa = PBXBuildFile; fileRef = B4F8BC4E27023D710028D2EF /* load.json */; };
 		B4F8BC5B27031D8A0028D2EF /* CustomTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F8BC5A27031D8A0028D2EF /* CustomTF.swift */; };
@@ -89,6 +95,8 @@
 
 /* Begin PBXFileReference section */
 		B428097627FF1AE2002F9365 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B4367835280DAD8900189041 /* loadingPurple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingPurple.json; sourceTree = "<group>"; };
+		B4367839280DB18500189041 /* loadingSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingSuccess.json; sourceTree = "<group>"; };
 		B43A7E0F2706274700244A76 /* kidView4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kidView4.json; sourceTree = "<group>"; };
 		B43A7E102706274700244A76 /* kidView2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kidView2.json; sourceTree = "<group>"; };
 		B43A7E112706274700244A76 /* kidView3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kidView3.json; sourceTree = "<group>"; };
@@ -109,6 +117,10 @@
 		B461D42427DB8CAE003ACBE8 /* CardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoView.swift; sourceTree = "<group>"; };
 		B461D42627DB8CF4003ACBE8 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		B461D42827DB8D2C003ACBE8 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
+		B46225222809D2920020B810 /* CustomHomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHomeButton.swift; sourceTree = "<group>"; };
+		B4622524280D864C0020B810 /* TransferSaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSaveView.swift; sourceTree = "<group>"; };
+		B4622526280D8A080020B810 /* SavingMoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingMoneyView.swift; sourceTree = "<group>"; };
+		B4622528280D97560020B810 /* CardTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransfer.swift; sourceTree = "<group>"; };
 		B46EC1C627EC03330071DCAD /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46EC1C727EC03330071DCAD /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B48A7ABE27F1BE4300A6E73B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -133,7 +145,7 @@
 		B4F8BC44270234F60028D2EF /* loaderYellow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loaderYellow.json; sourceTree = "<group>"; };
 		B4F8BC45270234F60028D2EF /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		B4F8BC46270234F60028D2EF /* save.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = save.json; sourceTree = "<group>"; };
-		B4F8BC4A2702351F0028D2EF /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		B4F8BC4A2702351F0028D2EF /* 			LottieViewLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "\t\t\tLottieViewLoading.swift"; sourceTree = "<group>"; };
 		B4F8BC4C27023A2B0028D2EF /* loadingView.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingView.json; sourceTree = "<group>"; };
 		B4F8BC4E27023D710028D2EF /* load.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load.json; sourceTree = "<group>"; };
 		B4F8BC5A27031D8A0028D2EF /* CustomTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTF.swift; sourceTree = "<group>"; };
@@ -340,6 +352,9 @@
 				B4F8BC6D2704695D0028D2EF /* HomeViewModel.swift */,
 				B4D3626327EB7A9D004A37DA /* TopBarView.swift */,
 				B4E7CE1727FCAF1E00C66864 /* AddKidView.swift */,
+				B4622524280D864C0020B810 /* TransferSaveView.swift */,
+				B4622526280D8A080020B810 /* SavingMoneyView.swift */,
+				B4622528280D97560020B810 /* CardTransfer.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -348,7 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				B4F8BC6C270389210028D2EF /* Files */,
-				B4F8BC4A2702351F0028D2EF /* LottieView.swift */,
+				B4F8BC4A2702351F0028D2EF /* 			LottieViewLoading.swift */,
 				B4F8BC5E270360B20028D2EF /* Loading.swift */,
 			);
 			path = LottieFiles;
@@ -377,6 +392,7 @@
 			children = (
 				B4F8BC5A27031D8A0028D2EF /* CustomTF.swift */,
 				B4F8BC5C27033C610028D2EF /* CustomButtonModifier.swift */,
+				B46225222809D2920020B810 /* CustomHomeButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -391,9 +407,11 @@
 				B43A7E0F2706274700244A76 /* kidView4.json */,
 				B4F8BC4E27023D710028D2EF /* load.json */,
 				B4F8BC672703769E0028D2EF /* pocketMoney.json */,
+				B4367835280DAD8900189041 /* loadingPurple.json */,
 				B4F8BC46270234F60028D2EF /* save.json */,
 				B4F8BC60270362E40028D2EF /* loadingDots.json */,
 				B4F8BC4C27023A2B0028D2EF /* loadingView.json */,
+				B4367839280DB18500189041 /* loadingSuccess.json */,
 				B4F8BC662703769D0028D2EF /* kidView1.json */,
 			);
 			path = Files;
@@ -486,6 +504,8 @@
 				B4F8BC49270234F60028D2EF /* save.json in Resources */,
 				B43A7E122706274700244A76 /* kidView4.json in Resources */,
 				B4F8BC242701FA270028D2EF /* Assets.xcassets in Resources */,
+				B436783A280DB18500189041 /* loadingSuccess.json in Resources */,
+				B4367836280DAD8900189041 /* loadingPurple.json in Resources */,
 				B4F8BC48270234F60028D2EF /* loading.json in Resources */,
 				B48A7ABF27F1BE4300A6E73B /* GoogleService-Info.plist in Resources */,
 			);
@@ -498,11 +518,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4622525280D864C0020B810 /* TransferSaveView.swift in Sources */,
 				B461D40B27DB78D6003ACBE8 /* Expense.swift in Sources */,
 				B4F8BC35270211A00028D2EF /* SignUpView.swift in Sources */,
 				B461D41A27DB83AF003ACBE8 /* MenuHeaderView.swift in Sources */,
 				B4D3625C27EA1481004A37DA /* SideMenuView.swift in Sources */,
 				B461D42527DB8CAE003ACBE8 /* CardInfoView.swift in Sources */,
+				B46225232809D2920020B810 /* CustomHomeButton.swift in Sources */,
 				B4E7CE1827FCAF1E00C66864 /* AddKidView.swift in Sources */,
 				B4F8BC6B270387CF0028D2EF /* SignUpViewModel.swift in Sources */,
 				B461D41C27DB8A71003ACBE8 /* TransactionListRow.swift in Sources */,
@@ -520,12 +542,14 @@
 				B4D3626627EB99FB004A37DA /* User.swift in Sources */,
 				B461D41827DB81A0003ACBE8 /* PagerView.swift in Sources */,
 				B4D3625927DF7B0F004A37DA /* PersonalDetailView.swift in Sources */,
+				B4622529280D97560020B810 /* CardTransfer.swift in Sources */,
 				B461D41E27DB8B2B003ACBE8 /* TransactionListView.swift in Sources */,
 				B461D41627DB7D83003ACBE8 /* CardView.swift in Sources */,
 				B4F8BC6E2704695F0028D2EF /* HomeViewModel.swift in Sources */,
 				B461D42927DB8D2C003ACBE8 /* CardDetailView.swift in Sources */,
 				B461D41027DB7BD3003ACBE8 /* ColorConstants.swift in Sources */,
 				B4D3625E27EA148E004A37DA /* SideMenuHeaderView.swift in Sources */,
+				B4622527280D8A080020B810 /* SavingMoneyView.swift in Sources */,
 				B461D42327DB8BF5003ACBE8 /* ProgressView.swift in Sources */,
 				B4F8BC65270375480028D2EF /* TutorialView.swift in Sources */,
 				B4D3626027EA149D004A37DA /* SideMenuCellView.swift in Sources */,
@@ -533,7 +557,7 @@
 				B4E7CE1A27FD8C6B00C66864 /* ProfileView.swift in Sources */,
 				B461D42027DB8B9D003ACBE8 /* ListHeader.swift in Sources */,
 				B461D40527DB72F2003ACBE8 /* CardType.swift in Sources */,
-				B4F8BC4B2702351F0028D2EF /* LottieView.swift in Sources */,
+				B4F8BC4B2702351F0028D2EF /* 			LottieViewLoading.swift in Sources */,
 				B461D41327DB7CD9003ACBE8 /* CardManager.swift in Sources */,
 				B4F8BC5B27031D8A0028D2EF /* CustomTF.swift in Sources */,
 				B461D40927DB7885003ACBE8 /* TransactionItem.swift in Sources */,

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SideMenuView: View {
+    
+    @State var isLoading = false
     @Binding var isShowing: Bool
     @EnvironmentObject var auth: AuthManager
     
@@ -60,6 +62,12 @@ struct SideMenuView: View {
                     }
                     .padding(.top, 50)
                     .padding()
+                }
+                
+                ZStack {
+                    if isLoading {
+                        Loading()
+                    }
                 }
             }
             .frame(maxWidth: 300)

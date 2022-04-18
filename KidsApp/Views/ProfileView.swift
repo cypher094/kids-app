@@ -68,7 +68,7 @@ struct ProfileView: View {
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundColor(.primary)
                     
-                    Text("\(auth.user!.firstName) \(auth.user!.lastName)")
+                    Text("\(auth.user?.firstName ?? "") \(auth.user?.lastName ?? "")")
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundColor(.gray)
                     
@@ -88,7 +88,7 @@ struct ProfileView: View {
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundColor(.primary)
                     
-                    Text("\(auth.user!.email)")
+                    Text("\(auth.user?.email ?? "")")
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundColor(.gray)
                 }
@@ -98,7 +98,37 @@ struct ProfileView: View {
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundColor(.primary)
                     
-                    Text("\(auth.user!.phoneNumber)")
+                    Text("\(auth.user?.phoneNumber ?? "")")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.gray)
+                }
+                
+                HStack {
+                    Text("City:")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.primary)
+                    
+                    Text("\(auth.user?.city ?? "")")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.gray)
+                }
+                
+                HStack {
+                    Text("School:")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.primary)
+                    
+                    Text("\(auth.user?.school ?? "")")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.gray)
+                }
+                
+                HStack {
+                    Text("Age:")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.primary)
+                    
+                    Text("\(auth.user?.age ?? "")")
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundColor(.gray)
                 }

@@ -48,35 +48,43 @@ struct CardView: View {
                     Text("₴")
                         .font(.system(size: 18, weight: Font.Weight.bold, design: Font.Design.rounded))
                         .foregroundColor(ColorConstants.secondary)
-                    Text(viewModel.user!.balance)
+                    Text(viewModel.user?.balance ?? "")
                         .font(.system(size: 25, weight: Font.Weight.bold, design: Font.Design.rounded))
                         .foregroundColor(.white)
                         
                     Spacer()
                     
-                    Image(systemName: "dot.radiowaves.right")
+                    Text("10/24")
+                        .kerning(5.0)
+                        .font(.system(size: 16, weight: .semibold))
                 }
                 
                 Spacer()
                 
-                if showCardNumber {
-                    HStack {
-                        Text(card.number.applyCardPattern())
-                            .kerning(5.0)
-                            .font(.system(size: 16, weight: .semibold))
-                    }
-                } else {
-                    HStack {
-                        ForEach(0..<3) { i in
-                            Text("**** ")
+                HStack {
+                    if showCardNumber {
+                        HStack {
+                            Text(card.number.applyCardPattern())
                                 .kerning(5.0)
                                 .font(.system(size: 16, weight: .semibold))
                         }
-                        
-                        Text(card.getLastFourDigit())
-                            .kerning(5.0)
-                            .font(.system(size: 16, weight: .semibold))
+                    } else {
+                        HStack {
+                            ForEach(0..<3) { i in
+                                Text("**** ")
+                                    .kerning(5.0)
+                                    .font(.system(size: 16, weight: .semibold))
+                            }
+                            
+                            Text(card.getLastFourDigit())
+                                .kerning(5.0)
+                                .font(.system(size: 16, weight: .semibold))
+                        }
                     }
+
+                    Spacer()
+                    
+                    Image(systemName: "dot.radiowaves.right")
                 }
             }
             .padding(.all, 40)

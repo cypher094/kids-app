@@ -17,7 +17,7 @@ struct TransactionListRow: View {
                     Circle()
                         .fill(ColorConstants.border)
                         .frame(width: 50, height: 50)
-                    Image(systemName: "applelogo")
+                    Image(systemName: transaction.type == "Electronics" ? "applelogo" : "gamecontroller.fill")
                         .foregroundColor(ColorConstants.secondary)
                 }
                 
@@ -33,7 +33,7 @@ struct TransactionListRow: View {
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                    Text("- \(String(format: "%.2f", transaction.amount)) USD")
+                    Text("- \(String(format: "%.2f", transaction.amount)) UAH")
                         .foregroundColor(.white)
                     Text(transaction.time)
                         .font(.caption)
