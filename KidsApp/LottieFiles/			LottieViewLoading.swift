@@ -8,7 +8,7 @@
 import SwiftUI
 import Lottie
 
-struct LottieView: UIViewRepresentable {
+struct             LottieViewLoading: UIViewRepresentable {
     let animationView = AnimationView()
     let fileName: String
     let isAnimating: Bool
@@ -20,7 +20,7 @@ struct LottieView: UIViewRepresentable {
         self.loopMode = loopMode
     }
     
-    func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
+    func makeUIView(context: UIViewRepresentableContext<            LottieViewLoading>) -> UIView {
         let view = UIView()
         
         let animation = Animation.named(fileName)
@@ -38,7 +38,7 @@ struct LottieView: UIViewRepresentable {
         return view
     }
     
-    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieView>) {
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<            LottieViewLoading>) {
         if isAnimating {
             context.coordinator.kid.animationView.play()
         } else {
@@ -51,9 +51,9 @@ struct LottieView: UIViewRepresentable {
     }
 
     class Coordinator: NSObject {
-        var kid: LottieView
+        var kid:             LottieViewLoading
 
-        init(_ kid: LottieView) {
+        init(_ kid:             LottieViewLoading) {
             self.kid = kid
         }
     }
