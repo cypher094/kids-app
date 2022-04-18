@@ -12,7 +12,7 @@ enum SideMenuViewModel: Int, CaseIterable {
     case cardDetails
     case addKid
     case tutorial
-    case info
+    case game
     
     var title: String {
         switch self {
@@ -20,7 +20,7 @@ enum SideMenuViewModel: Int, CaseIterable {
         case .cardDetails: return "Card Details"
         case .addKid: return "Add kid"
         case .tutorial: return "Tutorial"
-        case .info: return "Info"
+        case .game: return "Game"
         }
     }
     
@@ -30,7 +30,7 @@ enum SideMenuViewModel: Int, CaseIterable {
         case .cardDetails: return "creditcard.fill"
         case .addKid: return "plus"
         case .tutorial: return "questionmark.circle.fill"
-        case .info: return "info.circle.fill"
+        case .game: return "gamecontroller.fill"
         }
     }
 }

@@ -34,8 +34,8 @@ struct SideMenuView: View {
                                     AddKidView()
                                 case "Tutorial":
                                     TutorialView(viewModel: TutorialViewModel())
-                                case "Info":
-                                    Text(cell.title)
+                                case "Game":
+                                    MathGame()
                                 default:
                                     Text(cell.title)
                                 }
