@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4186023280ED1850089E60F /* signOut.json in Resources */ = {isa = PBXBuildFile; fileRef = B4186022280ED1850089E60F /* signOut.json */; };
 		B428097727FF1AE2002F9365 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B428097627FF1AE2002F9365 /* LaunchScreen.storyboard */; };
 		B4367836280DAD8900189041 /* loadingPurple.json in Resources */ = {isa = PBXBuildFile; fileRef = B4367835280DAD8900189041 /* loadingPurple.json */; };
 		B436783A280DB18500189041 /* loadingSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = B4367839280DB18500189041 /* loadingSuccess.json */; };
 		B436783C280DE68B00189041 /* MathGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436783B280DE68B00189041 /* MathGame.swift */; };
 		B436783F280DF4C800189041 /* wrong.json in Resources */ = {isa = PBXBuildFile; fileRef = B436783D280DF4C800189041 /* wrong.json */; };
 		B4367842280DF5C600189041 /* correct.json in Resources */ = {isa = PBXBuildFile; fileRef = B4367841280DF5C600189041 /* correct.json */; };
+		B4367844280EC46B00189041 /* ChatBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4367843280EC46B00189041 /* ChatBot.swift */; };
 		B43A7E122706274700244A76 /* kidView4.json in Resources */ = {isa = PBXBuildFile; fileRef = B43A7E0F2706274700244A76 /* kidView4.json */; };
 		B43A7E132706274700244A76 /* kidView2.json in Resources */ = {isa = PBXBuildFile; fileRef = B43A7E102706274700244A76 /* kidView2.json */; };
 		B43A7E142706274700244A76 /* kidView3.json in Resources */ = {isa = PBXBuildFile; fileRef = B43A7E112706274700244A76 /* kidView3.json */; };
@@ -97,12 +99,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B4186022280ED1850089E60F /* signOut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = signOut.json; sourceTree = "<group>"; };
 		B428097627FF1AE2002F9365 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4367835280DAD8900189041 /* loadingPurple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingPurple.json; sourceTree = "<group>"; };
 		B4367839280DB18500189041 /* loadingSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingSuccess.json; sourceTree = "<group>"; };
 		B436783B280DE68B00189041 /* MathGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathGame.swift; sourceTree = "<group>"; };
 		B436783D280DF4C800189041 /* wrong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wrong.json; sourceTree = "<group>"; };
 		B4367841280DF5C600189041 /* correct.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = correct.json; path = ../../../../correct.json; sourceTree = "<group>"; };
+		B4367843280EC46B00189041 /* ChatBot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBot.swift; sourceTree = "<group>"; };
 		B43A7E0F2706274700244A76 /* kidView4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kidView4.json; sourceTree = "<group>"; };
 		B43A7E102706274700244A76 /* kidView2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kidView2.json; sourceTree = "<group>"; };
 		B43A7E112706274700244A76 /* kidView3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kidView3.json; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 				B4622526280D8A080020B810 /* SavingMoneyView.swift */,
 				B4622528280D97560020B810 /* CardTransfer.swift */,
 				B436783B280DE68B00189041 /* MathGame.swift */,
+				B4367843280EC46B00189041 /* ChatBot.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 				B4F8BC4E27023D710028D2EF /* load.json */,
 				B4F8BC672703769E0028D2EF /* pocketMoney.json */,
 				B4367841280DF5C600189041 /* correct.json */,
+				B4186022280ED1850089E60F /* signOut.json */,
 				B4367835280DAD8900189041 /* loadingPurple.json */,
 				B4F8BC46270234F60028D2EF /* save.json */,
 				B4F8BC60270362E40028D2EF /* loadingDots.json */,
@@ -517,6 +523,7 @@
 				B436783A280DB18500189041 /* loadingSuccess.json in Resources */,
 				B4367836280DAD8900189041 /* loadingPurple.json in Resources */,
 				B4F8BC48270234F60028D2EF /* loading.json in Resources */,
+				B4186023280ED1850089E60F /* signOut.json in Resources */,
 				B48A7ABF27F1BE4300A6E73B /* GoogleService-Info.plist in Resources */,
 				B4367842280DF5C600189041 /* correct.json in Resources */,
 			);
@@ -550,6 +557,7 @@
 				B4F8BC3D270219CB0028D2EF /* HomeView.swift in Sources */,
 				B4F8BC202701FA240028D2EF /* KidsApp.swift in Sources */,
 				B4F8BC3A2702197D0028D2EF /* AuthManager.swift in Sources */,
+				B4367844280EC46B00189041 /* ChatBot.swift in Sources */,
 				B436783C280DE68B00189041 /* MathGame.swift in Sources */,
 				B4D3626627EB99FB004A37DA /* User.swift in Sources */,
 				B461D41827DB81A0003ACBE8 /* PagerView.swift in Sources */,
