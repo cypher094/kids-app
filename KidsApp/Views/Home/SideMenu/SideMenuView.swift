@@ -36,6 +36,8 @@ struct SideMenuView: View {
                                     TutorialView(viewModel: TutorialViewModel())
                                 case "Game":
                                     MathGame()
+                                case "Ask a question":
+                                    ChatBot()
                                 default:
                                     Text(cell.title)
                                 }
@@ -44,29 +46,12 @@ struct SideMenuView: View {
                             SideMenuCellView(viewModel: cell)
                         })
                 }
-
-                HStack {
-                    Button(action: {
-                        auth.signOut()
-                    }) {
-                        HStack(spacing: 10) {
-                            
-                            Image(systemName: "rectangle.portrait.and.arrow.right")
-                                .font(.title2)
-                            
-                            Text("SIGN OUT")
-                                .fontWeight(.heavy)
-                            
-                        }
-                        .modifier(CustomButtonModifier())
-                    }
-                    .padding(.top, 50)
-                    .padding()
-                }
                 
                 ZStack {
                     if isLoading {
-                        Loading()
+                        LoadingSignOut()
+                    } else {
+                        signOut
                     }
                 }
             }
@@ -79,6 +64,30 @@ struct SideMenuView: View {
             .shadow(color: Color("buttonShadow"), radius: 30, x: 20, y: 10)
             
             Spacer()
+        }
+    }
+    private var signOut: some View {
+        HStack {
+            Button(action: {
+                isLoading = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    isLoading = false
+                    auth.signOut()
+                }
+            }) {
+                HStack(spacing: 10) {
+                    
+                    Image(systemName: "rectangle.portrait.and.arrow.right")
+                        .font(.title2)
+                    
+                    Text("SIGN OUT")
+                        .fontWeight(.heavy)
+                    
+                }
+                .modifier(CustomButtonModifier())
+            }
+            .padding(.top, 50)
+            .padding()
         }
     }
 

@@ -53,6 +53,15 @@ struct LoadingWrong: View {
     }
 }
 
+struct LoadingSignOut: View {
+    var body: some View {
+        VStack {
+            LottieView(fileName: "signOut")
+                .frame(width: 150, height: 150)
+        }
+    }
+}
+
 struct SQLoading: ViewModifier {
     
     private static let transition = AnyTransition.opacity.animation(.easeInOut(duration: 0.5))
