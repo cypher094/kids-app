@@ -33,7 +33,7 @@ enum SideMenuViewModel: Int, CaseIterable {
         case .addKid: return "plus"
         case .tutorial: return "questionmark.circle.fill"
         case .game: return "gamecontroller.fill"
-        case .question: return "questionmark.circle.fill"
+        case .question: return "message.fill"
         }
     }
 }
