@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TopBarView: View {
-    
+    @Binding var selecedCard: CreditCard
     @Binding var show: Bool
     
     var body: some View {
@@ -18,7 +18,7 @@ struct TopBarView: View {
                     show = true
                 }
             }, label: {
-                Image(systemName: "line.3.horizontal")
+                Image(systemName: "line.horizontal.3.decrease")
             })
             
             Spacer()
@@ -28,6 +28,14 @@ struct TopBarView: View {
                 .bold()
             
             Spacer()
+            
+            Button(action: {
+                withAnimation(.spring()) {
+                    selecedCard.selected = true
+                }
+            }, label: {
+                Text("₴")
+            })
 
         }
         .foregroundColor(.white)

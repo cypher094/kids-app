@@ -55,7 +55,7 @@ struct CardView: View {
                     Spacer()
                     
                     Text("10/24")
-                        .kerning(5.0)
+                        .kerning(3.0)
                         .font(.system(size: 16, weight: .semibold))
                 }
                 

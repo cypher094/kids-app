@@ -28,7 +28,7 @@ struct CardDetailView: View {
                             .rotationEffect(startAnimation ? Angle.degrees(90) : Angle.degrees(0))
                             .offset(x: startAnimation ? -geometry.size.width/2 : 0)
                     }
-                    .frame(height: 200)
+                    .frame(height: 240)
 
                     CardInfoView()
                         .padding(.leading, 80)
@@ -36,14 +36,14 @@ struct CardDetailView: View {
                         .animation(Animation.easeIn(duration: 0.5).delay(0.7))
                     
                 }
-                .padding(.top, 40)
-                .padding(.bottom, 50)
+                .padding(.top, 50)
+                .padding(.bottom, 60)
                 
                 ExpenceView(cardManager: cardManager)
                     .padding(.top, 20)
                     .padding(.bottom, 40)
                     .opacity(startAnimation ? 1.0 : 0.0)
-                    .animation(Animation.easeIn(duration: 0.5).delay(1.5))
+                    .animation(Animation.easeIn(duration: 0.5).delay(1.3))
                 
                 Spacer()
             }
@@ -72,7 +72,7 @@ struct CardDetailTopBarView: View {
     var body: some View {
         HStack {
             Button(action: {
-                withAnimation {
+                withAnimation(.spring()) {
                     card.selected = false
                 }
             }, label: {
@@ -86,10 +86,10 @@ struct CardDetailTopBarView: View {
             
             Spacer()
             
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                Image(systemName: "slider.vertical.3")
-                    .padding(.all, 20)
-            })
+//            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+//                Image(systemName: "slider.vertical.3")
+//                    .padding(.all, 20)
+//            })
         }
         .foregroundColor(.white)
         .padding(.top, 64)

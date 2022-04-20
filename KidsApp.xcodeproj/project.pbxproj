@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B4186023280ED1850089E60F /* signOut.json in Resources */ = {isa = PBXBuildFile; fileRef = B4186022280ED1850089E60F /* signOut.json */; };
+		B4186025280ED5A40089E60F /* CustomPocketMoneyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4186024280ED5A40089E60F /* CustomPocketMoneyButton.swift */; };
+		B4186027280EDB090089E60F /* savings.json in Resources */ = {isa = PBXBuildFile; fileRef = B4186026280EDB090089E60F /* savings.json */; };
+		B4186029281008360089E60F /* CardBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4186028281008360089E60F /* CardBackView.swift */; };
 		B428097727FF1AE2002F9365 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B428097627FF1AE2002F9365 /* LaunchScreen.storyboard */; };
 		B4367836280DAD8900189041 /* loadingPurple.json in Resources */ = {isa = PBXBuildFile; fileRef = B4367835280DAD8900189041 /* loadingPurple.json */; };
 		B436783A280DB18500189041 /* loadingSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = B4367839280DB18500189041 /* loadingSuccess.json */; };
@@ -100,6 +103,9 @@
 
 /* Begin PBXFileReference section */
 		B4186022280ED1850089E60F /* signOut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = signOut.json; sourceTree = "<group>"; };
+		B4186024280ED5A40089E60F /* CustomPocketMoneyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPocketMoneyButton.swift; sourceTree = "<group>"; };
+		B4186026280EDB090089E60F /* savings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = savings.json; sourceTree = "<group>"; };
+		B4186028281008360089E60F /* CardBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackView.swift; sourceTree = "<group>"; };
 		B428097627FF1AE2002F9365 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4367835280DAD8900189041 /* loadingPurple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingPurple.json; sourceTree = "<group>"; };
 		B4367839280DB18500189041 /* loadingSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingSuccess.json; sourceTree = "<group>"; };
@@ -367,6 +373,7 @@
 				B4622528280D97560020B810 /* CardTransfer.swift */,
 				B436783B280DE68B00189041 /* MathGame.swift */,
 				B4367843280EC46B00189041 /* ChatBot.swift */,
+				B4186028281008360089E60F /* CardBackView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -405,6 +412,7 @@
 				B4F8BC5A27031D8A0028D2EF /* CustomTF.swift */,
 				B4F8BC5C27033C610028D2EF /* CustomButtonModifier.swift */,
 				B46225222809D2920020B810 /* CustomHomeButton.swift */,
+				B4186024280ED5A40089E60F /* CustomPocketMoneyButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -427,6 +435,7 @@
 				B4F8BC60270362E40028D2EF /* loadingDots.json */,
 				B4F8BC4C27023A2B0028D2EF /* loadingView.json */,
 				B4367839280DB18500189041 /* loadingSuccess.json */,
+				B4186026280EDB090089E60F /* savings.json */,
 				B4F8BC662703769D0028D2EF /* kidView1.json */,
 			);
 			path = Files;
@@ -523,6 +532,7 @@
 				B436783A280DB18500189041 /* loadingSuccess.json in Resources */,
 				B4367836280DAD8900189041 /* loadingPurple.json in Resources */,
 				B4F8BC48270234F60028D2EF /* loading.json in Resources */,
+				B4186027280EDB090089E60F /* savings.json in Resources */,
 				B4186023280ED1850089E60F /* signOut.json in Resources */,
 				B48A7ABF27F1BE4300A6E73B /* GoogleService-Info.plist in Resources */,
 				B4367842280DF5C600189041 /* correct.json in Resources */,
@@ -571,8 +581,10 @@
 				B4D3625E27EA148E004A37DA /* SideMenuHeaderView.swift in Sources */,
 				B4622527280D8A080020B810 /* SavingMoneyView.swift in Sources */,
 				B461D42327DB8BF5003ACBE8 /* ProgressView.swift in Sources */,
+				B4186029281008360089E60F /* CardBackView.swift in Sources */,
 				B4F8BC65270375480028D2EF /* TutorialView.swift in Sources */,
 				B4D3626027EA149D004A37DA /* SideMenuCellView.swift in Sources */,
+				B4186025280ED5A40089E60F /* CustomPocketMoneyButton.swift in Sources */,
 				B4F8BC6327036F0A0028D2EF /* KeyboardResponsive.swift in Sources */,
 				B4E7CE1A27FD8C6B00C66864 /* ProfileView.swift in Sources */,
 				B461D42027DB8B9D003ACBE8 /* ListHeader.swift in Sources */,

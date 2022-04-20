@@ -11,15 +11,15 @@ struct SavingMoneyView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
-        NavigationView {
+        ZStack {
             VStack {
                 headerView
+                createPocketMoney
                 Spacer()
             }
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
         }
-        .navigationBarHidden(true)
     }
     
     private var headerView: some View {
@@ -42,6 +42,25 @@ struct SavingMoneyView: View {
                 Text("Here you can save money and achive your goals!")
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
+            }
+            Spacer()
+        }
+        .padding()
+        .padding(.leading)
+    }
+    
+    private var createPocketMoney: some View {
+        HStack {
+            VStack(alignment: .trailing) {
+                Button(action: {
+                }) {
+                    HStack(spacing: 10) {
+                        Text("CREATE OWN POCKET MONEY!")
+                            .fontWeight(.heavy)
+                        LoadingSavings()
+                    }
+                    .modifier(CustomButtonModifier())
+                }
             }
             Spacer()
         }

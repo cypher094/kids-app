@@ -36,13 +36,9 @@ struct TutorialView: View {
     var body: some View {
         VStack {
             skipButton
-            
             lottieView
-            
             counter
-            
             nextButton
-            
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)

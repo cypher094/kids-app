@@ -14,9 +14,14 @@ struct HomeView: View {
     @State var selecedCard: CreditCard
     @State var startAnimation = false
     @State var show: Bool = false
+    @State var showExpences: Bool = false
     @State var showCardNumber: Bool = false
     @State var showTransferView: Bool = false
     @State var showSaveView: Bool = false
+    @State var cardFlipped: Bool = false
+    
+    @State var cardRotation = 0.0
+    @State var contentRotation = 0.0
     
     var body: some View {
         ZStack {
@@ -24,26 +29,36 @@ struct HomeView: View {
                 .fill(ColorConstants.primary)
             
             VStack {
-                TopBarView(show: $show)
-//                PagerView(pageCount: creditCards.count, currentIndex: $currentPage) {
-//                    ForEach(creditCards) { card in
-                CardView(showCardNumber: $showCardNumber, card: CreditCard(number: "4141444411112222", type: CardType.Kid, company: "Visa", name: "\(viewModel.user?.firstName ?? "") \(viewModel.user?.lastName ?? "")"))
-                    .onTapGesture {
-                        withAnimation {
-//                                    selecedCard = card
-                            selecedCard.selected = true
-                        }
+                TopBarView(selecedCard: $selecedCard, show: $show)
+                
+                VStack {
+                    if cardFlipped {
+                        CardBackView()
+                            .rotation3DEffect(.degrees(contentRotation), axis: (x: 0, y: 1, z: 0))
+                    } else {
+                        CardView(showCardNumber: $showCardNumber, card: CreditCard(number: "4141444411112222", type: CardType.Kid, company: "Visa", name: "\(viewModel.user?.firstName ?? "") \(viewModel.user?.lastName ?? "")"))
                     }
-                    .onLongPressGesture(minimumDuration: 0.1) {
-                        withAnimation {
-                            showCardNumber = true
-                        }
+                }
+                .onTapGesture {
+                    withAnimation(.linear(duration: 0.5)) {
+                        cardRotation += 180
                     }
-                //                    }
-                //                }
-                    .frame(height: 240)
-                    .opacity(startAnimation ? 1.0 : 0.0)
-                    .animation(Animation.easeIn(duration: 0.3))
+                    
+                    withAnimation(.linear(duration: 0.001).delay(0.25)) {
+                        contentRotation += 180
+                        cardFlipped.toggle()
+                    }
+                }
+                .rotation3DEffect(Angle(degrees: (cardRotation)), axis: (x: 0, y: 1, z: 0))
+                
+                .onLongPressGesture(minimumDuration: 0.1) {
+                    withAnimation {
+                        showCardNumber = true
+                    }
+                }
+                .frame(height: 240)
+                .opacity(startAnimation ? 1.0 : 0.0)
+                .animation(Animation.easeIn(duration: 0.3))
                 
                 TransferSaveView()
                 
@@ -52,7 +67,7 @@ struct HomeView: View {
                     TransactionListView(currentIndex: $currentPage, cardManager: cardManager)
                 }
                 .opacity(startAnimation ? 1.0 : 0.0)
-                .animation(Animation.easeIn(duration: 0.5).delay(0.8))
+                .animation(Animation.easeIn(duration: 0.5).delay(0.5))
                 
                 Spacer()
             }
@@ -61,15 +76,14 @@ struct HomeView: View {
                 CardDetailView(card: $selecedCard, cardManager: cardManager)
             }
             
+            
             SideMenuView(isShowing: $show)
                 .rotation3DEffect(Angle(degrees: show ? 0 : 60), axis: (x: 0, y: 10.0, z: 0))
-//                .animation(.easeInOut(duration: 0.3))
                 .offset(x: show ? 0 : -UIScreen.main.bounds.width)
                 .foregroundColor(.white)
 //                    .onTapGesture {
 //                        self.show.toggle()
 //                    }
-//            SideMenuCustomView(currentTab: $currentTab)
             
         }
         .edgesIgnoringSafeArea(.all)
