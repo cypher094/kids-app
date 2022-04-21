@@ -9,11 +9,8 @@ import SwiftUI
 
 struct SignInView: View {
     @EnvironmentObject var auth: AuthManager
+    @ObservedObject var viewModel: SignInViewModel
     
-    @State var email = ""
-    @State var password = ""
-    @State var isPresented = false
-    @State var isLoading = false
     @Namespace var animation
     
     var body: some View {
@@ -26,7 +23,7 @@ struct SignInView: View {
                 Spacer()
                 createAccountButton
             }
-            if isLoading {
+            if viewModel.isLoading {
                 Loading()
             }
         }
@@ -51,9 +48,9 @@ struct SignInView: View {
     
     private var inputs: some View {
         VStack(spacing: 6) {
-            CustomTF(image: "envelope", title: "EMAIL", value: $email, animation: animation)
+            CustomTF(image: "envelope", title: "EMAIL", value: $viewModel.email, animation: animation)
                 .autocapitalization(.none)
-            CustomTF(image: "lock", title: "PASSWORD", value: $password, animation: animation)
+            CustomTF(image: "lock", title: "PASSWORD", value: $viewModel.password, animation: animation)
                 .autocapitalization(.none)
         }
     }
@@ -65,9 +62,10 @@ struct SignInView: View {
             
             VStack(alignment: .trailing) {
                 Button(action: {
-                    isLoading = true
-                    guard !email.isEmpty, !password.isEmpty else { return }
-                    auth.signIn(email: email, password: password)
+                    viewModel.isLoading = true
+                    guard !viewModel.email.isEmpty,
+                          !viewModel.password.isEmpty else { return }
+                    auth.signIn(email: viewModel.email, password: viewModel.password)
                 }) {
                     HStack(spacing: 10) {
                         Text("SIGN IN")
@@ -77,6 +75,7 @@ struct SignInView: View {
                             .font(.title2)
                     }
                     .modifier(CustomButtonModifier())
+                    .opacity(viewModel.isValid && !viewModel.password.isEmpty ? 1 : 0.6)
                 }
             }
         }
@@ -90,7 +89,7 @@ struct SignInView: View {
                 .fontWeight(.heavy)
                 .foregroundColor(.gray)
             
-            NavigationLink(destination: SignUpView(viewModel: SignUpViewModel(), isPresented: $isPresented), isActive: $isPresented) {
+            NavigationLink(destination: SignUpView(viewModel: SignUpViewModel(), isPresented: $viewModel.isPresented), isActive: $viewModel.isPresented) {
                 Text("Sign Up")
                     .fontWeight(.heavy)
                     .foregroundColor(Color("purpleColor"))
@@ -102,6 +101,6 @@ struct SignInView: View {
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInView()
+        SignInView(viewModel: SignInViewModel())
     }
 }

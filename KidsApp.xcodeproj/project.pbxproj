@@ -43,6 +43,8 @@
 		B4622527280D8A080020B810 /* SavingMoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4622526280D8A080020B810 /* SavingMoneyView.swift */; };
 		B4622529280D97560020B810 /* CardTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4622528280D97560020B810 /* CardTransfer.swift */; };
 		B46EC1C427EC031A0071DCAD /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B47AAA98281056AF0072B748 /* AddPocketMoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47AAA97281056AF0072B748 /* AddPocketMoneyView.swift */; };
+		B47AAA9A2811A2B20072B748 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47AAA992811A2B20072B748 /* SignInViewModel.swift */; };
 		B48A7ABF27F1BE4300A6E73B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B48A7ABE27F1BE4300A6E73B /* GoogleService-Info.plist */; };
 		B4D3625927DF7B0F004A37DA /* PersonalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3625827DF7B0F004A37DA /* PersonalDetailView.swift */; };
 		B4D3625C27EA1481004A37DA /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3625B27EA1481004A37DA /* SideMenuView.swift */; };
@@ -139,6 +141,8 @@
 		B4622528280D97560020B810 /* CardTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransfer.swift; sourceTree = "<group>"; };
 		B46EC1C627EC03330071DCAD /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46EC1C727EC03330071DCAD /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B47AAA97281056AF0072B748 /* AddPocketMoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPocketMoneyView.swift; sourceTree = "<group>"; };
+		B47AAA992811A2B20072B748 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		B48A7ABE27F1BE4300A6E73B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B4D3625827DF7B0F004A37DA /* PersonalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailView.swift; sourceTree = "<group>"; };
 		B4D3625B27EA1481004A37DA /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
@@ -339,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				B4F8BC322702114F0028D2EF /* SignInView.swift */,
+				B47AAA992811A2B20072B748 /* SignInViewModel.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				B436783B280DE68B00189041 /* MathGame.swift */,
 				B4367843280EC46B00189041 /* ChatBot.swift */,
 				B4186028281008360089E60F /* CardBackView.swift */,
+				B47AAA97281056AF0072B748 /* AddPocketMoneyView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -555,10 +561,12 @@
 				B46225232809D2920020B810 /* CustomHomeButton.swift in Sources */,
 				B4E7CE1827FCAF1E00C66864 /* AddKidView.swift in Sources */,
 				B4F8BC6B270387CF0028D2EF /* SignUpViewModel.swift in Sources */,
+				B47AAA98281056AF0072B748 /* AddPocketMoneyView.swift in Sources */,
 				B461D41C27DB8A71003ACBE8 /* TransactionListRow.swift in Sources */,
 				B4F8BC332702114F0028D2EF /* SignInView.swift in Sources */,
 				B4F8BC5F270360B20028D2EF /* Loading.swift in Sources */,
 				B461D40E27DB7960003ACBE8 /* Data.swift in Sources */,
+				B47AAA9A2811A2B20072B748 /* SignInViewModel.swift in Sources */,
 				B4D3626427EB7A9E004A37DA /* TopBarView.swift in Sources */,
 				B4F8BC222701FA240028D2EF /* ContentView.swift in Sources */,
 				B461D42727DB8CF4003ACBE8 /* GraphView.swift in Sources */,

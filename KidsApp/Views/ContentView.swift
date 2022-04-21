@@ -18,7 +18,7 @@ struct ContentView: View {
                     .navigationBarBackButtonHidden(true)
                 
             } else {
-                SignInView()
+                SignInView(viewModel: SignInViewModel())
                     .navigationBarHidden(true)
                     .navigationBarBackButtonHidden(true)
             }

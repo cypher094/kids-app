@@ -10,18 +10,8 @@ import SwiftUI
 struct SignUpView: View {
     @EnvironmentObject var auth: AuthManager
     @ObservedObject var viewModel: SignUpViewModel
-    @State var isLoading = false
-    @State var firstName = ""
-    @State var lastName = ""
-    @State var email = ""
-    @State var city = ""
-    @State var school = ""
-    @State var age = ""
-    @State var password = ""
-    @State var phoneNumber = ""
     @Namespace var animation
     @Binding var isPresented: Bool
-    
     
     var body: some View {
         NavigationView {
@@ -36,7 +26,7 @@ struct SignUpView: View {
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
             }
-            if isLoading {
+            if viewModel.isLoading {
                 Loading()
             }
         }.navigationBarHidden(true)
@@ -44,18 +34,18 @@ struct SignUpView: View {
     
     private var inputs: some View {
         VStack(spacing: 6) {
-            CustomTF(image: "person", title: "FIRST NAME", value: $firstName, animation: animation)
-            CustomTF(image: "person", title: "LAST NAME", value: $lastName, animation: animation)
-            CustomTF(image: "lock", title: "PASSWORD", value: $password, animation: animation)
+            CustomTF(image: "person", title: "FIRST NAME", value: $viewModel.firstName, animation: animation)
+            CustomTF(image: "person", title: "LAST NAME", value: $viewModel.lastName, animation: animation)
+            CustomTF(image: "lock", title: "PASSWORD", value: $viewModel.password, animation: animation)
                 .autocapitalization(.none)
-            CustomTF(image: "envelope", title: "EMAIL ADDRESS", value: $email, animation: animation)
+            CustomTF(image: "envelope", title: "EMAIL ADDRESS", value: $viewModel.email, animation: animation)
                 .keyboardType(.emailAddress)
                 .autocapitalization(.none)
-            CustomTF(image: "building.2", title: "CITY", value: $city, animation: animation)
-            CustomTF(image: "graduationcap", title: "SCHOOL", value: $school, animation: animation)
-            CustomTF(image: "calendar", title: "AGE", value: $age, animation: animation)
+            CustomTF(image: "building.2", title: "CITY", value: $viewModel.city, animation: animation)
+            CustomTF(image: "graduationcap", title: "SCHOOL", value: $viewModel.school, animation: animation)
+            CustomTF(image: "calendar", title: "AGE", value: $viewModel.age, animation: animation)
                 .keyboardType(.numberPad)
-            CustomTF(image: "phone", title: "PHONE NUMBER", value: $phoneNumber, animation: animation)
+            CustomTF(image: "phone", title: "PHONE NUMBER", value: $viewModel.phoneNumber, animation: animation)
                 .keyboardType(.phonePad)
         }
     }
@@ -93,9 +83,17 @@ struct SignUpView: View {
             
             VStack(alignment: .trailing) {
                 Button(action: {
-                    self.isLoading = true
-                    guard !email.isEmpty, !password.isEmpty else { return }
-                    auth.signUp(email: email, firstName: firstName, lastName: lastName, password: password, phoneNumber: phoneNumber, city: city, school: school, age: age)
+                    viewModel.isLoading = true
+                    guard !viewModel.firstName.isEmpty,
+                          !viewModel.lastName.isEmpty,
+                          !viewModel.email.isEmpty,
+                          !viewModel.password.isEmpty,
+                          !viewModel.city.isEmpty,
+                          !viewModel.age.isEmpty,
+                          !viewModel.phoneNumber.isEmpty,
+                          !viewModel.school.isEmpty
+                    else { return }
+                    auth.signUp(email: viewModel.email, firstName: viewModel.firstName, lastName: viewModel.lastName, password: viewModel.password, phoneNumber: viewModel.phoneNumber, city: viewModel.city, school: viewModel.school, age: viewModel.age)
                 }) {
                     HStack(spacing: 10) {
                         Text("SIGN UP")
@@ -104,6 +102,7 @@ struct SignUpView: View {
                             .font(.title2)
                     }
                     .modifier(CustomButtonModifier())
+                    .opacity(viewModel.isValid ? 1 : 0.6)
                 }
             }
         }
