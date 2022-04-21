@@ -51,9 +51,9 @@ struct LottieView: UIViewRepresentable {
     }
 
     class Coordinator: NSObject {
-        var kid:                                     LottieView
+        var kid: LottieView
 
-        init(_ kid:                                     LottieView) {
+        init(_ kid: LottieView) {
             self.kid = kid
         }
     }

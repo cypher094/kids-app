@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SavingMoneyView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var showSheet: Bool = false
     
     var body: some View {
         ZStack {
@@ -19,6 +20,9 @@ struct SavingMoneyView: View {
             }
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+            .sheet(isPresented: $showSheet) {
+                AddPocketMoneyView()
+            }
         }
     }
     
@@ -53,6 +57,7 @@ struct SavingMoneyView: View {
         HStack {
             VStack(alignment: .trailing) {
                 Button(action: {
+                    showSheet = true
                 }) {
                     HStack(spacing: 10) {
                         Text("CREATE OWN POCKET MONEY!")
