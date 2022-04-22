@@ -28,10 +28,8 @@ struct SideMenuView: View {
                                 switch cell.title {
                                 case "Profile":
                                     ProfileView(profileData: ProfileViewModel())
-                                case "Card Detail":
-                                    AddKidView()
-                                case "Add kid":
-                                    AddKidView()
+                                case "Card Details":
+                                    ChatBot()
                                 case "Tutorial":
                                     TutorialView(viewModel: TutorialViewModel())
                                 case "Game":

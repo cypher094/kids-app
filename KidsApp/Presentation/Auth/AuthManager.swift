@@ -11,13 +11,11 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class AuthManager: ObservableObject {
-    let auth = Auth.auth()
-    
     @Published var signedIn = false
-    
     @Published var user: User?
     
     private let db = Firestore.firestore()
+    private let auth = Auth.auth()
     
     var uuid: String? {
         auth.currentUser?.uid
