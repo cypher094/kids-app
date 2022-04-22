@@ -40,7 +40,7 @@ struct HomeView: View {
                     }
                 }
                 .onTapGesture {
-                    withAnimation(.linear(duration: 0.5)) {
+                    withAnimation(.linear(duration: 0.7)) {
                         cardRotation += 180
                     }
                     
@@ -60,7 +60,7 @@ struct HomeView: View {
                 .opacity(startAnimation ? 1.0 : 0.0)
                 .animation(Animation.easeIn(duration: 0.3))
                 
-                TransferSaveView()
+                TransferSaveView(viewModel: TransferSaveViewModel())
                 
                 Group {
                     MenuHeaderView(title: "Transactions", imageName: "arrow.up.arrow.down")

@@ -5,16 +5,28 @@
 //  Created by Oleh Haidar on 22.04.2022.
 //
 
-import SwiftUI
+import Foundation
+import Alamofire
 
-struct Currency: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct Currency: Codable {
+    var success: Bool
+    var base: String
+    var date: String
+    var rates = [String: Double]()
+}
+
+func apiRequest(url: String, completion: @escaping (Currency) -> ()) {
+    
+    Session.default.request(url).responseDecodable(of: Currency.self) { response in
+        switch response.result {
+        case .success(let currencies):
+            print(currencies)
+            completion(currencies)
+        case .failure(let error):
+            print(error)
+        }
     }
 }
 
-struct Currency_Previews: PreviewProvider {
-    static var previews: some View {
-        Currency()
-    }
-}
+
+

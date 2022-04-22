@@ -33,7 +33,7 @@ struct CardDetailView: View {
                     CardInfoView()
                         .padding(.leading, 80)
                         .opacity(startAnimation ? 1.0 : 0.0)
-                        .animation(Animation.easeIn(duration: 0.5).delay(0.7))
+                        .animation(Animation.easeIn(duration: 0.5).delay(0.5))
                     
                 }
                 .padding(.top, 50)
@@ -43,13 +43,13 @@ struct CardDetailView: View {
                     .padding(.top, 20)
                     .padding(.bottom, 40)
                     .opacity(startAnimation ? 1.0 : 0.0)
-                    .animation(Animation.easeIn(duration: 0.5).delay(1.3))
+                    .animation(Animation.easeIn(duration: 0.5).delay(1))
                 
                 Spacer()
             }
         }
         .onAppear {
-            withAnimation(Animation.linear(duration: 1.0)) {
+            withAnimation(Animation.linear(duration: 0.7)) {
                 startAnimation = true
             }
         }
@@ -77,12 +77,14 @@ struct CardDetailTopBarView: View {
                 }
             }, label: {
                 Image(systemName: "multiply")
-                    .padding(.all, 20)
             })
+            
+            Spacer()
             
             Text("CARD DETAILS")
                 .kerning(2.0)
                 .bold()
+                .padding(.trailing, 10)
             
             Spacer()
             
@@ -93,9 +95,9 @@ struct CardDetailTopBarView: View {
         }
         .foregroundColor(.white)
         .padding(.top, 64)
-        .padding(.bottom, 20)
-        .padding(.leading, 20)
-        .padding(.trailing, 20)
+        .padding(.bottom, 25)
+        .padding(.leading, 25)
+        .padding(.trailing, 25)
     }
 }
 

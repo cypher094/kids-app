@@ -30,10 +30,12 @@ struct SideMenuView: View {
                                     ProfileView(profileData: ProfileViewModel())
                                 case "Card Details":
                                     ChatBot()
-                                case "Tutorial":
-                                    TutorialView(viewModel: TutorialViewModel())
+                                case "Currency":
+                                    CurrencyRates(viewModel: CurrencyRatesViewModel())
                                 case "Game":
                                     MathGame()
+                                case "Tutorial":
+                                    TutorialView(viewModel: TutorialViewModel())
                                 case "Ask a question":
                                     ChatBot()
                                 default:

@@ -11,7 +11,7 @@ struct ChatBot: View {
     @EnvironmentObject var auth: AuthManager
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var messageText = ""
-    @State var messages: [String] = ["Welcome to our chat! \nSend your question."]
+    @State var messages: [String] = ["Welcome to our chat!\nSend your question."]
     
     var body: some View {
         VStack {

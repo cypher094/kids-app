@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct TransferSaveView: View {
-    
-    @State var showTransfer = false
-    @State var showSaving = false
+    @ObservedObject var viewModel: TransferSaveViewModel
     
     var body: some View {
         HStack {
             Spacer()
             
             VStack {
-                NavigationLink(destination: CardTransfer(), isActive: $showTransfer) {
+                NavigationLink(destination: CardTransfer(), isActive: $viewModel.showTransfer) {
                     Button(action: {
-                        showTransfer = true
+                        viewModel.showTransfer = true
                     }) {
                         HStack(spacing: 10) {
                             Image("cardTransfer")
@@ -35,9 +33,9 @@ struct TransferSaveView: View {
             Spacer()
             
             VStack {
-                NavigationLink(destination: SavingMoneyView(), isActive: $showSaving) {
+                NavigationLink(destination: SavingMoneyView(), isActive: $viewModel.showSaving) {
                     Button(action: {
-                        showSaving = true
+                        viewModel.showSaving = true
                     }) {
                         HStack(spacing: 10) {
                             Image("piggybank")
@@ -49,7 +47,6 @@ struct TransferSaveView: View {
                     }
                 }
             }
-            
             Spacer()
         }
         .padding()

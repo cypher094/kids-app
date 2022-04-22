@@ -21,6 +21,11 @@
 		B43A7E122706274700244A76 /* kidView4.json in Resources */ = {isa = PBXBuildFile; fileRef = B43A7E0F2706274700244A76 /* kidView4.json */; };
 		B43A7E132706274700244A76 /* kidView2.json in Resources */ = {isa = PBXBuildFile; fileRef = B43A7E102706274700244A76 /* kidView2.json */; };
 		B43A7E142706274700244A76 /* kidView3.json in Resources */ = {isa = PBXBuildFile; fileRef = B43A7E112706274700244A76 /* kidView3.json */; };
+		B444C8D32812C69B00628BFC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B444C8D22812C69B00628BFC /* Alamofire */; };
+		B444C8D62812C6D300628BFC /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C8D52812C6D300628BFC /* Currency.swift */; };
+		B444C8D82812EAAB00628BFC /* CurrencyRatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C8D72812EAAB00628BFC /* CurrencyRatesViewModel.swift */; };
+		B444C8DB2812F1C500628BFC /* TransferSaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C8DA2812F1C500628BFC /* TransferSaveViewModel.swift */; };
+		B44AC77D2812C487008F92E6 /* CurrencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44AC77C2812C487008F92E6 /* CurrencyRates.swift */; };
 		B461D40527DB72F2003ACBE8 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461D40427DB72F2003ACBE8 /* CardType.swift */; };
 		B461D40727DB7322003ACBE8 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461D40627DB7322003ACBE8 /* CreditCard.swift */; };
 		B461D40927DB7885003ACBE8 /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461D40827DB7885003ACBE8 /* TransactionItem.swift */; };
@@ -118,6 +123,10 @@
 		B43A7E0F2706274700244A76 /* kidView4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kidView4.json; sourceTree = "<group>"; };
 		B43A7E102706274700244A76 /* kidView2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kidView2.json; sourceTree = "<group>"; };
 		B43A7E112706274700244A76 /* kidView3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kidView3.json; sourceTree = "<group>"; };
+		B444C8D52812C6D300628BFC /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		B444C8D72812EAAB00628BFC /* CurrencyRatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesViewModel.swift; sourceTree = "<group>"; };
+		B444C8DA2812F1C500628BFC /* TransferSaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSaveViewModel.swift; sourceTree = "<group>"; };
+		B44AC77C2812C487008F92E6 /* CurrencyRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRates.swift; sourceTree = "<group>"; };
 		B461D40427DB72F2003ACBE8 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		B461D40627DB7322003ACBE8 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		B461D40827DB7885003ACBE8 /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
@@ -185,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B444C8D32812C69B00628BFC /* Alamofire in Frameworks */,
 				B4FD9A0E27EC125E001E5B0F /* FirebaseMessaging in Frameworks */,
 				B4FD9A0827EC125E001E5B0F /* FirebaseAuth in Frameworks */,
 				B4FD9A1027EC125E001E5B0F /* FirebaseStorage in Frameworks */,
@@ -213,6 +223,27 @@
 			children = (
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		B444C8D42812C6C400628BFC /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				B44AC77C2812C487008F92E6 /* CurrencyRates.swift */,
+				B444C8D52812C6D300628BFC /* Currency.swift */,
+				B444C8D72812EAAB00628BFC /* CurrencyRatesViewModel.swift */,
+			);
+			path = Currency;
+			sourceTree = "<group>";
+		};
+		B444C8D92812F16400628BFC /* Transfer and Save buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B4622524280D864C0020B810 /* TransferSaveView.swift */,
+				B4622526280D8A080020B810 /* SavingMoneyView.swift */,
+				B4622528280D97560020B810 /* CardTransfer.swift */,
+				B444C8DA2812F1C500628BFC /* TransferSaveViewModel.swift */,
+			);
+			path = "Transfer and Save buttons";
 			sourceTree = "<group>";
 		};
 		B461D40327DB72D9003ACBE8 /* Models */ = {
@@ -368,14 +399,13 @@
 		B4F8BC3B270219BD0028D2EF /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B4D3625A27EA1462004A37DA /* SideMenu */,
 				B4F8BC3C270219CB0028D2EF /* HomeView.swift */,
 				B4F8BC6D2704695D0028D2EF /* HomeViewModel.swift */,
+				B444C8D92812F16400628BFC /* Transfer and Save buttons */,
+				B444C8D42812C6C400628BFC /* Currency */,
+				B4D3625A27EA1462004A37DA /* SideMenu */,
 				B4D3626327EB7A9D004A37DA /* TopBarView.swift */,
 				B4E7CE1727FCAF1E00C66864 /* AddKidView.swift */,
-				B4622524280D864C0020B810 /* TransferSaveView.swift */,
-				B4622526280D8A080020B810 /* SavingMoneyView.swift */,
-				B4622528280D97560020B810 /* CardTransfer.swift */,
 				B436783B280DE68B00189041 /* MathGame.swift */,
 				B4367843280EC46B00189041 /* ChatBot.swift */,
 				B4186028281008360089E60F /* CardBackView.swift */,
@@ -473,6 +503,7 @@
 				B4FD9A0D27EC125E001E5B0F /* FirebaseMessaging */,
 				B4FD9A0F27EC125E001E5B0F /* FirebaseStorage */,
 				B4E7CE1C27FD8E5F00C66864 /* SDWebImageSwiftUI */,
+				B444C8D22812C69B00628BFC /* Alamofire */,
 			);
 			productName = KidsApp;
 			productReference = B4F8BC1C2701FA240028D2EF /* KidsApp.app */;
@@ -506,6 +537,7 @@
 				B4F8BC40270233CE0028D2EF /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				B4FD9A0427EC125E001E5B0F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				B4E7CE1B27FD8E5F00C66864 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				B444C8D12812C69B00628BFC /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = B4F8BC1D2701FA240028D2EF /* Products */;
 			projectDirPath = "";
@@ -560,6 +592,7 @@
 				B461D42527DB8CAE003ACBE8 /* CardInfoView.swift in Sources */,
 				B46225232809D2920020B810 /* CustomHomeButton.swift in Sources */,
 				B4E7CE1827FCAF1E00C66864 /* AddKidView.swift in Sources */,
+				B444C8D62812C6D300628BFC /* Currency.swift in Sources */,
 				B4F8BC6B270387CF0028D2EF /* SignUpViewModel.swift in Sources */,
 				B47AAA98281056AF0072B748 /* AddPocketMoneyView.swift in Sources */,
 				B461D41C27DB8A71003ACBE8 /* TransactionListRow.swift in Sources */,
@@ -570,7 +603,10 @@
 				B4D3626427EB7A9E004A37DA /* TopBarView.swift in Sources */,
 				B4F8BC222701FA240028D2EF /* ContentView.swift in Sources */,
 				B461D42727DB8CF4003ACBE8 /* GraphView.swift in Sources */,
+				B44AC77D2812C487008F92E6 /* CurrencyRates.swift in Sources */,
+				B444C8D82812EAAB00628BFC /* CurrencyRatesViewModel.swift in Sources */,
 				B4F8BC5D27033C620028D2EF /* CustomButtonModifier.swift in Sources */,
+				B444C8DB2812F1C500628BFC /* TransferSaveViewModel.swift in Sources */,
 				B4D3626227EA14BD004A37DA /* SideMenuViewModel.swift in Sources */,
 				B4F8BC3D270219CB0028D2EF /* HomeView.swift in Sources */,
 				B4F8BC202701FA240028D2EF /* KidsApp.swift in Sources */,
@@ -824,6 +860,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B444C8D12812C69B00628BFC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		B4E7CE1B27FD8E5F00C66864 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
@@ -851,6 +895,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B444C8D22812C69B00628BFC /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B444C8D12812C69B00628BFC /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		B4E7CE1C27FD8E5F00C66864 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B4E7CE1B27FD8E5F00C66864 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;

@@ -34,9 +34,8 @@ struct TopBarView: View {
                     selecedCard.selected = true
                 }
             }, label: {
-                Text("₴")
-            })
-
+                Image(systemName: "slider.vertical.3")
+            })   
         }
         .foregroundColor(.white)
         .padding(.top, 64)

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+class TransferSaveViewModel: ObservableObject {
+    @Published var showTransfer = false
+    @Published var showSaving = false
+}
