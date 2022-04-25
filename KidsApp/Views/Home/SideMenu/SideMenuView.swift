@@ -27,7 +27,7 @@ struct SideMenuView: View {
                             VStack {
                                 switch cell.title {
                                 case "Profile":
-                                    ProfileView(profileData: ProfileViewModel())
+                                    ProfileView()
                                 case "Card Details":
                                     ChatBot()
                                 case "Currency":

@@ -18,7 +18,7 @@ struct CardInfoView: View {
                 Text("₴")
                     .font(.system(size: 30, weight: Font.Weight.bold, design: Font.Design.rounded))
                     .foregroundColor(ColorConstants.secondary)
-                Text(viewModel.user?.balance ?? "")
+                Text("\(viewModel.user?.balance ?? 0, specifier: "%.2f")")
                     .font(.system(size: 40, weight: Font.Weight.bold, design: Font.Design.rounded))
                     .foregroundColor(.white)
                     .padding(.leading, 10)

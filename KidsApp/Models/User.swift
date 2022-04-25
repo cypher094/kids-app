@@ -15,7 +15,6 @@ struct User: Codable {
     var school: String
     var age: String
     var phoneNumber: String
-    var balance: String
-    var image: String
+    var balance: Double
     var signUpDate = Date.now
 }

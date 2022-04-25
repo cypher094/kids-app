@@ -6,31 +6,35 @@
 //
 
 import SwiftUI
-import Firebase
-import SDWebImageSwiftUI
-
-
-class ProfileViewModel: ObservableObject {
-                              
-}
+import FirebaseStorage
+import FirebaseFirestore
 
 struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var auth: AuthManager
-    @StateObject var profileData = ProfileViewModel()
+//    @ObservedObject var viewModel: ProfileViewModel
+    @State var isPickerShowing = false
+    @State var isLoading = false
+    @State var selectedImage: UIImage?
     
     var body: some View {
-        NavigationView {
+        ZStack {
             VStack {
                 headerView
                 imageView
+                uploadButoon
                 profileInfo
                 Spacer()
             }
+            .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
+                ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+            }
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+            if isLoading {
+                LoadingCorrect()
+            }
         }
-        .navigationBarHidden(true)
     }
     
     private var headerView: some View {
@@ -80,6 +84,7 @@ struct ProfileView: View {
                         }
                     }, label: {
                         Image(systemName: "pencil.circle")
+                            .foregroundColor(Color.purple)
                     })
                 }
                 
@@ -147,19 +152,66 @@ struct ProfileView: View {
         
     }
     
+    private var uploadButoon: some View {
+        VStack {
+            if selectedImage != nil {
+                Button {
+                    isLoading = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
+                        uploadPhoto()
+                        isLoading = false
+                    }
+                } label: {
+                    Text("Upload photo")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.gray)
+                }
+
+            }
+        }
+    }
+    
     private var imageView: some View {
-        ZStack {
-            Image(auth.user?.image ?? "")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 125, height: 125)
-                .clipShape(Circle())
+        ZStack(alignment: .bottomTrailing) {
+            Button(action: {
+                isPickerShowing = true
+            }, label: {
+                if selectedImage != nil {
+                    Image(uiImage: selectedImage!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 125, height: 125)
+                        .clipShape(Circle())
+                } else {
+                    Image("img2")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 125, height: 125)
+                        .clipShape(Circle())
+                }
+            })
         }
         .padding(8)
         .background(Color("txtColor"))
         .cornerRadius(90)
         .shadow(color: Color.black.opacity(0.05), radius: 5, x: -5, y: -5)
         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
+    }
+    
+    func uploadPhoto() {
+        guard selectedImage != nil else { return }
+        let storageRef = Storage.storage().reference()
+        let imageData = selectedImage!.jpegData(compressionQuality: 0.8)
+        guard imageData != nil else { return }
+        
+        let path = "images/\(UUID().uuidString).jpg"
+        let fileRef = storageRef.child(path)
+        let uploadTask = fileRef.putData(imageData!, metadata: nil) { metadata, error in
+            if error == nil && metadata != nil {
+                let db = Firestore.firestore()
+                db.collection("images").document().setData(["url": path])
+            }
+        }
     }
 }
 

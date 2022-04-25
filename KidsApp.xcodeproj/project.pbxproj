@@ -27,6 +27,7 @@
 		B444C8DB2812F1C500628BFC /* TransferSaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C8DA2812F1C500628BFC /* TransferSaveViewModel.swift */; };
 		B444C8E12816DE0700628BFC /* PocketMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C8E02816DE0700628BFC /* PocketMoney.swift */; };
 		B444C8E32817035700628BFC /* wallet.json in Resources */ = {isa = PBXBuildFile; fileRef = B444C8E22817035600628BFC /* wallet.json */; };
+		B444C8E628170B9B00628BFC /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C8E528170B9B00628BFC /* ImagePicker.swift */; };
 		B44AC77D2812C487008F92E6 /* CurrencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44AC77C2812C487008F92E6 /* CurrencyRates.swift */; };
 		B461D40527DB72F2003ACBE8 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461D40427DB72F2003ACBE8 /* CardType.swift */; };
 		B461D40727DB7322003ACBE8 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461D40627DB7322003ACBE8 /* CreditCard.swift */; };
@@ -53,6 +54,7 @@
 		B47AAA98281056AF0072B748 /* AddPocketMoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47AAA97281056AF0072B748 /* AddPocketMoneyView.swift */; };
 		B47AAA9A2811A2B20072B748 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47AAA992811A2B20072B748 /* SignInViewModel.swift */; };
 		B48A7ABF27F1BE4300A6E73B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B48A7ABE27F1BE4300A6E73B /* GoogleService-Info.plist */; };
+		B4CAAE7928171BEB00FD7D51 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CAAE7828171BEA00FD7D51 /* ProfileViewModel.swift */; };
 		B4D3625927DF7B0F004A37DA /* PersonalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3625827DF7B0F004A37DA /* PersonalDetailView.swift */; };
 		B4D3625C27EA1481004A37DA /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3625B27EA1481004A37DA /* SideMenuView.swift */; };
 		B4D3625E27EA148E004A37DA /* SideMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3625D27EA148E004A37DA /* SideMenuHeaderView.swift */; };
@@ -130,6 +132,7 @@
 		B444C8DA2812F1C500628BFC /* TransferSaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSaveViewModel.swift; sourceTree = "<group>"; };
 		B444C8E02816DE0700628BFC /* PocketMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketMoney.swift; sourceTree = "<group>"; };
 		B444C8E22817035600628BFC /* wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wallet.json; sourceTree = "<group>"; };
+		B444C8E528170B9B00628BFC /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B44AC77C2812C487008F92E6 /* CurrencyRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRates.swift; sourceTree = "<group>"; };
 		B461D40427DB72F2003ACBE8 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		B461D40627DB7322003ACBE8 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 		B47AAA97281056AF0072B748 /* AddPocketMoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPocketMoneyView.swift; sourceTree = "<group>"; };
 		B47AAA992811A2B20072B748 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		B48A7ABE27F1BE4300A6E73B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B4CAAE7828171BEA00FD7D51 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		B4D3625827DF7B0F004A37DA /* PersonalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailView.swift; sourceTree = "<group>"; };
 		B4D3625B27EA1481004A37DA /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		B4D3625D27EA148E004A37DA /* SideMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuHeaderView.swift; sourceTree = "<group>"; };
@@ -250,6 +254,23 @@
 			path = "Transfer and Save buttons";
 			sourceTree = "<group>";
 		};
+		B444C8E428170B5900628BFC /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				B444C8E528170B9B00628BFC /* ImagePicker.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		B444C8E728171B3F00628BFC /* Profile Info */ = {
+			isa = PBXGroup;
+			children = (
+				B4E7CE1927FD8C6B00C66864 /* ProfileView.swift */,
+				B4CAAE7828171BEA00FD7D51 /* ProfileViewModel.swift */,
+			);
+			path = "Profile Info";
+			sourceTree = "<group>";
+		};
 		B461D40327DB72D9003ACBE8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,7 +316,6 @@
 				B461D41D27DB8B2B003ACBE8 /* TransactionListView.swift */,
 				B461D41F27DB8B9D003ACBE8 /* ListHeader.swift */,
 				B4D3625827DF7B0F004A37DA /* PersonalDetailView.swift */,
-				B4E7CE1927FD8C6B00C66864 /* ProfileView.swift */,
 				B428097627FF1AE2002F9365 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -406,8 +426,10 @@
 			children = (
 				B4F8BC3C270219CB0028D2EF /* HomeView.swift */,
 				B4F8BC6D2704695D0028D2EF /* HomeViewModel.swift */,
+				B444C8E728171B3F00628BFC /* Profile Info */,
 				B444C8D92812F16400628BFC /* Transfer and Save buttons */,
 				B444C8D42812C6C400628BFC /* Currency */,
+				B444C8E428170B5900628BFC /* ImagePicker */,
 				B4D3625A27EA1462004A37DA /* SideMenu */,
 				B4D3626327EB7A9D004A37DA /* TopBarView.swift */,
 				B4E7CE1727FCAF1E00C66864 /* AddKidView.swift */,
@@ -630,12 +652,14 @@
 				B4F8BC6E2704695F0028D2EF /* HomeViewModel.swift in Sources */,
 				B461D42927DB8D2C003ACBE8 /* CardDetailView.swift in Sources */,
 				B461D41027DB7BD3003ACBE8 /* ColorConstants.swift in Sources */,
+				B4CAAE7928171BEB00FD7D51 /* ProfileViewModel.swift in Sources */,
 				B4D3625E27EA148E004A37DA /* SideMenuHeaderView.swift in Sources */,
 				B4622527280D8A080020B810 /* SavingMoneyView.swift in Sources */,
 				B461D42327DB8BF5003ACBE8 /* ProgressView.swift in Sources */,
 				B4186029281008360089E60F /* CardBackView.swift in Sources */,
 				B4F8BC65270375480028D2EF /* TutorialView.swift in Sources */,
 				B4D3626027EA149D004A37DA /* SideMenuCellView.swift in Sources */,
+				B444C8E628170B9B00628BFC /* ImagePicker.swift in Sources */,
 				B4186025280ED5A40089E60F /* CustomPocketMoneyButton.swift in Sources */,
 				B4F8BC6327036F0A0028D2EF /* KeyboardResponsive.swift in Sources */,
 				B4E7CE1A27FD8C6B00C66864 /* ProfileView.swift in Sources */,
