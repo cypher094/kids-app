@@ -25,6 +25,8 @@
 		B444C8D62812C6D300628BFC /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C8D52812C6D300628BFC /* Currency.swift */; };
 		B444C8D82812EAAB00628BFC /* CurrencyRatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C8D72812EAAB00628BFC /* CurrencyRatesViewModel.swift */; };
 		B444C8DB2812F1C500628BFC /* TransferSaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C8DA2812F1C500628BFC /* TransferSaveViewModel.swift */; };
+		B444C8E12816DE0700628BFC /* PocketMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C8E02816DE0700628BFC /* PocketMoney.swift */; };
+		B444C8E32817035700628BFC /* wallet.json in Resources */ = {isa = PBXBuildFile; fileRef = B444C8E22817035600628BFC /* wallet.json */; };
 		B44AC77D2812C487008F92E6 /* CurrencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44AC77C2812C487008F92E6 /* CurrencyRates.swift */; };
 		B461D40527DB72F2003ACBE8 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461D40427DB72F2003ACBE8 /* CardType.swift */; };
 		B461D40727DB7322003ACBE8 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B461D40627DB7322003ACBE8 /* CreditCard.swift */; };
@@ -126,6 +128,8 @@
 		B444C8D52812C6D300628BFC /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		B444C8D72812EAAB00628BFC /* CurrencyRatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesViewModel.swift; sourceTree = "<group>"; };
 		B444C8DA2812F1C500628BFC /* TransferSaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSaveViewModel.swift; sourceTree = "<group>"; };
+		B444C8E02816DE0700628BFC /* PocketMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketMoney.swift; sourceTree = "<group>"; };
+		B444C8E22817035600628BFC /* wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wallet.json; sourceTree = "<group>"; };
 		B44AC77C2812C487008F92E6 /* CurrencyRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRates.swift; sourceTree = "<group>"; };
 		B461D40427DB72F2003ACBE8 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		B461D40627DB7322003ACBE8 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 				B461D40827DB7885003ACBE8 /* TransactionItem.swift */,
 				B461D40A27DB78D6003ACBE8 /* Expense.swift */,
 				B4D3626527EB99FA004A37DA /* User.swift */,
+				B444C8E02816DE0700628BFC /* PocketMoney.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -459,6 +464,7 @@
 				B4F8BC45270234F60028D2EF /* loading.json */,
 				B4F8BC44270234F60028D2EF /* loaderYellow.json */,
 				B43A7E102706274700244A76 /* kidView2.json */,
+				B444C8E22817035600628BFC /* wallet.json */,
 				B43A7E112706274700244A76 /* kidView3.json */,
 				B436783D280DF4C800189041 /* wrong.json */,
 				B43A7E0F2706274700244A76 /* kidView4.json */,
@@ -559,6 +565,7 @@
 				B428097727FF1AE2002F9365 /* LaunchScreen.storyboard in Resources */,
 				B43A7E142706274700244A76 /* kidView3.json in Resources */,
 				B436783F280DF4C800189041 /* wrong.json in Resources */,
+				B444C8E32817035700628BFC /* wallet.json in Resources */,
 				B4F8BC47270234F60028D2EF /* loaderYellow.json in Resources */,
 				B4F8BC4F27023D720028D2EF /* load.json in Resources */,
 				B4F8BC692703769E0028D2EF /* pocketMoney.json in Resources */,
@@ -602,6 +609,7 @@
 				B47AAA9A2811A2B20072B748 /* SignInViewModel.swift in Sources */,
 				B4D3626427EB7A9E004A37DA /* TopBarView.swift in Sources */,
 				B4F8BC222701FA240028D2EF /* ContentView.swift in Sources */,
+				B444C8E12816DE0700628BFC /* PocketMoney.swift in Sources */,
 				B461D42727DB8CF4003ACBE8 /* GraphView.swift in Sources */,
 				B44AC77D2812C487008F92E6 /* CurrencyRates.swift in Sources */,
 				B444C8D82812EAAB00628BFC /* CurrencyRatesViewModel.swift in Sources */,

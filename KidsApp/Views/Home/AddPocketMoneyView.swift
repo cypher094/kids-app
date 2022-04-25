@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddPocketMoneyView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var auth: AuthManager
     @State var goalText = ""
     @State var amount = ""
     @Namespace var animation
@@ -71,7 +72,8 @@ struct AddPocketMoneyView: View {
             
             VStack(alignment: .trailing) {
                 Button(action: {
-                    
+                    auth.addPocketMoney(name: goalText, amount: amount)
+                    presentationMode.wrappedValue.dismiss()
                 }) {
                     HStack(spacing: 10) {
                         Text("ADD POCKET MONEY")

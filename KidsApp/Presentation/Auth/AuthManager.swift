@@ -13,6 +13,7 @@ import FirebaseFirestoreSwift
 class AuthManager: ObservableObject {
     @Published var signedIn = false
     @Published var user: User?
+    @Published var pocketlist = [PocketMoney]()
     
     private let db = Firestore.firestore()
     private let auth = Auth.auth()
@@ -33,6 +34,7 @@ class AuthManager: ObservableObject {
     
     init() {
         sync()
+        fetchPocketMoneyData()
     }
     
     func signIn(email: String, password: String) {
@@ -69,7 +71,56 @@ class AuthManager: ObservableObject {
         }
     }
     
-    //Firestore funcs
+    // Pocket Money
+    
+    func fetchPocketMoneyData() {
+        db.collection("pocketmoneylist").getDocuments { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("No document")
+                return
+            }
+            self.pocketlist = documents.map({ QueryDocumentSnapshot -> PocketMoney in
+                let id = QueryDocumentSnapshot.documentID
+                let data = QueryDocumentSnapshot.data()
+                let name = data["name"] as? String ?? ""
+                let amount = data["amount"] as? String ?? ""
+                return PocketMoney(id: id, name: name, amount: amount)
+            })
+        }
+    }
+    
+    func addPocketMoney(name: String, amount: String) {
+        db.collection("pocketmoneylist").addDocument(data: ["name": name, "amount": amount]) { error in
+            if error == nil {
+                self.fetchPocketMoneyData()
+            } else {
+                
+            }
+        }
+    }
+    
+    func updatePocketMoney(updatePocket: PocketMoney, updatedName: String, updatedAmount: String) {
+        db.collection("pocketmoneylist").document(updatePocket.id).setData(["name": updatedName, "amount": updatedAmount]) { error in
+            if error == nil {
+                self.fetchPocketMoneyData()
+            }
+        }
+        
+    }
+    
+    func deletePocketMoney(deletePocket: PocketMoney) {
+        db.collection("pocketmoneylist").document(deletePocket.id).delete { error in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self.pocketlist.removeAll { pocket in
+                        return pocket.id == deletePocket.id
+                    }
+                }
+            }
+        }
+    }
+    
+    // Firestore funcs
     
     func sync() {
         guard userIsAuthenticated else {

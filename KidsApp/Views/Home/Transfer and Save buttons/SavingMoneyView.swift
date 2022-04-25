@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SavingMoneyView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var auth: AuthManager
     @State var showSheet: Bool = false
     
     var body: some View {
@@ -16,6 +17,11 @@ struct SavingMoneyView: View {
             VStack {
                 headerView
                 createPocketMoney
+                if auth.pocketlist.isEmpty {
+                    emptyList
+                } else {
+                    list
+                }
                 Spacer()
             }
             .navigationBarHidden(true)
@@ -60,7 +66,7 @@ struct SavingMoneyView: View {
                     showSheet = true
                 }) {
                     HStack(spacing: 10) {
-                        Text("CREATE OWN POCKET MONEY!")
+                        Text("CREATE NEW POCKET MONEY!")
                             .fontWeight(.heavy)
                         LoadingSavings()
                     }
@@ -71,6 +77,45 @@ struct SavingMoneyView: View {
         }
         .padding()
         .padding(.leading)
+    }
+    
+    private var list: some View {
+        List(auth.pocketlist) { pocket in
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(pocket.name).font(.title)
+                    Text("₴ \(pocket.amount)").font(.subheadline)
+                }
+                
+                Spacer()
+                
+                Button {
+                    auth.updatePocketMoney(updatePocket: pocket, updatedName: "123", updatedAmount: "123")
+                } label: {
+                    Image(systemName: "pencil.circle.fill")
+                }
+                .buttonStyle(BorderlessButtonStyle())
+                
+                Button {
+                    auth.deletePocketMoney(deletePocket: pocket)
+                } label: {
+                    Image(systemName: "delete.left.fill")
+                }
+                .buttonStyle(BorderlessButtonStyle())
+            }
+        }
+    }
+    
+    private var emptyList: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("You have not created pocket money yet.")
+                    .fontWeight(.semibold)
+                    .foregroundColor(.gray)
+            }
+            .padding()
+            .padding(.leading)
+        }
     }
 }
 
