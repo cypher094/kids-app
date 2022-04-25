@@ -35,7 +35,7 @@ struct TutorialView: View {
     
     var body: some View {
         VStack {
-            skipButton
+            headerButtons
             lottieView
             counter
             nextButton
@@ -85,8 +85,17 @@ struct TutorialView: View {
         .padding()
     }
     
-    private var skipButton: some View {
+    private var headerButtons: some View {
         HStack {
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                Image(systemName: "arrow.left")
+                    .font(.largeTitle)
+                    .foregroundColor(.gray)
+            }
+            .padding()
+            
             Spacer()
             
             Button(action: {
