@@ -67,7 +67,7 @@ struct HomeView: View {
                     TransactionListView(currentIndex: $currentPage, cardManager: cardManager)
                 }
                 .opacity(startAnimation ? 1.0 : 0.0)
-                .animation(Animation.easeIn(duration: 0.5).delay(0.5))
+                .animation(Animation.easeIn(duration: 0.4).delay(0.5))
                 
                 Spacer()
             }

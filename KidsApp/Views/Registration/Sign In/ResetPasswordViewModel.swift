@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class ResetPasswordViewModel: ObservableObject {
+    @Published var showAlert = false
+    @Published var email = ""
+    @Published var errorString: String?
+}

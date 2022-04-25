@@ -29,7 +29,13 @@ struct SignUpView: View {
             if viewModel.isLoading {
                 Loading()
             }
-        }.navigationBarHidden(true)
+        }
+        .navigationBarHidden(true)
+        .alert(isPresented: $viewModel.showError) {
+            Alert(title: Text("Error creating account."),
+                  message: Text(viewModel.errorString),
+                  dismissButton: .default(Text("OK")))
+        }
     }
     
     private var inputs: some View {
@@ -84,16 +90,23 @@ struct SignUpView: View {
             VStack(alignment: .trailing) {
                 Button(action: {
                     viewModel.isLoading = true
-                    guard !viewModel.firstName.isEmpty,
-                          !viewModel.lastName.isEmpty,
-                          !viewModel.email.isEmpty,
-                          !viewModel.password.isEmpty,
-                          !viewModel.city.isEmpty,
-                          !viewModel.age.isEmpty,
-                          !viewModel.phoneNumber.isEmpty,
-                          !viewModel.school.isEmpty
-                    else { return }
-                    auth.signUp(email: viewModel.email, firstName: viewModel.firstName, lastName: viewModel.lastName, password: viewModel.password, phoneNumber: viewModel.phoneNumber, city: viewModel.city, school: viewModel.school, age: viewModel.age)
+                    
+                    auth.signUp(email: viewModel.email,
+                                firstName: viewModel.firstName,
+                                lastName: viewModel.lastName,
+                                password: viewModel.password,
+                                phoneNumber: viewModel.phoneNumber,
+                                city: viewModel.city,
+                                school: viewModel.school,
+                                age: viewModel.age) { result in
+                        switch result {
+                        case .failure(let error):
+                            viewModel.errorString = error.localizedDescription
+                            viewModel.showError = true
+                        case .success(_):
+                            print("Account created")
+                        }
+                    }
                 }) {
                     HStack(spacing: 10) {
                         Text("SIGN UP")
@@ -102,8 +115,9 @@ struct SignUpView: View {
                             .font(.title2)
                     }
                     .modifier(CustomButtonModifier())
-                    .opacity(viewModel.isValid ? 1 : 0.6)
+                    .opacity(viewModel.isValid && !viewModel.isFiledsEmpty ? 1 : 0.6)
                 }
+                .disabled(!viewModel.isValid && viewModel.isFiledsEmpty)
             }
         }
         .padding()

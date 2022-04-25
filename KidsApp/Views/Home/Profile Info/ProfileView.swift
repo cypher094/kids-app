@@ -83,8 +83,10 @@ struct ProfileView: View {
                             
                         }
                     }, label: {
-                        Image(systemName: "pencil.circle")
-                            .foregroundColor(Color.purple)
+                        NavigationLink(destination: PersonalDetailView()) {
+                            Image(systemName: "pencil.circle")
+                                .foregroundColor(Color.purple)
+                        }
                     })
                 }
                 

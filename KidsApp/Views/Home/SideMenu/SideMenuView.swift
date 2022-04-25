@@ -72,7 +72,9 @@ struct SideMenuView: View {
                 isLoading = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     isLoading = false
-                    auth.signOut()
+                    auth.signOut { result in
+                        print("Signed out")
+                    }
                 }
             }) {
                 HStack(spacing: 10) {

@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-class PersonalDetailViewModel: ObservableObject {
-    
-}
+//class PersonalDetailViewModel: ObservableObject {
+//
+//}
 
 struct PersonalDetailView: View {
     @EnvironmentObject var auth: AuthManager
-    @ObservedObject var viewModel: PersonalDetailViewModel
+//    @ObservedObject var viewModel: PersonalDetailViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var firstName = ""
@@ -104,8 +104,9 @@ struct PersonalDetailView: View {
     }
 }
 
+
 struct PersonalDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonalDetailView(viewModel: PersonalDetailViewModel())
+        PersonalDetailView()
     }
 }

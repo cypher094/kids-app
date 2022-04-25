@@ -10,7 +10,7 @@ import SwiftUI
 struct SignInView: View {
     @EnvironmentObject var auth: AuthManager
     @ObservedObject var viewModel: SignInViewModel
-    
+    @State var authError: EmailAuthError?
     @Namespace var animation
     
     var body: some View {
@@ -19,13 +19,30 @@ struct SignInView: View {
                 Spacer()
                 headerView
                 inputs
-                signInButton
+                signInResetButtons
                 Spacer()
                 createAccountButton
+            }
+            .sheet(isPresented: $viewModel.showSheet) {
+                ResetPasswordView(viewModel: ResetPasswordViewModel())
             }
             if viewModel.isLoading {
                 Loading()
             }
+        }
+        .alert(isPresented: $viewModel.showAlert) {
+            Alert(title: Text("Login error."),
+                  message: Text(authError?.localizedDescription ?? "Unknown error"),
+                  dismissButton: .default(Text("OK")) {
+                withAnimation(.linear(duration: 0.1)) {
+                    if authError == .incorrectPassword {
+                        viewModel.password = ""
+                    } else {
+                        viewModel.password = ""
+                        viewModel.email = ""
+                    }
+                }
+            })
         }
     }
     
@@ -55,9 +72,21 @@ struct SignInView: View {
         }
     }
     
-    private var signInButton: some View {
+    private var signInResetButtons: some View {
         HStack {
             
+            VStack {
+                Button(action: {
+                    viewModel.showSheet = true
+                }) {
+                    Text("Forgot password?")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.gray)
+                }
+            }
+            .padding()
+            .padding(.leading)
+
             Spacer()
             
             VStack(alignment: .trailing) {
@@ -65,7 +94,20 @@ struct SignInView: View {
                     viewModel.isLoading = true
                     guard !viewModel.email.isEmpty,
                           !viewModel.password.isEmpty else { return }
-                    auth.signIn(email: viewModel.email, password: viewModel.password)
+                    auth.signIn(email: viewModel.email,
+                                password: viewModel.password, completion: { (result) in
+                        switch result {
+                        case .failure(let error):
+                            self.authError = error
+                            viewModel.showAlert = true
+                        case .success(_):
+                            print("Signed in")
+                        }
+                    })
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        viewModel.isLoading = false
+                    }
                 }) {
                     HStack(spacing: 10) {
                         Text("SIGN IN")
@@ -75,8 +117,9 @@ struct SignInView: View {
                             .font(.title2)
                     }
                     .modifier(CustomButtonModifier())
-                    .opacity(viewModel.isValid && !viewModel.password.isEmpty ? 1 : 0.6)
+                    .opacity(viewModel.isValid && !viewModel.isFiledsEmpty ? 1 : 0.6)
                 }
+                .disabled(!viewModel.isValid && viewModel.isFiledsEmpty)
             }
         }
         .padding()

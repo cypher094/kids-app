@@ -37,37 +37,83 @@ class AuthManager: ObservableObject {
         fetchPocketMoneyData()
     }
     
-    func signIn(email: String, password: String) {
+    func signIn(email: String,
+                password: String,
+                completion: @escaping (Result<Bool, EmailAuthError>) -> ()) {
         
-        auth.signIn(withEmail: email,
-                    password: password) { [weak self] result, error in
-            guard result != nil, error == nil else { return }
+        auth.signIn(withEmail: email, password: password) { (result, error) in
+            var newError: NSError
+            if let err = error {
+                newError = err as NSError
+                var authError: EmailAuthError?
+                switch newError.code {
+                case 17009:
+                    authError = .incorrectPassword
+                case 17008:
+                    authError = .invalidEmail
+                case 17011:
+                    authError = .accountDoesNotExist
+                default:
+                    authError = .uknownError
+                }
+                completion(.failure(authError!))
+            } else {
+                completion(.success(true))
+            }
             
             DispatchQueue.main.async {
-                self?.sync()
+                self.sync()
             }
         } 
     }
     
-    func signUp(email: String, firstName: String, lastName: String, password: String, phoneNumber: String, city: String, school: String, age: String) {
+    func signUp(email: String,
+                firstName: String,
+                lastName: String,
+                password: String,
+                phoneNumber: String,
+                city: String,
+                school: String,
+                age: String,
+                completion: @escaping (Result<Bool, Error>) -> Void) {
         
         auth.createUser(withEmail: email,
-                        password: password) { [weak self] result, error in
-            guard result != nil, error == nil else { return }
+                        password: password) { (result, error) in
+            if let err = error {
+                completion(.failure(err))
+                return
+            }
+            guard let _ = result?.user else {
+                completion(.failure(error!))
+                return
+            }
             
             DispatchQueue.main.async {
-                self?.add(User(firstName: firstName, lastName: lastName, email: email, city: city, school: school, age: age, phoneNumber: phoneNumber, balance: 500.00))
-                self?.sync()
+                self.add(User(firstName: firstName, lastName: lastName, email: email, city: city, school: school, age: age, phoneNumber: phoneNumber, balance: 500.00))
+                self.sync()
             }
+            completion(.success(true))
         }
     }
     
-    func signOut() {
-        do{
+    func resetPassword(email: String,
+                       completion: @escaping (Result<Bool, Error>) -> Void) {
+        auth.sendPasswordReset(withEmail: email, completion: { (error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        })
+    }
+    
+    func signOut(completion: @escaping (Result<Bool, Error>) -> Void) {
+        do {
             try auth.signOut()
             self.user = nil
-        } catch {
-            print("Error signing out user \(error)")
+            completion(.success(true))
+        } catch let err {
+            completion(.failure(err))
         }
     }
     
@@ -159,5 +205,4 @@ class AuthManager: ObservableObject {
             print("Error updating: \(error)")
         }
     }
-    
 }
