@@ -60,9 +60,9 @@ struct AddPocketMoneyView: View {
     
     private var inputs: some View {
         VStack {
-            CustomTF(image: "rectangle.and.pencil.and.ellipsis", title: "MY GOAL IS", value: $goalText, animation: animation)
             CustomTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $amount, animation: animation)
                 .keyboardType(.phonePad)
+            CustomTF(image: "rectangle.and.pencil.and.ellipsis", title: "MY GOAL IS", value: $goalText, animation: animation)
         }
     }
     

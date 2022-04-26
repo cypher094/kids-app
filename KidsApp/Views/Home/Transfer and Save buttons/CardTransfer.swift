@@ -92,9 +92,9 @@ struct CardTransfer: View {
     private var cardNumberAndAmount: some View {
         VStack {
             CustomTF(image: "creditcard.fill", title: "CARD NUMBER TO WITHDRAW", value: $cardNumberToWithdraw, animation: animation)
-                .keyboardType(.phonePad)
+                .keyboardType(.numberPad)
             CustomTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $amountToWithdraw, animation: animation)
-                .keyboardType(.phonePad)
+                .keyboardType(.numberPad)
         }
     }
     

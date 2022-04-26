@@ -45,6 +45,7 @@ struct CustomTF: View {
                         } else {
                             TextField("", text: $value)
                                 .disableAutocorrection(true)
+                                .submitLabel(.return)
                         }
                     }
                 }

@@ -336,6 +336,15 @@
 			path = CardDetails;
 			sourceTree = "<group>";
 		};
+		B49B1978281763A4004A0DEC /* Reset password */ = {
+			isa = PBXGroup;
+			children = (
+				B4E767C1281743A200CF976B /* ResetPasswordView.swift */,
+				B4E767C3281748BC00CF976B /* ResetPasswordViewModel.swift */,
+			);
+			path = "Reset password";
+			sourceTree = "<group>";
+		};
 		B4D3625A27EA1462004A37DA /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +402,7 @@
 		B4F8BC2F27020E440028D2EF /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				B49B1978281763A4004A0DEC /* Reset password */,
 				B4F8BC37270219180028D2EF /* Sign Up */,
 				B4F8BC36270219060028D2EF /* Sign In */,
 			);
@@ -404,8 +414,6 @@
 			children = (
 				B4F8BC322702114F0028D2EF /* SignInView.swift */,
 				B47AAA992811A2B20072B748 /* SignInViewModel.swift */,
-				B4E767C1281743A200CF976B /* ResetPasswordView.swift */,
-				B4E767C3281748BC00CF976B /* ResetPasswordViewModel.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
