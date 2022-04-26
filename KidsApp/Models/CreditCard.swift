@@ -7,13 +7,14 @@
 
 import Foundation
 
-struct CreditCard: Identifiable {
-    var id = UUID()
+struct CreditCard: Codable {
     let number: String
-    let type: CardType
     let company: String
     var selected: Bool = false
     var name: String
+    var expirationDate: String
+    var cvv: String
+    var balance: Double
     
     func getLastFourDigit() -> String {
         return String(number.suffix(4))

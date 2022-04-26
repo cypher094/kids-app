@@ -24,7 +24,7 @@ struct CardDetailView: View {
                 
                 ZStack {
                     GeometryReader { geometry in
-                        CardView(showCardNumber: $showCardNumber, card: card)
+                        CardView(showCardNumber: $showCardNumber)
                             .rotationEffect(startAnimation ? Angle.degrees(90) : Angle.degrees(0))
                             .offset(x: startAnimation ? -geometry.size.width/2 : 0)
                     }

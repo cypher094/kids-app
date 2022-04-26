@@ -13,6 +13,7 @@ import FirebaseFirestoreSwift
 class AuthManager: ObservableObject {
     @Published var signedIn = false
     @Published var user: User?
+    @Published var card: CreditCard?
     @Published var pocketlist = [PocketMoney]()
     
     private let db = Firestore.firestore()
@@ -89,7 +90,8 @@ class AuthManager: ObservableObject {
             }
             
             DispatchQueue.main.async {
-                self.add(User(firstName: firstName, lastName: lastName, email: email, city: city, school: school, age: age, phoneNumber: phoneNumber, balance: 500.00))
+                self.addUser(User(firstName: firstName, lastName: lastName, email: email, city: city, school: school, age: age, phoneNumber: phoneNumber))
+                self.addCardInfo(CreditCard(number: "4141444411112222", company: "Visa", name: "\(firstName) \(lastName)", expirationDate: "10/24", cvv: "999", balance: 500.00))
                 self.sync()
             }
             completion(.success(true))
@@ -182,14 +184,36 @@ class AuthManager: ObservableObject {
                 print("Sync error: \(error)")
             }
         }
+        
+        db.collection("creditcards").document(self.uuid!).getDocument { (document, error) in
+            guard document != nil, error == nil else {
+                return
+            }
+            do {
+                try self.card = document!.data(as: CreditCard.self)
+            } catch {
+                print("Sync error: \(error)")
+            }
+        }
     }
     
-    private func add(_ user: User) {
+    private func addUser(_ user: User) {
         guard userIsAuthenticated else {
             return
         }
         do {
             let _ = try db.collection("users").document(self.uuid!).setData(from: user)
+        } catch {
+            print("Error adding: \(error)")
+        }
+    }
+    
+    private func addCardInfo(_ card: CreditCard) {
+        guard userIsAuthenticated else {
+            return
+        }
+        do {
+            let _ = try db.collection("creditcards").document(self.uuid!).setData(from: card)
         } catch {
             print("Error adding: \(error)")
         }

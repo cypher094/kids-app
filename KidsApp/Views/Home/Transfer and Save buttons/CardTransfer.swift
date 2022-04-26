@@ -66,7 +66,7 @@ struct CardTransfer: View {
     private var cardView: some View {
         VStack {
             VStack {
-                CardView(showCardNumber: $showCardNumber, card: CreditCard(number: "4141444411112222", type: CardType.Kid, company: "Visa", name: "\(viewModel.user?.firstName ?? "") \(viewModel.user?.lastName ?? "")"))
+                CardView(showCardNumber: $showCardNumber)
                     .onLongPressGesture(minimumDuration: 0.1) {
                         withAnimation {
                             showCardNumber = true

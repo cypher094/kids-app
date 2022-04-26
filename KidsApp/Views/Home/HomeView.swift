@@ -36,7 +36,7 @@ struct HomeView: View {
                         CardBackView()
                             .rotation3DEffect(.degrees(contentRotation), axis: (x: 0, y: 1, z: 0))
                     } else {
-                        CardView(showCardNumber: $showCardNumber, card: CreditCard(number: "4141444411112222", type: CardType.Kid, company: "Visa", name: "\(viewModel.user?.firstName ?? "") \(viewModel.user?.lastName ?? "")"))
+                        CardView(showCardNumber: $showCardNumber)
                     }
                 }
                 .onTapGesture {
@@ -96,10 +96,3 @@ struct HomeView: View {
     }
 }
 
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView(selecedCard: creditCards[0])
-            .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
-    }
-}

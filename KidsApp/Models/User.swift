@@ -15,6 +15,5 @@ struct User: Codable {
     var school: String
     var age: String
     var phoneNumber: String
-    var balance: Double
     var signUpDate = Date.now
 }

@@ -11,7 +11,7 @@ struct CardView: View {
     @EnvironmentObject var viewModel: AuthManager
     @Binding var showCardNumber: Bool
     
-    let card: CreditCard
+    @EnvironmentObject var auth: AuthManager
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
@@ -20,11 +20,11 @@ struct CardView: View {
             VStack {
                 HStack {
                     VStack(alignment: .leading) {
-                        Text(card.name.uppercased())
+                        Text(auth.card?.name.uppercased() ?? "")
                             .font(.system(size: 16, weight: .heavy))
                             .kerning(5.0)
                             .lineLimit(nil)
-                        Text(card.type.rawValue.uppercased())
+                        Text("KID")
                             .font(.system(size: 14, weight: .semibold))
                             .kerning(2.0)
                     }
@@ -32,7 +32,7 @@ struct CardView: View {
                     Spacer()
                     
                     VStack(alignment: .trailing) {
-                        Text(card.company.uppercased())
+                        Text(auth.card?.company.uppercased() ?? "")
                             .font(.system(size: 28, weight: Font.Weight.heavy))
                             .italic()
 
@@ -48,7 +48,7 @@ struct CardView: View {
                     Text("₴")
                         .font(.system(size: 18, weight: Font.Weight.bold, design: Font.Design.rounded))
                         .foregroundColor(ColorConstants.secondary)
-                    Text("\(viewModel.user?.balance ?? 0, specifier: "%.2f")")
+                    Text("\(viewModel.card?.balance ?? 0, specifier: "%.2f")")
                         .font(.system(size: 25, weight: Font.Weight.bold, design: Font.Design.rounded))
                         .foregroundColor(.white)
                         
@@ -64,7 +64,7 @@ struct CardView: View {
                 HStack {
                     if showCardNumber {
                         HStack {
-                            Text(card.number.applyCardPattern())
+                            Text(auth.card?.number.applyCardPattern() ?? "")
                                 .kerning(5.0)
                                 .font(.system(size: 16, weight: .semibold))
                         }
@@ -76,7 +76,7 @@ struct CardView: View {
                                     .font(.system(size: 16, weight: .semibold))
                             }
                             
-                            Text(card.getLastFourDigit())
+                            Text(auth.card?.getLastFourDigit() ?? "")
                                 .kerning(5.0)
                                 .font(.system(size: 16, weight: .semibold))
                         }
