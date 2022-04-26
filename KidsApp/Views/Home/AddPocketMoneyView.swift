@@ -41,7 +41,7 @@ struct AddPocketMoneyView: View {
                     .font(.system(size: 40, weight: .heavy))
                     .foregroundColor(.primary)
                 
-                Text("Create your ")
+                Text("Let's start save your money!")
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
             }

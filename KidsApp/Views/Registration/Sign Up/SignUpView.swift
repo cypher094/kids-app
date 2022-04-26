@@ -12,6 +12,7 @@ struct SignUpView: View {
     @ObservedObject var viewModel: SignUpViewModel
     @Namespace var animation
     @Binding var isPresented: Bool
+    @FocusState var amountIsFocused: Bool
     
     var body: some View {
         NavigationView {
@@ -25,6 +26,14 @@ struct SignUpView: View {
                 }
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button("Done") {
+                            amountIsFocused = false
+                        }
+                    }
+                }
             }
             if viewModel.isLoading {
                 Loading()
@@ -53,6 +62,7 @@ struct SignUpView: View {
                 .keyboardType(.numberPad)
             CustomTF(image: "phone", title: "PHONE NUMBER", value: $viewModel.phoneNumber, animation: animation)
                 .keyboardType(.phonePad)
+                .focused($amountIsFocused)
         }
     }
     

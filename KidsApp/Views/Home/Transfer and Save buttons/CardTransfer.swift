@@ -15,6 +15,7 @@ struct CardTransfer: View {
     @State var showCardNumber: Bool = false
     @State var cardNumberToWithdraw = ""
     @State var amountToWithdraw = ""
+    @FocusState var amountIsFocused: Bool
     
     var body: some View {
         NavigationView {
@@ -27,6 +28,14 @@ struct CardTransfer: View {
             }
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        amountIsFocused = false
+                    }
+                }
+            }
             ZStack {
                 if isLoading {
                     LoadingSuccess()
@@ -95,6 +104,7 @@ struct CardTransfer: View {
                 .keyboardType(.numberPad)
             CustomTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $amountToWithdraw, animation: animation)
                 .keyboardType(.numberPad)
+                .focused($amountIsFocused)
         }
     }
     
