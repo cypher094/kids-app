@@ -13,27 +13,27 @@ struct TransactionListRow: View {
     var body: some View {
         VStack {
             HStack(spacing: 0) {
-                ZStack {
-                    Circle()
-                        .fill(ColorConstants.border)
-                        .frame(width: 50, height: 50)
-                    Image(systemName: transaction.type == "Electronics" ? "applelogo" : "gamecontroller.fill")
-                        .foregroundColor(ColorConstants.secondary)
-                }
+//                ZStack {
+//                    Circle()
+//                        .fill(ColorConstants.border)
+//                        .frame(width: 50, height: 50)
+//                    Image(systemName: "banknote")
+//                        .foregroundColor(ColorConstants.secondary)
+//                }
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 5) {
                     Text(transaction.service)
                         .foregroundColor(.white)
                     Text(transaction.type)
                         .font(.caption)
                         .foregroundColor(ColorConstants.secondary)
                 }
-                .padding(.leading, 10)
+//                .padding(.leading, 10)
                 
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                    Text("- \(String(format: "%.2f", transaction.amount)) UAH")
+                    Text("- \(String(format: "%.2f", transaction.amount)) ₴")
                         .foregroundColor(.white)
                     Text(transaction.time)
                         .font(.caption)
@@ -41,10 +41,9 @@ struct TransactionListRow: View {
                 }
             }
             
-            
             Divider()
                 .background(ColorConstants.secondary)
-                .opacity(isLast ? 0.0 : 1.0)
+//                .opacity(isLast ? 0.0 : 1.0)
                 .padding(.leading, 60)
                 .padding(.bottom, 8)
         }

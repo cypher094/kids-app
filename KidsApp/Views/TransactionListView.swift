@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct TransactionListView: View {
+    @Binding var reverseTransation: Bool
     @Binding var currentIndex: Int
     @ObservedObject var cardManager: CardManager
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(getListHeaders(), id: \.self) { date in
+                ForEach(reverseTransation ? getListHeaders().reversed() : getListHeaders(), id: \.self) { date in
                     ListHeader(title: cardManager.getModifiedDate(date: date))
-                    ForEach(getTransactions(date: date), id: \.self) { transaction in
+                    ForEach(reverseTransation ? getTransactions(date: date).reversed() : getTransactions(date: date), id: \.self) { transaction in
                         TransactionListRow(transaction: transaction, isLast: cardManager.lastTransactionID == transaction.id)
                     }
                 }

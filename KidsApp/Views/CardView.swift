@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     @EnvironmentObject var viewModel: AuthManager
-    @Binding var showCardNumber: Bool
+//    @Binding var showCardNumber: Bool
     
     @EnvironmentObject var auth: AuthManager
     var body: some View {
@@ -62,26 +62,32 @@ struct CardView: View {
                 Spacer()
                 
                 HStack {
-                    if showCardNumber {
-                        HStack {
-                            Text(auth.card?.number.applyCardPattern() ?? "")
-                                .kerning(5.0)
-                                .font(.system(size: 16, weight: .semibold))
-                        }
-                    } else {
-                        HStack {
-                            ForEach(0..<3) { i in
-                                Text("**** ")
-                                    .kerning(5.0)
-                                    .font(.system(size: 16, weight: .semibold))
-                            }
-                            
-                            Text(auth.card?.getLastFourDigit() ?? "")
-                                .kerning(5.0)
-                                .font(.system(size: 16, weight: .semibold))
-                        }
-                    }
-
+//                    if showCardNumber {
+//                        HStack {
+//                            Text(auth.card?.number.applyCardPattern() ?? "")
+//                                .kerning(5.0)
+//                                .font(.system(size: 16, weight: .semibold))
+//                        }
+//                    } else {
+//                        HStack {
+//                            ForEach(0..<3) { i in
+//                                Text("**** ")
+//                                    .kerning(5.0)
+//                                    .font(.system(size: 16, weight: .semibold))
+//                            }
+//
+//                            Text(auth.card?.getLastFourDigit() ?? "")
+//                                .kerning(5.0)
+//                                .font(.system(size: 16, weight: .semibold))
+//                        }
+//                    }
+//
+//                    Spacer()
+//
+//                    Image(systemName: "dot.radiowaves.right")
+                    Text(auth.card?.number.applyCardPattern() ?? "")
+                        .kerning(5.0)
+                        .font(.system(size: 16, weight: .semibold))
                     Spacer()
                     
                     Image(systemName: "dot.radiowaves.right")

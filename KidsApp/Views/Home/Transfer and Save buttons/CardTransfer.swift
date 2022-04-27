@@ -12,7 +12,6 @@ struct CardTransfer: View {
     @EnvironmentObject var viewModel: AuthManager
     @Namespace var animation
     @State var isLoading = false
-    @State var showCardNumber: Bool = false
     @State var cardNumberToWithdraw = ""
     @State var amountToWithdraw = ""
     @FocusState var amountIsFocused: Bool
@@ -75,12 +74,7 @@ struct CardTransfer: View {
     private var cardView: some View {
         VStack {
             VStack {
-                CardView(showCardNumber: $showCardNumber)
-                    .onLongPressGesture(minimumDuration: 0.1) {
-                        withAnimation {
-                            showCardNumber = true
-                        }
-                    }
+                CardView()
             }
             .frame(height: 240)
             

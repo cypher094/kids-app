@@ -11,11 +11,13 @@ struct HomeView: View {
     @EnvironmentObject var viewModel: AuthManager
     @ObservedObject var cardManager = CardManager()
     @State private var currentPage = 0
+    @State var reverseTransaction: Bool = true
     @State var selecedCard: CreditCard
     @State var startAnimation = false
     @State var show: Bool = false
     @State var showExpences: Bool = false
     @State var showCardNumber: Bool = false
+    @State var showCVV: Bool = false
     @State var showTransferView: Bool = false
     @State var showSaveView: Bool = false
     @State var cardFlipped: Bool = false
@@ -33,10 +35,10 @@ struct HomeView: View {
                 
                 VStack {
                     if cardFlipped {
-                        CardBackView()
+                        CardBackView(showCVV: $showCVV)
                             .rotation3DEffect(.degrees(contentRotation), axis: (x: 0, y: 1, z: 0))
                     } else {
-                        CardView(showCardNumber: $showCardNumber)
+                        CardView()
                     }
                 }
                 .onTapGesture {
@@ -53,7 +55,7 @@ struct HomeView: View {
                 
                 .onLongPressGesture(minimumDuration: 0.1) {
                     withAnimation {
-                        showCardNumber = true
+                        showCVV = true
                     }
                 }
                 .frame(height: 240)
@@ -63,11 +65,9 @@ struct HomeView: View {
                 TransferSaveView(viewModel: TransferSaveViewModel())
                 
                 Group {
-                    MenuHeaderView(title: "Transactions", imageName: "arrow.up.arrow.down")
-                    TransactionListView(currentIndex: $currentPage, cardManager: cardManager)
+                    MenuHeaderView(reversedTapped: $reverseTransaction, title: "Transactions", imageName: "arrow.up.arrow.down")
+                    TransactionListView(reverseTransation: $reverseTransaction, currentIndex: $currentPage, cardManager: cardManager)
                 }
-                .opacity(startAnimation ? 1.0 : 0.0)
-                .animation(Animation.easeIn(duration: 0.4).delay(0.5))
                 
                 Spacer()
             }

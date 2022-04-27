@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct MenuHeaderView: View {
+    @Binding var reversedTapped: Bool
     let title: String
     let imageName: String
+    
     var body: some View {
         HStack {
             Text(title)
@@ -18,19 +20,16 @@ struct MenuHeaderView: View {
             
             Spacer()
             
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Button(action: {
+                withAnimation(.linear(duration: 0.3)) {
+                    reversedTapped.toggle()
+                }
+            }, label: {
                 Image(systemName: imageName)
-                    .padding(.all, 20)
             })
         }
         .foregroundColor(.white)
         .padding(.leading, 20)
         .padding(.trailing, 20)
-    }
-}
-
-struct MenuHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuHeaderView(title: "1", imageName: "1")
     }
 }

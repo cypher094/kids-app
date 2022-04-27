@@ -12,7 +12,6 @@ struct CardDetailView: View {
     @Binding var card: CreditCard
     @ObservedObject var cardManager: CardManager
     @State var startAnimation = false
-    @State var showCardNumber: Bool = false
     
     var body: some View {
         ZStack {
@@ -24,7 +23,7 @@ struct CardDetailView: View {
                 
                 ZStack {
                     GeometryReader { geometry in
-                        CardView(showCardNumber: $showCardNumber)
+                        CardView()
                             .rotationEffect(startAnimation ? Angle.degrees(90) : Angle.degrees(0))
                             .offset(x: startAnimation ? -geometry.size.width/2 : 0)
                     }
@@ -58,9 +57,10 @@ struct CardDetailView: View {
 
 struct ExpenceView: View {
     @ObservedObject var cardManager: CardManager
+    @State var reverseTransaction = false
     var body: some View {
         VStack {
-            MenuHeaderView(title: "Expences", imageName: "ellipsis")
+            MenuHeaderView(reversedTapped: $reverseTransaction, title: "Expences", imageName: "ellipsis")
                 .padding(.bottom, 20)
             GraphView(cardManager: cardManager)
         }
@@ -72,9 +72,7 @@ struct CardDetailTopBarView: View {
     var body: some View {
         HStack {
             Button(action: {
-                withAnimation(.spring()) {
-                    card.selected = false
-                }
+                card.selected = false
             }, label: {
                 Image(systemName: "multiply")
             })

@@ -84,18 +84,16 @@ struct ExpenceBarGraph: View {
     var body: some View {
         HStack(alignment: .bottom) {
             ForEach(cardManager.expencesValue) { expence in
-                
                 VStack {
-                    
                     ZStack {
                         RoundedRectangle(cornerRadius: 15)
                             .fill(ColorConstants.secondary)
                             .frame(width: 60, height: 30)
-                        Text("$ \(String(format: "%.2f", expence.amount))")
+                        Text("\(String(format: "%.2f", expence.amount)) ₴")
                             .font(.system(size: 9))
                             .foregroundColor(.white)
                     }
-                    .offset(y: -20.0)
+                    .offset(y: -30.0)
                     .opacity(expence.selected ? 1.0 : 0.0)
                     
                     ZStack(alignment: .bottom) {
@@ -116,7 +114,6 @@ struct ExpenceBarGraph: View {
                 }
                 .frame(width: 45)
                 .animation(Animation.linear.delay(0.0))
-                
             }
         }
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 class CardManager: ObservableObject {
     
-    let currentDateString = "28 Mar 2022"
+    let currentDateString = "10 May 2022"
     
     func getUniqueDates(for cardNumber: String) -> [String] {
         var dates: [String] = []
