@@ -80,6 +80,15 @@ struct LoadingWallet: View {
     }
 }
 
+struct LoadingPig: View {
+    var body: some View {
+        VStack {
+            LottieView(fileName: "pig1")
+                .frame(width: 400, height: 400)
+        }
+    }
+}
+
 struct SQLoading: ViewModifier {
     
     private static let transition = AnyTransition.opacity.animation(.easeInOut(duration: 0.5))

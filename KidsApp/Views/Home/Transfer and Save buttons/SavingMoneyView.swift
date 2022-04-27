@@ -19,6 +19,7 @@ struct SavingMoneyView: View {
                 createPocketMoney
                 if auth.pocketlist.isEmpty {
                     emptyList
+                    LoadingPig()
                 } else {
                     list
                 }
@@ -108,14 +109,15 @@ struct SavingMoneyView: View {
     
     private var emptyList: some View {
         HStack {
-            VStack(alignment: .leading) {
-                Text("You have not created pocket money yet.")
+            VStack {
+                Text("You have not created pocket money yet.\nIt is to start save your money.")
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
             }
-            .padding()
-            .padding(.leading)
+            Spacer()
         }
+        .padding()
+        .padding(.leading)
     }
 }
 
