@@ -20,7 +20,7 @@ struct CardView: View {
             VStack {
                 HStack {
                     VStack(alignment: .leading) {
-                        Text(auth.card?.name.uppercased() ?? "")
+                        Text((auth.user?.firstName.uppercased() ?? "") + " " + (auth.user?.lastName.uppercased() ?? ""))
                             .font(.system(size: 16, weight: .heavy))
                             .kerning(5.0)
                             .lineLimit(nil)
@@ -45,16 +45,16 @@ struct CardView: View {
                 Spacer()
                 
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
-                    Text("₴")
-                        .font(.system(size: 18, weight: Font.Weight.bold, design: Font.Design.rounded))
-                        .foregroundColor(ColorConstants.secondary)
                     Text("\(viewModel.card?.balance ?? 0, specifier: "%.2f")")
                         .font(.system(size: 25, weight: Font.Weight.bold, design: Font.Design.rounded))
                         .foregroundColor(.white)
+                    Text("₴")
+                        .font(.system(size: 25, weight: Font.Weight.bold, design: Font.Design.rounded))
+                        .foregroundColor(ColorConstants.secondary)
                         
                     Spacer()
                     
-                    Text("10/24")
+                    Text(viewModel.card?.expirationDate ?? "")
                         .kerning(3.0)
                         .font(.system(size: 16, weight: .semibold))
                 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CardBackView: View {
+    @EnvironmentObject var auth: AuthManager
     
     var body: some View {
         ZStack {
@@ -20,10 +21,10 @@ struct CardBackView: View {
                     Spacer()
                     
                     Text("CVV:")
-                        .font(.system(size: 18, weight: Font.Weight.bold, design: Font.Design.rounded))
-                        .foregroundColor(ColorConstants.secondary)
+                        .font(.system(size: 14, weight: .semibold))
+                        .kerning(2.0)
                     
-                    Text("999")
+                    Text(auth.card?.cvv ?? "")
                         .kerning(3.0)
                         .font(.system(size: 16, weight: .semibold))
                         .padding(.horizontal)

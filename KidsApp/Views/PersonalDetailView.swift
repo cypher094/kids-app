@@ -84,8 +84,8 @@ struct PersonalDetailView: View {
             
             VStack(alignment: .trailing) {
                 Button(action: {
-                    guard !email.isEmpty, !password.isEmpty else { return }
-                    
+//                    guard !email.isEmpty, !password.isEmpty else { return }
+                    auth.updateUser(firstName: firstName, lastName: lastName)
                 }) {
                     HStack(spacing: 10) {
 //                        NavigationLink(destination: TutorialView(viewModel: TutorialViewModel()), isActive: $viewModel.isNextScreenPresenting) {

@@ -91,7 +91,7 @@ class AuthManager: ObservableObject {
             
             DispatchQueue.main.async {
                 self.addUser(User(firstName: firstName, lastName: lastName, email: email, city: city, school: school, age: age, phoneNumber: phoneNumber))
-                self.addCardInfo(CreditCard(number: "4141444411112222", company: "Visa", name: "\(firstName) \(lastName)", expirationDate: "10/24", cvv: "999", balance: 500.00))
+                self.addCardInfo(CreditCard(number: "4141444411112222", company: "Visa", expirationDate: "10/24", cvv: "999", balance: 500.00))
                 self.sync()
             }
             completion(.success(true))
@@ -151,6 +151,16 @@ class AuthManager: ObservableObject {
         db.collection("pocketmoneylist").document(updatePocket.id).setData(["name": updatedName, "amount": updatedAmount]) { error in
             if error == nil {
                 self.fetchPocketMoneyData()
+            }
+        }
+    }
+    
+    func updateUser(firstName: String, lastName: String) {
+        db.collection("users").document(self.uuid!).setData(["firstName": firstName, "lastName": lastName], merge: true) { error in
+            if error == nil {
+                self.sync()
+            } else {
+                print("error")
             }
         }
         

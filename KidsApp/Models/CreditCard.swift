@@ -11,7 +11,6 @@ struct CreditCard: Codable {
     let number: String
     let company: String
     var selected: Bool = false
-    var name: String
     var expirationDate: String
     var cvv: String
     var balance: Double

@@ -8,9 +8,9 @@
 import Foundation
 
 let creditCards = [
-    CreditCard(number: "4141444411112222", company: "Visa", name: "Oleh Haidar", expirationDate: "10/24", cvv: "10/22", balance: 10),
-    CreditCard(number: "4141444411113333", company: "Visa", name: "Oleh Haidar", expirationDate: "10/24", cvv: "10/22", balance: 10),
-    CreditCard(number: "4141444411114444", company: "Visa", name: "Oleh Haidar", expirationDate: "10/24", cvv: "10/22", balance: 10)
+    CreditCard(number: "4141444411112222", company: "Visa", expirationDate: "10/24", cvv: "10/22", balance: 10),
+    CreditCard(number: "4141444411113333", company: "Visa", expirationDate: "10/24", cvv: "10/22", balance: 10),
+    CreditCard(number: "4141444411114444", company: "Visa", expirationDate: "10/24", cvv: "10/22", balance: 10)
 ]
 
 let transactions = [
