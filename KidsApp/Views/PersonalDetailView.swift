@@ -13,19 +13,12 @@ import SwiftUI
 
 struct PersonalDetailView: View {
     @EnvironmentObject var auth: AuthManager
-//    @ObservedObject var viewModel: PersonalDetailViewModel
+    @ObservedObject var viewModel: PersonalDetailViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    @State var firstName = ""
-    @State var lastName = ""
-    @State var email = ""
-    @State var password = ""
-    @State var phoneNumber = ""
     @Namespace var animation
     
-    
     var body: some View {
-        NavigationView {
+        ZStack {
             VStack {
                 headerView
                 inputs
@@ -35,19 +28,19 @@ struct PersonalDetailView: View {
             }
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
-        }.navigationBarHidden(true)
+        }
     }
     
     private var inputs: some View {
         VStack(spacing: 6) {
-            CustomTF(image: "person", title: "FIRST NAME", value: $firstName, animation: animation)
-            CustomTF(image: "person", title: "LAST NAME", value: $lastName, animation: animation)
-            CustomTF(image: "lock", title: "PASSWORD", value: $password, animation: animation)
-                .autocapitalization(.none)
-            CustomTF(image: "phone", title: "PHONE NUMBER", value: $phoneNumber, animation: animation)
+            CustomTF(image: "person", title: "FIRST NAME", value: $viewModel.firstName, animation: animation)
+            CustomTF(image: "person", title: "LAST NAME", value: $viewModel.lastName, animation: animation)
+            CustomTF(image: "phone", title: "PHONE NUMBER", value: $viewModel.phoneNumber, animation: animation)
                 .keyboardType(.numberPad)
-            CustomTF(image: "envelope", title: "EMAIL ADDRESS", value: $email, animation: animation)
-                .autocapitalization(.none)
+            CustomTF(image: "building.2", title: "CITY", value: $viewModel.city, animation: animation)
+            CustomTF(image: "graduationcap", title: "SCHOOL", value: $viewModel.school, animation: animation)
+            CustomTF(image: "calendar", title: "AGE", value: $viewModel.age, animation: animation)
+                .keyboardType(.numberPad)
         }
     }
     
@@ -84,14 +77,11 @@ struct PersonalDetailView: View {
             
             VStack(alignment: .trailing) {
                 Button(action: {
-//                    guard !email.isEmpty, !password.isEmpty else { return }
-                    auth.updateUser(firstName: firstName, lastName: lastName)
+                    auth.updateUser(firstName: viewModel.firstName, lastName: viewModel.lastName, phoneNumber: viewModel.phoneNumber, city: viewModel.city, school: viewModel.school, age: viewModel.age)
                 }) {
                     HStack(spacing: 10) {
-//                        NavigationLink(destination: TutorialView(viewModel: TutorialViewModel()), isActive: $viewModel.isNextScreenPresenting) {
-                            Text("UPDATE INFORMATION")
-                                .fontWeight(.heavy)
-//                        }
+                        Text("UPDATE INFORMATION")
+                            .fontWeight(.heavy)
                         Image(systemName: "arrow.right")
                             .font(.title2)
                     }
@@ -101,12 +91,5 @@ struct PersonalDetailView: View {
         }
         .padding()
         .padding(.trailing)
-    }
-}
-
-
-struct PersonalDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        PersonalDetailView()
     }
 }

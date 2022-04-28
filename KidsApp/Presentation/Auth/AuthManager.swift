@@ -38,6 +38,8 @@ class AuthManager: ObservableObject {
         fetchPocketMoneyData()
     }
     
+    // MARK: - USER FUNC
+    
     func signIn(email: String,
                 password: String,
                 completion: @escaping (Result<Bool, EmailAuthError>) -> ()) {
@@ -119,7 +121,18 @@ class AuthManager: ObservableObject {
         }
     }
     
-    // Pocket Money
+    func updateUser(firstName: String, lastName: String, phoneNumber: String, city: String, school: String, age: String) {
+        db.collection("users").document(self.uuid!).setData(["firstName": firstName, "lastName": lastName, "phoneNumber": phoneNumber, "city": city, "school": school, "age": age], merge: true) { error in
+            if error == nil {
+                self.sync()
+            } else {
+                print("error")
+            }
+        }
+        
+    }
+    
+    // MARK: - POCKET MONEY
     
     func fetchPocketMoneyData() {
         db.collection("pocketmoneylist").getDocuments { (querySnapshot, error) in
@@ -155,17 +168,6 @@ class AuthManager: ObservableObject {
         }
     }
     
-    func updateUser(firstName: String, lastName: String) {
-        db.collection("users").document(self.uuid!).setData(["firstName": firstName, "lastName": lastName], merge: true) { error in
-            if error == nil {
-                self.sync()
-            } else {
-                print("error")
-            }
-        }
-        
-    }
-    
     func deletePocketMoney(deletePocket: PocketMoney) {
         db.collection("pocketmoneylist").document(deletePocket.id).delete { error in
             if error == nil {
@@ -178,7 +180,7 @@ class AuthManager: ObservableObject {
         }
     }
     
-    // Firestore funcs
+    // MARK: - FIRESTORE FUNCS
     
     func sync() {
         guard userIsAuthenticated else {
