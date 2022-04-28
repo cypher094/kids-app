@@ -22,7 +22,7 @@ struct ProfileView: View {
             VStack {
                 headerView
                 imageView
-                uploadButoon
+                uploadButton
                 profileInfo
                 Spacer()
             }
@@ -83,7 +83,7 @@ struct ProfileView: View {
                             
                         }
                     }, label: {
-                        NavigationLink(destination: PersonalDetailView()) {
+                        NavigationLink(destination: PersonalDetailView(viewModel: PersonalDetailViewModel())) {
                             Image(systemName: "pencil.circle")
                                 .foregroundColor(Color.purple)
                         }
@@ -154,7 +154,7 @@ struct ProfileView: View {
         
     }
     
-    private var uploadButoon: some View {
+    private var uploadButton: some View {
         VStack {
             if selectedImage != nil {
                 Button {
@@ -211,7 +211,7 @@ struct ProfileView: View {
         let uploadTask = fileRef.putData(imageData!, metadata: nil) { metadata, error in
             if error == nil && metadata != nil {
                 let db = Firestore.firestore()
-                db.collection("images").document().setData(["url": path])
+                db.collection("images").document().setData(["imageURL": path])
             }
         }
     }

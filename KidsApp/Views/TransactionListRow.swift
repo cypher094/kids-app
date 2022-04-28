@@ -13,13 +13,13 @@ struct TransactionListRow: View {
     var body: some View {
         VStack {
             HStack(spacing: 0) {
-//                ZStack {
-//                    Circle()
-//                        .fill(ColorConstants.border)
-//                        .frame(width: 50, height: 50)
-//                    Image(systemName: "banknote")
-//                        .foregroundColor(ColorConstants.secondary)
-//                }
+                ZStack {
+                    Circle()
+                        .fill(ColorConstants.border)
+                        .frame(width: 50, height: 50)
+                    Image(systemName: "banknote")
+                        .foregroundColor(ColorConstants.secondary)
+                }
                 
                 VStack(alignment: .leading, spacing: 5) {
                     Text(transaction.service)
@@ -28,7 +28,7 @@ struct TransactionListRow: View {
                         .font(.caption)
                         .foregroundColor(ColorConstants.secondary)
                 }
-//                .padding(.leading, 10)
+                .padding(.leading, 10)
                 
                 Spacer()
                 

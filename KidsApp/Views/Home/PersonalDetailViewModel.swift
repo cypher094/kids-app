@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class PersonalDetailViewModel: ObservableObject {
+    @Published var firstName = ""
+    @Published var lastName = ""
+    @Published var phoneNumber = ""
+    @Published var city = ""
+    @Published var school = ""
+    @Published var age = ""
+}
+ 
