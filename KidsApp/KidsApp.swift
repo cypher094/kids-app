@@ -11,12 +11,20 @@ import Firebase
 @main
 struct KidsApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject var launchScreenManager = LaunchScreenManager()
+    @StateObject var authManager = AuthManager()
     
     var body: some Scene {
         WindowGroup {
-            let viewModel = AuthManager()
-            ContentView()
-                .environmentObject(viewModel)
+            ZStack {
+                ContentView()
+                
+                if launchScreenManager.state != .completed {
+                    LaunchScreenView()
+                }
+            }
+            .environmentObject(authManager)
+            .environmentObject(launchScreenManager)
         }
     }
 }

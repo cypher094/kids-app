@@ -39,7 +39,7 @@ struct LoadingCorrect: View {
     var body: some View {
         VStack {
             LottieView(fileName: "correct")
-                .frame(width: 200, height: 200)
+                .frame(width: 150, height: 150)
         }
     }
 }
@@ -48,7 +48,7 @@ struct LoadingWrong: View {
     var body: some View {
         VStack {
             LottieView(fileName: "wrong")
-                .frame(width: 200, height: 200)
+                .frame(width: 150, height: 150)
         }
     }
 }
@@ -85,6 +85,15 @@ struct LoadingPig: View {
         VStack {
             LottieView(fileName: "pig1")
                 .frame(width: 400, height: 400)
+        }
+    }
+}
+
+struct LoadingTransfer: View {
+    var body: some View {
+        VStack {
+            LottieView(fileName: "flyingMoney")
+                .frame(width: 220, height: 220)
         }
     }
 }

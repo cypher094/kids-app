@@ -17,7 +17,7 @@ struct CardTransfer: View {
     @FocusState var amountIsFocused: Bool
     
     var body: some View {
-        NavigationView {
+        ZStack {
             VStack {
                 headerView
                 cardView
@@ -35,13 +35,10 @@ struct CardTransfer: View {
                     }
                 }
             }
-            ZStack {
-                if isLoading {
-                    LoadingSuccess()
-                }
+            if isLoading {
+                LoadingTransfer()
             }
         }
-        .navigationBarHidden(true)
     }
     
     private var headerView: some View {
@@ -109,7 +106,9 @@ struct CardTransfer: View {
                 Button(action: {
                     isLoading = true
                     guard !cardNumberToWithdraw.isEmpty, !amountToWithdraw.isEmpty else { return }
-                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        isLoading = false
+                    }
                 }) {
                     HStack(spacing: 10) {
                         Text("SEND FUNDS")
