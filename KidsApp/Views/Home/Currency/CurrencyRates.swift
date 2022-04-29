@@ -14,34 +14,38 @@ struct CurrencyRates: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "arrow.left")
-                        .font(.largeTitle)
+                VStack(alignment: .leading, spacing: 10) {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "arrow.left")
+                            .font(.largeTitle)
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.bottom, 10)
+                    
+                    Text("Currencies Rates")
+                        .font(.system(size: 40, weight: .heavy))
+                        .foregroundColor(.primary)
+                    
+                    Text("Below you can see the world exchange rates.")
+                        .fontWeight(.semibold)
                         .foregroundColor(.gray)
+                    
                 }
-                .padding()
-                
                 Spacer()
-                
-                Text("Currencies")
-                    .font(.system(size: 40, weight: .heavy))
-                    .foregroundColor(.primary)
-                
-                Image(systemName: "dollarsign.circle.fill")
-                    .font(.system(size: 35, weight: .heavy))
-                    .foregroundColor(Color("purpleColor"))
-                    .padding()
-                
-                Spacer()
+            }
+            .padding()
+            .padding(.leading)
+            
+            ScrollView {
+                LazyVStack {
+                    ForEach(viewModel.currencyList, id: \.self) { currency in
+                        CurrencyRatesListRow(string: "\(viewModel.amount) \(viewModel.base) =", currency: currency)
+                    }
+                }
             }
             
-            List {
-                ForEach(viewModel.currencyList, id: \.self) { currency in
-                    Text("\(viewModel.amount) \(viewModel.base) = \(currency)")
-                }
-            }
             ForEach(viewModel.currencyList1, id: \.self) { currency in
                 Text("\(viewModel.amount) \(viewModel.base) = \(currency)")
             }
