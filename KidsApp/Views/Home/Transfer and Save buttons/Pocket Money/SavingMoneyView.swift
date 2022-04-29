@@ -17,6 +17,7 @@ struct SavingMoneyView: View {
             VStack {
                 headerView
                 createPocketMoney
+                
                 if auth.pocketlist.isEmpty {
                     emptyList
                     LoadingPig()
@@ -28,7 +29,7 @@ struct SavingMoneyView: View {
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
             .sheet(isPresented: $showSheet) {
-                AddPocketMoneyView()
+                AddPocketMoneyView(viewModel: AddPocketMoneyViewModel())
             }
         }
     }

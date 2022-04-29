@@ -10,17 +10,21 @@ import SwiftUI
 struct AddPocketMoneyView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var auth: AuthManager
-    @State var goalText = ""
-    @State var amount = ""
+    @ObservedObject var viewModel: AddPocketMoneyViewModel
     @Namespace var animation
     
     var body: some View {
-        VStack {
-            headerView
-            pocketMoneyAnimation
-            inputs
-            addPocketMoney
-            Spacer()
+        ZStack {
+            VStack {
+                headerView
+                pocketMoneyAnimation
+                inputs
+                addPocketMoney
+                Spacer()
+            }
+            if viewModel.isLoading {
+                LoadingTransfer()
+            }
         }
     }
     
@@ -29,7 +33,6 @@ struct AddPocketMoneyView: View {
             VStack(alignment: .leading, spacing: 10) {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
-                    
                 }) {
                     Image(systemName: "xmark")
                         .font(.largeTitle)
@@ -60,10 +63,12 @@ struct AddPocketMoneyView: View {
     
     private var inputs: some View {
         VStack {
-            CustomTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $amount, animation: animation)
+            CustomTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $viewModel.amount, animation: animation)
                 .keyboardType(.phonePad)
-            CustomTF(image: "rectangle.and.pencil.and.ellipsis", title: "MY GOAL IS", value: $goalText, animation: animation)
+            CustomTF(image: "rectangle.and.pencil.and.ellipsis", title: "MY GOAL IS", value: $viewModel.goalText, animation: animation)
         }
+        .padding(.leading, 40)
+        .padding(.trailing, 40)
     }
     
     private var addPocketMoney: some View {
@@ -72,24 +77,29 @@ struct AddPocketMoneyView: View {
             
             VStack(alignment: .trailing) {
                 Button(action: {
-                    auth.addPocketMoney(name: goalText, amount: amount)
-                    presentationMode.wrappedValue.dismiss()
+                    viewModel.isLoading = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        auth.addPocketMoney(name: viewModel.goalText, amount: viewModel.amount)
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }) {
                     HStack(spacing: 10) {
                         Text("ADD POCKET MONEY")
                             .fontWeight(.heavy)
                     }
                     .modifier(CustomButtonModifier())
+                    .opacity(!viewModel.isFiledsEmpty ? 1 : 0.6)
                 }
+                .disabled(viewModel.isFiledsEmpty)
             }
         }
         .padding()
-        .padding(.trailing)
+        .padding(.trailing, 40)
     }
 }
 
 struct AddPocketMoneyView_Previews: PreviewProvider {
     static var previews: some View {
-        AddPocketMoneyView()
+        AddPocketMoneyView(viewModel: AddPocketMoneyViewModel())
     }
 }

@@ -15,7 +15,7 @@ struct TransferSaveView: View {
             Spacer()
             
             VStack {
-                NavigationLink(destination: CardTransfer(), isActive: $viewModel.showTransfer) {
+                NavigationLink(destination: CardTransfer(viewModel: CardTransferViewModel()), isActive: $viewModel.showTransfer) {
                     Button(action: {
                         viewModel.showTransfer = true
                     }) {

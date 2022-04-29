@@ -14,5 +14,16 @@ class PersonalDetailViewModel: ObservableObject {
     @Published var city = ""
     @Published var school = ""
     @Published var age = ""
+    
+    @Published var correctAnswerLoading = false
+    
+    var isFieldsEmpty: Bool {
+        firstName.isEmpty ||
+        lastName.isEmpty ||
+        phoneNumber.isEmpty ||
+        city.isEmpty ||
+        school.isEmpty ||
+        age.isEmpty
+    }
 }
  

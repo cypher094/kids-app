@@ -61,6 +61,8 @@
 		B49B1986281C1AED004A0DEC /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B1985281C1AED004A0DEC /* LaunchScreenView.swift */; };
 		B49B1988281C1DEB004A0DEC /* LaunchScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B1987281C1DEA004A0DEC /* LaunchScreenManager.swift */; };
 		B49B198A281C2D10004A0DEC /* flyingMoney.json in Resources */ = {isa = PBXBuildFile; fileRef = B49B1989281C2D10004A0DEC /* flyingMoney.json */; };
+		B49B1995281C6E30004A0DEC /* AddPocketMoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B1994281C6E30004A0DEC /* AddPocketMoneyViewModel.swift */; };
+		B49B1997281C6EF4004A0DEC /* CardTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B1996281C6EF4004A0DEC /* CardTransferViewModel.swift */; };
 		B4CAAE7928171BEB00FD7D51 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CAAE7828171BEA00FD7D51 /* ProfileViewModel.swift */; };
 		B4D3625927DF7B0F004A37DA /* PersonalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3625827DF7B0F004A37DA /* PersonalDetailView.swift */; };
 		B4D3625C27EA1481004A37DA /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3625B27EA1481004A37DA /* SideMenuView.swift */; };
@@ -177,6 +179,8 @@
 		B49B1985281C1AED004A0DEC /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		B49B1987281C1DEA004A0DEC /* LaunchScreenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenManager.swift; sourceTree = "<group>"; };
 		B49B1989281C2D10004A0DEC /* flyingMoney.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = flyingMoney.json; sourceTree = "<group>"; };
+		B49B1994281C6E30004A0DEC /* AddPocketMoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPocketMoneyViewModel.swift; sourceTree = "<group>"; };
+		B49B1996281C6EF4004A0DEC /* CardTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransferViewModel.swift; sourceTree = "<group>"; };
 		B4CAAE7828171BEA00FD7D51 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		B4D3625827DF7B0F004A37DA /* PersonalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailView.swift; sourceTree = "<group>"; };
 		B4D3625B27EA1481004A37DA /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
@@ -266,9 +270,9 @@
 		B444C8D92812F16400628BFC /* Transfer and Save buttons */ = {
 			isa = PBXGroup;
 			children = (
+				B49B1991281C6DAA004A0DEC /* Card Transfer */,
+				B49B1992281C6DB7004A0DEC /* Pocket Money */,
 				B4622524280D864C0020B810 /* TransferSaveView.swift */,
-				B4622526280D8A080020B810 /* SavingMoneyView.swift */,
-				B4622528280D97560020B810 /* CardTransfer.swift */,
 				B444C8DA2812F1C500628BFC /* TransferSaveViewModel.swift */,
 			);
 			path = "Transfer and Save buttons";
@@ -285,6 +289,7 @@
 		B444C8E728171B3F00628BFC /* Profile Info */ = {
 			isa = PBXGroup;
 			children = (
+				B49B198C281C6BDE004A0DEC /* Personal Details  */,
 				B4E7CE1927FD8C6B00C66864 /* ProfileView.swift */,
 				B4CAAE7828171BEA00FD7D51 /* ProfileViewModel.swift */,
 			);
@@ -327,15 +332,11 @@
 				B4F8BC2F27020E440028D2EF /* Registration */,
 				B4F8BC3B270219BD0028D2EF /* Home */,
 				B461D42127DB8BE8003ACBE8 /* CardDetails */,
-				B4F8BC212701FA240028D2EF /* ContentView.swift */,
-				B4F8BC64270375470028D2EF /* TutorialView.swift */,
-				B461D41527DB7D83003ACBE8 /* CardView.swift */,
+				B49B198B281C6B8D004A0DEC /* Menu Views */,
 				B461D41727DB81A0003ACBE8 /* PagerView.swift */,
-				B461D41927DB83AF003ACBE8 /* MenuHeaderView.swift */,
-				B461D41B27DB8A71003ACBE8 /* TransactionListRow.swift */,
-				B461D41D27DB8B2B003ACBE8 /* TransactionListView.swift */,
 				B461D41F27DB8B9D003ACBE8 /* ListHeader.swift */,
-				B4D3625827DF7B0F004A37DA /* PersonalDetailView.swift */,
+				B4E7CE1727FCAF1E00C66864 /* AddKidView.swift */,
+				B4F8BC212701FA240028D2EF /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,11 +344,14 @@
 		B461D42127DB8BE8003ACBE8 /* CardDetails */ = {
 			isa = PBXGroup;
 			children = (
+				B4D3626327EB7A9D004A37DA /* TopBarView.swift */,
 				B461D42227DB8BF5003ACBE8 /* ProgressView.swift */,
 				B461D42427DB8CAE003ACBE8 /* CardInfoView.swift */,
 				B461D42627DB8CF4003ACBE8 /* GraphView.swift */,
 				B461D42827DB8D2C003ACBE8 /* CardDetailView.swift */,
 				B49B1979281829AE004A0DEC /* AddNewCardView.swift */,
+				B461D41527DB7D83003ACBE8 /* CardView.swift */,
+				B4186028281008360089E60F /* CardBackView.swift */,
 			);
 			path = CardDetails;
 			sourceTree = "<group>";
@@ -370,6 +374,87 @@
 			path = LaunchSreen;
 			sourceTree = "<group>";
 		};
+		B49B198B281C6B8D004A0DEC /* Menu Views */ = {
+			isa = PBXGroup;
+			children = (
+				B444C8E728171B3F00628BFC /* Profile Info */,
+				B444C8D42812C6C400628BFC /* Currency */,
+				B49B198D281C6CA4004A0DEC /* Tutorial */,
+				B49B198E281C6CB7004A0DEC /* Math Game */,
+				B49B198F281C6CD8004A0DEC /* Chat Bot */,
+			);
+			path = "Menu Views";
+			sourceTree = "<group>";
+		};
+		B49B198C281C6BDE004A0DEC /* Personal Details  */ = {
+			isa = PBXGroup;
+			children = (
+				B4D3625827DF7B0F004A37DA /* PersonalDetailView.swift */,
+				B49B197F281AAF09004A0DEC /* PersonalDetailViewModel.swift */,
+			);
+			path = "Personal Details ";
+			sourceTree = "<group>";
+		};
+		B49B198D281C6CA4004A0DEC /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				B4F8BC64270375470028D2EF /* TutorialView.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		B49B198E281C6CB7004A0DEC /* Math Game */ = {
+			isa = PBXGroup;
+			children = (
+				B436783B280DE68B00189041 /* MathGame.swift */,
+			);
+			path = "Math Game";
+			sourceTree = "<group>";
+		};
+		B49B198F281C6CD8004A0DEC /* Chat Bot */ = {
+			isa = PBXGroup;
+			children = (
+				B4367843280EC46B00189041 /* ChatBot.swift */,
+			);
+			path = "Chat Bot";
+			sourceTree = "<group>";
+		};
+		B49B1990281C6D10004A0DEC /* Transaction List */ = {
+			isa = PBXGroup;
+			children = (
+				B461D41B27DB8A71003ACBE8 /* TransactionListRow.swift */,
+				B461D41D27DB8B2B003ACBE8 /* TransactionListView.swift */,
+			);
+			path = "Transaction List";
+			sourceTree = "<group>";
+		};
+		B49B1991281C6DAA004A0DEC /* Card Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				B4622528280D97560020B810 /* CardTransfer.swift */,
+				B49B1996281C6EF4004A0DEC /* CardTransferViewModel.swift */,
+			);
+			path = "Card Transfer";
+			sourceTree = "<group>";
+		};
+		B49B1992281C6DB7004A0DEC /* Pocket Money */ = {
+			isa = PBXGroup;
+			children = (
+				B49B1993281C6E0D004A0DEC /* Create Pocket Money */,
+				B4622526280D8A080020B810 /* SavingMoneyView.swift */,
+			);
+			path = "Pocket Money";
+			sourceTree = "<group>";
+		};
+		B49B1993281C6E0D004A0DEC /* Create Pocket Money */ = {
+			isa = PBXGroup;
+			children = (
+				B47AAA97281056AF0072B748 /* AddPocketMoneyView.swift */,
+				B49B1994281C6E30004A0DEC /* AddPocketMoneyViewModel.swift */,
+			);
+			path = "Create Pocket Money";
+			sourceTree = "<group>";
+		};
 		B4D3625A27EA1462004A37DA /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +462,7 @@
 				B4D3625D27EA148E004A37DA /* SideMenuHeaderView.swift */,
 				B4D3625F27EA149D004A37DA /* SideMenuCellView.swift */,
 				B4D3626127EA14BD004A37DA /* SideMenuViewModel.swift */,
+				B461D41927DB83AF003ACBE8 /* MenuHeaderView.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -408,6 +494,7 @@
 				B4F8BC502702473E0028D2EF /* Presentation */,
 				B461D40C27DB7941003ACBE8 /* Utils */,
 				B461D40327DB72D9003ACBE8 /* Models */,
+				B444C8E428170B5900628BFC /* ImagePicker */,
 				B461D41427DB7D6E003ACBE8 /* Views */,
 				B4F8BC432702342D0028D2EF /* LottieFiles */,
 				B4F8BC1F2701FA240028D2EF /* KidsApp.swift */,
@@ -467,18 +554,9 @@
 			children = (
 				B4F8BC3C270219CB0028D2EF /* HomeView.swift */,
 				B4F8BC6D2704695D0028D2EF /* HomeViewModel.swift */,
-				B444C8E728171B3F00628BFC /* Profile Info */,
+				B49B1990281C6D10004A0DEC /* Transaction List */,
 				B444C8D92812F16400628BFC /* Transfer and Save buttons */,
-				B444C8D42812C6C400628BFC /* Currency */,
-				B444C8E428170B5900628BFC /* ImagePicker */,
 				B4D3625A27EA1462004A37DA /* SideMenu */,
-				B4D3626327EB7A9D004A37DA /* TopBarView.swift */,
-				B4E7CE1727FCAF1E00C66864 /* AddKidView.swift */,
-				B436783B280DE68B00189041 /* MathGame.swift */,
-				B4367843280EC46B00189041 /* ChatBot.swift */,
-				B4186028281008360089E60F /* CardBackView.swift */,
-				B47AAA97281056AF0072B748 /* AddPocketMoneyView.swift */,
-				B49B197F281AAF09004A0DEC /* PersonalDetailViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -663,6 +741,7 @@
 				B4622525280D864C0020B810 /* TransferSaveView.swift in Sources */,
 				B461D40B27DB78D6003ACBE8 /* Expense.swift in Sources */,
 				B4F8BC35270211A00028D2EF /* SignUpView.swift in Sources */,
+				B49B1997281C6EF4004A0DEC /* CardTransferViewModel.swift in Sources */,
 				B461D41A27DB83AF003ACBE8 /* MenuHeaderView.swift in Sources */,
 				B4D3625C27EA1481004A37DA /* SideMenuView.swift in Sources */,
 				B461D42527DB8CAE003ACBE8 /* CardInfoView.swift in Sources */,
@@ -682,6 +761,7 @@
 				B444C8E12816DE0700628BFC /* PocketMoney.swift in Sources */,
 				B461D42727DB8CF4003ACBE8 /* GraphView.swift in Sources */,
 				B44AC77D2812C487008F92E6 /* CurrencyRates.swift in Sources */,
+				B49B1995281C6E30004A0DEC /* AddPocketMoneyViewModel.swift in Sources */,
 				B444C8D82812EAAB00628BFC /* CurrencyRatesViewModel.swift in Sources */,
 				B4F8BC5D27033C620028D2EF /* CustomButtonModifier.swift in Sources */,
 				B444C8DB2812F1C500628BFC /* TransferSaveViewModel.swift in Sources */,

@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-//class PersonalDetailViewModel: ObservableObject {
-//
-//}
-
 struct PersonalDetailView: View {
     @EnvironmentObject var auth: AuthManager
     @ObservedObject var viewModel: PersonalDetailViewModel
@@ -28,6 +24,9 @@ struct PersonalDetailView: View {
             }
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+            if viewModel.correctAnswerLoading {
+                LoadingCorrect()
+            }
         }
     }
     
@@ -38,9 +37,9 @@ struct PersonalDetailView: View {
             CustomTF(image: "phone", title: "PHONE NUMBER", value: $viewModel.phoneNumber, animation: animation)
                 .keyboardType(.numberPad)
             CustomTF(image: "building.2", title: "CITY", value: $viewModel.city, animation: animation)
-            CustomTF(image: "graduationcap", title: "SCHOOL", value: $viewModel.school, animation: animation)
             CustomTF(image: "calendar", title: "AGE", value: $viewModel.age, animation: animation)
                 .keyboardType(.numberPad)
+            CustomTF(image: "graduationcap", title: "SCHOOL", value: $viewModel.school, animation: animation)
         }
     }
     
@@ -49,7 +48,6 @@ struct PersonalDetailView: View {
             VStack(alignment: .leading, spacing: 10) {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
-                    
                 }) {
                     Image(systemName: "arrow.left")
                         .font(.largeTitle)
@@ -77,7 +75,10 @@ struct PersonalDetailView: View {
             
             VStack(alignment: .trailing) {
                 Button(action: {
-                    auth.updateUser(firstName: viewModel.firstName, lastName: viewModel.lastName, phoneNumber: viewModel.phoneNumber, city: viewModel.city, school: viewModel.school, age: viewModel.age)
+                    viewModel.correctAnswerLoading = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.75) {
+                        auth.updateUser(firstName: viewModel.firstName, lastName: viewModel.lastName, phoneNumber: viewModel.phoneNumber, city: viewModel.city, school: viewModel.school, age: viewModel.age)
+                    }
                 }) {
                     HStack(spacing: 10) {
                         Text("UPDATE INFORMATION")
@@ -86,7 +87,9 @@ struct PersonalDetailView: View {
                             .font(.title2)
                     }
                     .modifier(CustomButtonModifier())
+                    .opacity(!viewModel.isFieldsEmpty ? 1 : 0.6)
                 }
+                .disabled(viewModel.isFieldsEmpty)
             }
         }
         .padding()

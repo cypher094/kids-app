@@ -9,11 +9,9 @@ import SwiftUI
 
 struct CardTransfer: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @EnvironmentObject var viewModel: AuthManager
+    @EnvironmentObject var auth: AuthManager
+    @ObservedObject var viewModel: CardTransferViewModel
     @Namespace var animation
-    @State var isLoading = false
-    @State var cardNumberToWithdraw = ""
-    @State var amountToWithdraw = ""
     @FocusState var amountIsFocused: Bool
     
     var body: some View {
@@ -35,7 +33,7 @@ struct CardTransfer: View {
                     }
                 }
             }
-            if isLoading {
+            if viewModel.isLoading {
                 LoadingTransfer()
             }
         }
@@ -91,9 +89,10 @@ struct CardTransfer: View {
     
     private var cardNumberAndAmount: some View {
         VStack {
-            CustomTF(image: "creditcard.fill", title: "CARD NUMBER TO WITHDRAW", value: $cardNumberToWithdraw, animation: animation)
+            CustomTF(image: "creditcard.fill", title: "CARD NUMBER TO WITHDRAW", value: $viewModel.cardNumberToWithdraw, animation: animation)
                 .keyboardType(.numberPad)
-            CustomTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $amountToWithdraw, animation: animation)
+                .focused($amountIsFocused)
+            CustomTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $viewModel.amountToWithdraw, animation: animation)
                 .keyboardType(.numberPad)
                 .focused($amountIsFocused)
         }
@@ -104,10 +103,9 @@ struct CardTransfer: View {
             Spacer()
             VStack(alignment: .trailing) {
                 Button(action: {
-                    isLoading = true
-                    guard !cardNumberToWithdraw.isEmpty, !amountToWithdraw.isEmpty else { return }
+                    viewModel.isLoading = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        isLoading = false
+                        presentationMode.wrappedValue.dismiss()
                     }
                 }) {
                     HStack(spacing: 10) {
@@ -117,7 +115,9 @@ struct CardTransfer: View {
                             .font(.title2)
                     }
                     .modifier(CustomButtonModifier())
+                    .opacity(!viewModel.isFiledsEmpty ? 1 : 0.6)
                 }
+                .disabled(viewModel.isFiledsEmpty)
             }
         }
         .padding()
@@ -127,6 +127,6 @@ struct CardTransfer: View {
 
 struct CardTransfer_Previews: PreviewProvider {
     static var previews: some View {
-        CardTransfer()
+        CardTransfer(viewModel: CardTransferViewModel())
     }
 }
