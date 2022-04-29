@@ -28,9 +28,7 @@ struct SideMenuView: View {
                                 switch cell.title {
                                 case "Profile":
                                     ProfileView()
-                                case "Card Details":
-                                    ChatBot()
-                                case "Currency":
+                                case "Currency rates":
                                     CurrencyRates(viewModel: CurrencyRatesViewModel())
                                 case "Game":
                                     MathGame()

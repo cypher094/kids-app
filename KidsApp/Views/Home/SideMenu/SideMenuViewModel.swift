@@ -9,7 +9,6 @@ import Foundation
 
 enum SideMenuViewModel: Int, CaseIterable {
     case profile
-    case cardDetails
     case currency
     case tutorial
     case game
@@ -18,8 +17,7 @@ enum SideMenuViewModel: Int, CaseIterable {
     var title: String {
         switch self {
         case .profile: return "Profile"
-        case .cardDetails: return "Card Details"
-        case .currency: return "Currency"
+        case .currency: return "Currency rates"
         case .tutorial: return "Tutorial"
         case .game: return "Game"
         case .question: return "Ask a question"
@@ -29,8 +27,7 @@ enum SideMenuViewModel: Int, CaseIterable {
     var imageName: String {
         switch self {
         case .profile: return "person.fill"
-        case .cardDetails: return "creditcard.fill"
-        case .currency: return "coloncurrencysign.circle.fill"
+        case .currency: return "dollarsign.circle.fill"
         case .tutorial: return "questionmark.circle.fill"
         case .game: return "gamecontroller.fill"
         case .question: return "message.fill"

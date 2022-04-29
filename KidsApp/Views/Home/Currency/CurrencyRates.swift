@@ -24,7 +24,7 @@ struct CurrencyRates: View {
                     }
                     .padding(.bottom, 10)
                     
-                    Text("Currencies Rates")
+                    Text("Currency Rates")
                         .font(.system(size: 40, weight: .heavy))
                         .foregroundColor(.primary)
                     
