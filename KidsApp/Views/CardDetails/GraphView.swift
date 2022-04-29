@@ -21,7 +21,7 @@ struct GraphView: View {
                         .trim(to: startAnimation ? 1 : 0)
                         .stroke(lineWidth: 4.0)
                         .foregroundColor(ColorConstants.graphLine)
-                        .animation(Animation.easeIn(duration: 2.0).delay(2.0))
+                        .animation(Animation.easeIn(duration: 1.5).delay(1.5))
                         .zIndex(1.0)
                 }
                 .onAppear {

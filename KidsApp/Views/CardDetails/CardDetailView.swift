@@ -32,7 +32,7 @@ struct CardDetailView: View {
                     CardInfoView()
                         .padding(.leading, 80)
                         .opacity(startAnimation ? 1.0 : 0.0)
-                        .animation(Animation.easeIn(duration: 0.5).delay(0.5))
+                        .animation(Animation.easeIn(duration: 0.4).delay(0.4))
                     
                 }
                 .padding(.top, 50)
@@ -42,13 +42,13 @@ struct CardDetailView: View {
                     .padding(.top, 20)
                     .padding(.bottom, 40)
                     .opacity(startAnimation ? 1.0 : 0.0)
-                    .animation(Animation.easeIn(duration: 0.5).delay(1))
+                    .animation(Animation.easeIn(duration: 0.5).delay(0.5))
                 
                 Spacer()
             }
         }
         .onAppear {
-            withAnimation(Animation.linear(duration: 0.7)) {
+            withAnimation(Animation.linear(duration: 0.6)) {
                 startAnimation = true
             }
         }

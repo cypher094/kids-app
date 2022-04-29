@@ -49,6 +49,7 @@ struct CardBackView: View {
             }
             .padding(.all, 40)
         }
+        .shadow(color: Color("buttonShadow"), radius: 30, x: 10, y: 10)
         .foregroundColor(.white)
         .padding(.leading, 20)
         .padding(.trailing, 20)

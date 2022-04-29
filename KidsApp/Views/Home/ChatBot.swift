@@ -16,37 +16,34 @@ struct ChatBot: View {
     var body: some View {
         VStack {
             HStack {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "arrow.left")
-                        .font(.largeTitle)
+                VStack(alignment: .leading, spacing: 10) {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "arrow.left")
+                            .font(.largeTitle)
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.bottom, 10)
+                    
+                    Text("Support")
+                        .font(.system(size: 40, weight: .heavy))
+                        .foregroundColor(.primary)
+                    
+                    Text("Enter your problem to get a quick answer.")
+                        .fontWeight(.semibold)
                         .foregroundColor(.gray)
+                    
                 }
-                .padding()
-                
-                Spacer()
-                
-                Text("Support")
-                    .font(.largeTitle)
-                    .bold()
-                
-                
-                Image(systemName: "bubble.left.fill")
-                    .font(.system(size: 26))
-                    .foregroundColor(Color("purpleColor"))
-                    .padding()
-                
                 Spacer()
             }
+            .padding()
+            .padding(.leading)
             
             ScrollView {
                 ForEach(messages, id: \.self) { message in
-                    // If the message contains [USER], that means it's us
                     if message.contains("[USER]") {
                         let newMessage = message.replacingOccurrences(of: "[USER]", with: "")
-                        
-                        // User message styles
                         HStack {
                             Spacer()
                             Text(newMessage)
@@ -61,8 +58,6 @@ struct ChatBot: View {
 
                         }
                     } else {
-                        
-                        // Bot message styles
                         HStack {
                             Text(message)
                                 .padding()
@@ -79,8 +74,6 @@ struct ChatBot: View {
             .rotationEffect(.degrees(180))
             .background(Color.gray.opacity(0.1))
             
-            
-            // Contains the Message bar
             HStack {
                 TextField("Type something", text: $messageText)
                     .padding()

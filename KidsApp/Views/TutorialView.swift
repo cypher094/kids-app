@@ -87,27 +87,43 @@ struct TutorialView: View {
     
     private var headerButtons: some View {
         HStack {
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                Image(systemName: "arrow.left")
-                    .font(.largeTitle)
+            VStack(alignment: .leading, spacing: 10) {
+                HStack {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "arrow.left")
+                            .font(.largeTitle)
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.bottom, 10)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.currentStep = onBoardingSteps.count - 1
+                    }) {
+                        Text(currentStep == 2 ? "" : "Skip")
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color("purpleColor"))
+                            .padding()
+                    }
+                }
+                
+                Text("Tutorial")
+                    .font(.system(size: 40, weight: .heavy))
+                    .foregroundColor(.primary)
+                
+                Text("This is information for a better understanding of the application.")
+                    .fontWeight(.semibold)
                     .foregroundColor(.gray)
+                
             }
-            .padding()
             
             Spacer()
-            
-            Button(action: {
-                self.currentStep = onBoardingSteps.count - 1
-            }) {
-                Text(currentStep == 2 ? "" : "Skip")
-                    .fontWeight(.heavy)
-                    .foregroundColor(Color("purpleColor"))
-                    .padding()
-                    .animation(.spring())
-            }
         }
+        .padding()
+        .padding(.leading)
     }
     
     private var nextButton :some View {
