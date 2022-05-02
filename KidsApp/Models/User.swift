@@ -15,5 +15,6 @@ struct User: Codable {
     var school: String
     var age: String
     var phoneNumber: String
+    var pinCode: String
     var signUpDate = Date.now
 }

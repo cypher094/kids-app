@@ -9,10 +9,11 @@ import SwiftUI
 
 struct CardInfoView: View {
     @EnvironmentObject var auth: AuthManager
+    @State var changePin = false
     
     var body: some View {
         VStack(alignment: .leading) {
-            ProgressView()
+//            ProgressView()
             cardInfo
             changePinButton
         }
@@ -60,15 +61,21 @@ struct CardInfoView: View {
     }
     
     private var changePinButton: some View {
-        Button(action: {}) {
-            HStack(spacing: 10) {
-                Text("CHANGE PIN")
-                    .fontWeight(.heavy)
-                
-                Image(systemName: "arrow.right")
-                    .font(.title2)
+        VStack {
+            NavigationLink(destination: OTPView(), isActive: $changePin) {
+                Button(action: {
+                    changePin = true
+                }) {
+                    HStack(spacing: 10) {
+                        Text("CHANGE PIN")
+                            .fontWeight(.heavy)
+                        
+                        Image(systemName: "arrow.right")
+                            .font(.title2)
+                    }
+                    .modifier(CustomButtonModifier())
+                }
             }
-            .modifier(CustomButtonModifier())
         }
     }
 }

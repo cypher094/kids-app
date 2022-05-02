@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4016EEE281FE569009CEDB4 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4016EED281FE569009CEDB4 /* OTPView.swift */; };
 		B4186023280ED1850089E60F /* signOut.json in Resources */ = {isa = PBXBuildFile; fileRef = B4186022280ED1850089E60F /* signOut.json */; };
 		B4186025280ED5A40089E60F /* CustomPocketMoneyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4186024280ED5A40089E60F /* CustomPocketMoneyButton.swift */; };
 		B4186027280EDB090089E60F /* savings.json in Resources */ = {isa = PBXBuildFile; fileRef = B4186026280EDB090089E60F /* savings.json */; };
@@ -124,6 +125,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B4016EED281FE569009CEDB4 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		B4186022280ED1850089E60F /* signOut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = signOut.json; sourceTree = "<group>"; };
 		B4186024280ED5A40089E60F /* CustomPocketMoneyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPocketMoneyButton.swift; sourceTree = "<group>"; };
 		B4186026280EDB090089E60F /* savings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = savings.json; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				B49B1979281829AE004A0DEC /* AddNewCardView.swift */,
 				B461D41527DB7D83003ACBE8 /* CardView.swift */,
 				B4186028281008360089E60F /* CardBackView.swift */,
+				B4016EED281FE569009CEDB4 /* OTPView.swift */,
 			);
 			path = CardDetails;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				B4D3626427EB7A9E004A37DA /* TopBarView.swift in Sources */,
 				B4F8BC222701FA240028D2EF /* ContentView.swift in Sources */,
 				B444C8E12816DE0700628BFC /* PocketMoney.swift in Sources */,
+				B4016EEE281FE569009CEDB4 /* OTPView.swift in Sources */,
 				B461D42727DB8CF4003ACBE8 /* GraphView.swift in Sources */,
 				B44AC77D2812C487008F92E6 /* CurrencyRates.swift in Sources */,
 				B49B1995281C6E30004A0DEC /* AddPocketMoneyViewModel.swift in Sources */,
