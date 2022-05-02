@@ -98,6 +98,15 @@ struct LoadingTransfer: View {
     }
 }
 
+struct LoadingCharityBox: View {
+    var body: some View {
+        VStack {
+            LottieView(fileName: "charityBox")
+                .frame(width: 300, height: 300)
+        }
+    }
+}
+
 struct SQLoading: ViewModifier {
     
     private static let transition = AnyTransition.opacity.animation(.easeInOut(duration: 0.5))

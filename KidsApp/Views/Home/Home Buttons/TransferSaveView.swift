@@ -47,7 +47,27 @@ struct TransferSaveView: View {
                     }
                 }
             }
+            
             Spacer()
+            
+            VStack {
+                NavigationLink(destination: CharityView(), isActive: $viewModel.showCharity) {
+                    Button(action: {
+                        viewModel.showCharity = true
+                    }) {
+                        HStack(spacing: 10) {
+                            Image("charity")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .font(.system(size: 24, weight: .bold))
+                        }
+                        .modifier(CustomHomeButton())
+                    }
+                }
+            }
+            
+            Spacer()
+            
         }
         .padding()
     }

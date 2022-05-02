@@ -77,6 +77,10 @@
 		B4E7CE1827FCAF1E00C66864 /* AddKidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E7CE1727FCAF1E00C66864 /* AddKidView.swift */; };
 		B4E7CE1A27FD8C6B00C66864 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E7CE1927FD8C6B00C66864 /* ProfileView.swift */; };
 		B4E7CE1D27FD8E5F00C66864 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B4E7CE1C27FD8E5F00C66864 /* SDWebImageSwiftUI */; };
+		B4EE52C82820082A004CF786 /* CharityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE52C72820082A004CF786 /* CharityView.swift */; };
+		B4EE52CA28201116004CF786 /* charityBox.json in Resources */ = {isa = PBXBuildFile; fileRef = B4EE52C928201116004CF786 /* charityBox.json */; };
+		B4EE52CC28201A82004CF786 /* CharityTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE52CB28201A82004CF786 /* CharityTransferView.swift */; };
+		B4EE52CE28201B73004CF786 /* CharityTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE52CD28201B73004CF786 /* CharityTransferViewModel.swift */; };
 		B4F8BC202701FA240028D2EF /* KidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F8BC1F2701FA240028D2EF /* KidsApp.swift */; };
 		B4F8BC222701FA240028D2EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F8BC212701FA240028D2EF /* ContentView.swift */; };
 		B4F8BC242701FA270028D2EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4F8BC232701FA270028D2EF /* Assets.xcassets */; };
@@ -195,6 +199,10 @@
 		B4E767C3281748BC00CF976B /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		B4E7CE1727FCAF1E00C66864 /* AddKidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKidView.swift; sourceTree = "<group>"; };
 		B4E7CE1927FD8C6B00C66864 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B4EE52C72820082A004CF786 /* CharityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityView.swift; sourceTree = "<group>"; };
+		B4EE52C928201116004CF786 /* charityBox.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = charityBox.json; sourceTree = "<group>"; };
+		B4EE52CB28201A82004CF786 /* CharityTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityTransferView.swift; sourceTree = "<group>"; };
+		B4EE52CD28201B73004CF786 /* CharityTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityTransferViewModel.swift; sourceTree = "<group>"; };
 		B4F8BC1C2701FA240028D2EF /* KidsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F8BC1F2701FA240028D2EF /* KidsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsApp.swift; sourceTree = "<group>"; };
 		B4F8BC212701FA240028D2EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -269,15 +277,16 @@
 			path = Currency;
 			sourceTree = "<group>";
 		};
-		B444C8D92812F16400628BFC /* Transfer and Save buttons */ = {
+		B444C8D92812F16400628BFC /* Home Buttons */ = {
 			isa = PBXGroup;
 			children = (
 				B49B1991281C6DAA004A0DEC /* Card Transfer */,
+				B4EE52C628200809004CF786 /* Charity */,
 				B49B1992281C6DB7004A0DEC /* Pocket Money */,
 				B4622524280D864C0020B810 /* TransferSaveView.swift */,
 				B444C8DA2812F1C500628BFC /* TransferSaveViewModel.swift */,
 			);
-			path = "Transfer and Save buttons";
+			path = "Home Buttons";
 			sourceTree = "<group>";
 		};
 		B444C8E428170B5900628BFC /* ImagePicker */ = {
@@ -470,6 +479,16 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
+		B4EE52C628200809004CF786 /* Charity */ = {
+			isa = PBXGroup;
+			children = (
+				B4EE52C72820082A004CF786 /* CharityView.swift */,
+				B4EE52CB28201A82004CF786 /* CharityTransferView.swift */,
+				B4EE52CD28201B73004CF786 /* CharityTransferViewModel.swift */,
+			);
+			path = Charity;
+			sourceTree = "<group>";
+		};
 		B4F8BC132701FA240028D2EF = {
 			isa = PBXGroup;
 			children = (
@@ -558,7 +577,7 @@
 				B4F8BC3C270219CB0028D2EF /* HomeView.swift */,
 				B4F8BC6D2704695D0028D2EF /* HomeViewModel.swift */,
 				B49B1990281C6D10004A0DEC /* Transaction List */,
-				B444C8D92812F16400628BFC /* Transfer and Save buttons */,
+				B444C8D92812F16400628BFC /* Home Buttons */,
 				B4D3625A27EA1462004A37DA /* SideMenu */,
 			);
 			path = Home;
@@ -606,6 +625,7 @@
 		B4F8BC6C270389210028D2EF /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				B4EE52C928201116004CF786 /* charityBox.json */,
 				B4F8BC45270234F60028D2EF /* loading.json */,
 				B4F8BC44270234F60028D2EF /* loaderYellow.json */,
 				B43A7E102706274700244A76 /* kidView2.json */,
@@ -709,6 +729,7 @@
 			files = (
 				B43A7E132706274700244A76 /* kidView2.json in Resources */,
 				B4F8BC61270362E40028D2EF /* loadingDots.json in Resources */,
+				B4EE52CA28201116004CF786 /* charityBox.json in Resources */,
 				B49B197E28194248004A0DEC /* pig1.json in Resources */,
 				B4F8BC682703769E0028D2EF /* kidView1.json in Resources */,
 				B43A7E142706274700244A76 /* kidView3.json in Resources */,
@@ -756,9 +777,11 @@
 				B49B197A281829AE004A0DEC /* AddNewCardView.swift in Sources */,
 				B461D41C27DB8A71003ACBE8 /* TransactionListRow.swift in Sources */,
 				B4F8BC332702114F0028D2EF /* SignInView.swift in Sources */,
+				B4EE52C82820082A004CF786 /* CharityView.swift in Sources */,
 				B4F8BC5F270360B20028D2EF /* Loading.swift in Sources */,
 				B461D40E27DB7960003ACBE8 /* Data.swift in Sources */,
 				B47AAA9A2811A2B20072B748 /* SignInViewModel.swift in Sources */,
+				B4EE52CC28201A82004CF786 /* CharityTransferView.swift in Sources */,
 				B4D3626427EB7A9E004A37DA /* TopBarView.swift in Sources */,
 				B4F8BC222701FA240028D2EF /* ContentView.swift in Sources */,
 				B444C8E12816DE0700628BFC /* PocketMoney.swift in Sources */,
@@ -801,6 +824,7 @@
 				B4F8BC6327036F0A0028D2EF /* KeyboardResponsive.swift in Sources */,
 				B4E7CE1A27FD8C6B00C66864 /* ProfileView.swift in Sources */,
 				B461D42027DB8B9D003ACBE8 /* ListHeader.swift in Sources */,
+				B4EE52CE28201B73004CF786 /* CharityTransferViewModel.swift in Sources */,
 				B461D40527DB72F2003ACBE8 /* CardType.swift in Sources */,
 				B4F8BC4B2702351F0028D2EF /* LottieView.swift in Sources */,
 				B461D41327DB7CD9003ACBE8 /* CardManager.swift in Sources */,

@@ -47,7 +47,7 @@ struct SavingMoneyView: View {
                 }
                 .padding(.bottom, 10)
                 
-                Text("Saving funds")
+                Text("Save your funds")
                     .font(.system(size: 40, weight: .heavy))
                     .foregroundColor(.primary)
                 
