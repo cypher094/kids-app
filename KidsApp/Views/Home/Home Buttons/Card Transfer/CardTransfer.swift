@@ -105,7 +105,7 @@ struct CardTransfer: View {
                 Button(action: {
                     viewModel.isLoading = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        presentationMode.wrappedValue.dismiss()
+                        auth.updateBalance(balance: auth.card!.balance - Double(viewModel.amountToWithdraw)!)
                     }
                 }) {
                     HStack(spacing: 10) {
@@ -117,7 +117,7 @@ struct CardTransfer: View {
                     .modifier(CustomButtonModifier())
                     .opacity(!viewModel.isFiledsEmpty ? 1 : 0.6)
                 }
-                .disabled(viewModel.isFiledsEmpty)
+                .disabled(viewModel.isFiledsEmpty || auth.card!.balance - Double(viewModel.amountToWithdraw)! < 0)
             }
         }
         .padding()

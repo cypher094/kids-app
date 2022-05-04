@@ -56,7 +56,7 @@ struct CardView: View {
                     
                     Text(viewModel.card?.expirationDate ?? "")
                         .kerning(3.0)
-                        .font(.system(size: 16, weight: .semibold))
+                        .font(.system(size: 16, weight: .heavy))
                 }
                 
                 Spacer()

@@ -22,7 +22,7 @@ struct CardBackView: View {
                     Spacer()
                     
                     Text("CVV:")
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.system(size: 16, weight: .heavy))
                         .kerning(2.0)
                     
                     if showCVV {

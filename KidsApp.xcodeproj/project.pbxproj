@@ -81,6 +81,7 @@
 		B4EE52CA28201116004CF786 /* charityBox.json in Resources */ = {isa = PBXBuildFile; fileRef = B4EE52C928201116004CF786 /* charityBox.json */; };
 		B4EE52CC28201A82004CF786 /* CharityTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE52CB28201A82004CF786 /* CharityTransferView.swift */; };
 		B4EE52CE28201B73004CF786 /* CharityTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE52CD28201B73004CF786 /* CharityTransferViewModel.swift */; };
+		B4EE52D028229B1E004CF786 /* SavingMoneyEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE52CF28229B1E004CF786 /* SavingMoneyEditView.swift */; };
 		B4F8BC202701FA240028D2EF /* KidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F8BC1F2701FA240028D2EF /* KidsApp.swift */; };
 		B4F8BC222701FA240028D2EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F8BC212701FA240028D2EF /* ContentView.swift */; };
 		B4F8BC242701FA270028D2EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4F8BC232701FA270028D2EF /* Assets.xcassets */; };
@@ -203,6 +204,7 @@
 		B4EE52C928201116004CF786 /* charityBox.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = charityBox.json; sourceTree = "<group>"; };
 		B4EE52CB28201A82004CF786 /* CharityTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityTransferView.swift; sourceTree = "<group>"; };
 		B4EE52CD28201B73004CF786 /* CharityTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityTransferViewModel.swift; sourceTree = "<group>"; };
+		B4EE52CF28229B1E004CF786 /* SavingMoneyEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingMoneyEditView.swift; sourceTree = "<group>"; };
 		B4F8BC1C2701FA240028D2EF /* KidsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F8BC1F2701FA240028D2EF /* KidsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsApp.swift; sourceTree = "<group>"; };
 		B4F8BC212701FA240028D2EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 			children = (
 				B49B1993281C6E0D004A0DEC /* Create Pocket Money */,
 				B4622526280D8A080020B810 /* SavingMoneyView.swift */,
+				B4EE52CF28229B1E004CF786 /* SavingMoneyEditView.swift */,
 			);
 			path = "Pocket Money";
 			sourceTree = "<group>";
@@ -832,6 +835,7 @@
 				B461D40927DB7885003ACBE8 /* TransactionItem.swift in Sources */,
 				B461D40727DB7322003ACBE8 /* CreditCard.swift in Sources */,
 				B49B1980281AAF0A004A0DEC /* PersonalDetailViewModel.swift in Sources */,
+				B4EE52D028229B1E004CF786 /* SavingMoneyEditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

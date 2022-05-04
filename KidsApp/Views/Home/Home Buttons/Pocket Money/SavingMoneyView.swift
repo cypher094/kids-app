@@ -82,29 +82,8 @@ struct SavingMoneyView: View {
     }
     
     private var list: some View {
-        List(auth.pocketlist) { pocket in
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(pocket.name).font(.title)
-                    Text("₴ \(pocket.amount)").font(.subheadline)
-                }
-                
-                Spacer()
-                
-                Button {
-                    auth.updatePocketMoney(updatePocket: pocket, updatedName: "123", updatedAmount: "123")
-                } label: {
-                    Image(systemName: "pencil.circle.fill")
-                }
-                .buttonStyle(BorderlessButtonStyle())
-                
-                Button {
-                    auth.deletePocketMoney(deletePocket: pocket)
-                } label: {
-                    Image(systemName: "delete.left.fill")
-                }
-                .buttonStyle(BorderlessButtonStyle())
-            }
+        ForEach(auth.pocketlist) { pocket in
+            PocketMoneyRow(pocket: pocket, auth: auth)
         }
     }
     
@@ -121,6 +100,64 @@ struct SavingMoneyView: View {
         .padding(.leading)
     }
 }
+
+struct PocketMoneyRow: View {
+    @State var isPresented = false
+    let pocket: PocketMoney
+    let auth: AuthManager
+    
+    var body: some View {
+            VStack {
+                HStack(spacing: 0) {
+                    ZStack {
+                        Image(systemName: "wand.and.stars")
+                            .font(.system(size: 30, weight: .heavy))
+//                            .foregroundColor(Color("purpleColor"))
+                            .foregroundColor(ColorConstants.secondary)
+                    }
+                    
+                    VStack {
+                        Text(pocket.name).font(.title)
+                        Text("\(pocket.amount)₴").font(.subheadline)
+                    }
+                    .padding(.leading, 10)
+                    
+                    Spacer()
+                    
+                    HStack(spacing: 20) {
+                        Button {
+//                            auth.updatePocketMoney(updatePocket: pocket, updatedName: "123", updatedAmount: "123")
+                            isPresented = true
+                        } label: {
+                            NavigationLink(destination: SavingMoneyEditView(pocket: pocket), isActive: $isPresented) {
+                                Image(systemName: "pencil.circle.fill")
+                            }
+                        }
+                        .font(.system(size: 20, weight: .heavy))
+                        .foregroundColor(Color("purpleColor"))
+                        
+                        Button {
+                            auth.deletePocketMoney(deletePocket: pocket)
+                        } label: {
+                            Image(systemName: "trash.fill")
+                        }
+                        .font(.system(size: 20, weight: .heavy))
+                        .foregroundColor(Color("purpleColor"))
+                    }
+
+                }
+                
+                Divider()
+                    .background(ColorConstants.secondary)
+                    .padding(.leading, 60)
+                    .padding(.bottom, 8)
+            }
+            .padding(.leading, 20)
+            .padding(.trailing, 20)
+        
+    }
+}
+
 
 struct SavingMoneyView_Previews: PreviewProvider {
     static var previews: some View {

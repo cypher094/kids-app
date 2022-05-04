@@ -16,9 +16,9 @@ struct CurrencyRatesListRow: View {
             HStack(spacing: 0) {
                 ZStack {
                     Image(systemName: "dollarsign.circle.fill")
-                        .font(.system(size: 35, weight: .heavy))
-                        .foregroundColor(Color("purpleColor"))
-//                        .foregroundColor(ColorConstants.secondary)
+                        .font(.system(size: 30, weight: .heavy))
+//                        .foregroundColor(Color("purpleColor"))
+                        .foregroundColor(ColorConstants.secondary)
                 }
                 
                 HStack {

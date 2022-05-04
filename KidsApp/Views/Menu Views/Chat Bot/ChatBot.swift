@@ -116,13 +116,15 @@ struct ChatBot: View {
         
         if tempMessage.contains("hello") {
             return "Hey there! What's your problem?"
-        }else if tempMessage.contains("hi") {
+        } else if tempMessage.contains("hi") {
             return "Hey, \(auth.user?.firstName ?? "sir")!"
-        }else if tempMessage.contains("bye") {
+        } else if tempMessage.contains("bye") {
             return "Talk to you later!"
-        }else if tempMessage.contains("have a problem") {
+        } else if tempMessage.contains("have a problem") {
             return "Thanks for your report! Our agent will call you back soon. Stay tuned! \n"
-        }else if tempMessage.contains("how are you") {
+        } else if tempMessage.contains("doesn't work") {
+            return "Thanks for your report! Our agent will call you back soon. Stay tuned! \n"
+        } else if tempMessage.contains("how are you") {
             return "I'm fine, how about you?"
         } else {
             return "That's cool."

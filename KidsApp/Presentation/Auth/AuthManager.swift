@@ -131,6 +131,16 @@ class AuthManager: ObservableObject {
         }
     }
     
+    func updateBalance(balance: Double) {
+        db.collection("creditcards").document(self.uuid!).setData(["balance": balance], merge: true) { error in
+            if error == nil {
+                self.sync()
+            } else {
+                print("error")
+            }
+        }
+    }
+    
     func updatePin(pin: String) {
         db.collection("users").document(self.uuid!).setData(["pinCode": pin], merge: true) { error in
             if error == nil {
@@ -162,7 +172,7 @@ class AuthManager: ObservableObject {
     func addPocketMoney(name: String, amount: String) {
         db.collection("pocketmoneylist").addDocument(data: ["name": name, "amount": amount]) { error in
             if error == nil {
-                self.fetchPocketMoneyData()
+                self.getData()
             } else {
                 
             }
@@ -190,6 +200,24 @@ class AuthManager: ObservableObject {
     }
     
     // MARK: - FIRESTORE FUNCS
+    
+    func getData() {
+        db.collection("pocketmoneylist").getDocuments { document, error in
+            if error == nil {
+                if let document = document {
+                    DispatchQueue.main.async {
+                        self.pocketlist = document.documents.map { doc in
+                            return PocketMoney(id: doc.documentID,
+                                               name: doc["name"] as? String ?? "",
+                                               amount: doc["amount"] as? String ?? "")
+                        }
+                    }
+                }
+            } else {
+                
+            }
+        }
+    }
     
     func sync() {
         guard userIsAuthenticated else {

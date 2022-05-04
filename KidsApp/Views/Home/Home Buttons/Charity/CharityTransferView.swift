@@ -92,11 +92,12 @@ struct CharityTransferView: View {
                 Button(action: {
                     viewModel.isLoading = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        auth.updateBalance(balance: auth.card!.balance - Double(viewModel.amountToWithdraw)!)
                         presentationMode.wrappedValue.dismiss()
                     }
                 }) {
                     HStack(spacing: 10) {
-                        Text("SEND FUNDS")
+                        Text("DONATE")
                             .fontWeight(.heavy)
                         Image(systemName: "arrow.right")
                             .font(.title2)
@@ -104,7 +105,7 @@ struct CharityTransferView: View {
                     .modifier(CustomButtonModifier())
                     .opacity(!viewModel.isFiledEmpty ? 1 : 0.6)
                 }
-                .disabled(viewModel.isFiledEmpty)
+                .disabled(viewModel.isFiledEmpty || auth.card!.balance - Double(viewModel.amountToWithdraw)! < 0)
             }
         }
         .padding()
