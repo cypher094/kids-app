@@ -163,14 +163,18 @@ class AuthManager: ObservableObject {
                 let id = QueryDocumentSnapshot.documentID
                 let data = QueryDocumentSnapshot.data()
                 let name = data["name"] as? String ?? ""
-                let amount = data["amount"] as? String ?? ""
-                return PocketMoney(id: id, name: name, amount: amount)
+                let goalAmount = data["goalAmount"] as? Double ?? 0.0
+                let transferedAmount = data["transferedAmount"] as? Double ?? 0.0
+                return PocketMoney(id: id,
+                                   name: name,
+                                   goalAmount: goalAmount,
+                                   transferedAmount: transferedAmount)
             })
         }
     }
     
-    func addPocketMoney(name: String, amount: String) {
-        db.collection("pocketmoneylist").addDocument(data: ["name": name, "amount": amount]) { error in
+    func addPocketMoney(name: String, goalAmount: Double) {
+        db.collection("pocketmoneylist").addDocument(data: ["name": name, "goalAmount": goalAmount]) { error in
             if error == nil {
                 self.getData()
             } else {
@@ -179,8 +183,16 @@ class AuthManager: ObservableObject {
         }
     }
     
-    func updatePocketMoney(updatePocket: PocketMoney, updatedName: String, updatedAmount: String) {
-        db.collection("pocketmoneylist").document(updatePocket.id).setData(["name": updatedName, "amount": updatedAmount]) { error in
+    func updatePocketMoney(updatePocket: PocketMoney, updatedName: String, updatedAmount: Double) {
+        db.collection("pocketmoneylist").document(updatePocket.id).setData(["name": updatedName, "goalAmount": updatedAmount], merge: true) { error in
+            if error == nil {
+                self.getData()
+            }
+        }
+    }
+    
+    func addFundsToPocketMoney(updatePocket: PocketMoney, transferedAmount: Double) {
+        db.collection("pocketmoneylist").document(updatePocket.id).setData(["transferedAmount": transferedAmount], merge: true) { error in
             if error == nil {
                 self.fetchPocketMoneyData()
             }
@@ -209,7 +221,8 @@ class AuthManager: ObservableObject {
                         self.pocketlist = document.documents.map { doc in
                             return PocketMoney(id: doc.documentID,
                                                name: doc["name"] as? String ?? "",
-                                               amount: doc["amount"] as? String ?? "")
+                                               goalAmount: doc["goalAmount"] as? Double ?? 0.0,
+                                               transferedAmount: doc["transferedAmount"] as? Double ?? 0.0)
                         }
                     }
                 }

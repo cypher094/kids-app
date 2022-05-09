@@ -23,7 +23,7 @@ struct AddPocketMoneyView: View {
                 Spacer()
             }
             if viewModel.isLoading {
-                LoadingTransfer()
+                LoadingCorrect()
             }
         }
     }
@@ -63,7 +63,7 @@ struct AddPocketMoneyView: View {
     
     private var inputs: some View {
         VStack {
-            CustomTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $viewModel.amount, animation: animation)
+            AmountTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $viewModel.amount, animation: animation)
                 .keyboardType(.phonePad)
             CustomTF(image: "rectangle.and.pencil.and.ellipsis", title: "MY GOAL IS", value: $viewModel.goalText, animation: animation)
         }
@@ -79,7 +79,7 @@ struct AddPocketMoneyView: View {
                 Button(action: {
                     viewModel.isLoading = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        auth.addPocketMoney(name: viewModel.goalText, amount: viewModel.amount)
+                        auth.addPocketMoney(name: viewModel.goalText, goalAmount: viewModel.amount)
                         presentationMode.wrappedValue.dismiss()
                     }
                 }) {
@@ -95,11 +95,5 @@ struct AddPocketMoneyView: View {
         }
         .padding()
         .padding(.trailing, 40)
-    }
-}
-
-struct AddPocketMoneyView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddPocketMoneyView(viewModel: AddPocketMoneyViewModel())
     }
 }

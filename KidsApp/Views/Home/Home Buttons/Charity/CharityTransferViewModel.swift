@@ -9,9 +9,9 @@ import Foundation
 
 class CharityTransferViewModel: ObservableObject {
     @Published var isLoading = false
-    @Published var amountToWithdraw = ""
+    @Published var amountToWithdraw: Double = 0.0
     
     var isFiledEmpty: Bool {
-        amountToWithdraw.isEmpty
+        amountToWithdraw == 0
     }
 }

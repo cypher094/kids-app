@@ -12,7 +12,7 @@ struct SavingMoneyEditView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Namespace var animation
     @State var isLoading = false
-    @State var amount = ""
+    @State var amount = 0.00
     @State var goalText = ""
     var pocket: PocketMoney
     
@@ -69,7 +69,7 @@ struct SavingMoneyEditView: View {
     
     private var inputs: some View {
         VStack {
-            CustomTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $amount, animation: animation)
+            AmountTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $amount, animation: animation)
                 .keyboardType(.phonePad)
             CustomTF(image: "rectangle.and.pencil.and.ellipsis", title: "MY GOAL IS", value: $goalText, animation: animation)
         }

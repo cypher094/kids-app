@@ -82,11 +82,13 @@ struct SavingMoneyView: View {
     }
     
     private var list: some View {
-        ForEach(auth.pocketlist) { pocket in
-            PocketMoneyRow(pocket: pocket, auth: auth)
+        ScrollView {
+            ForEach(auth.pocketlist) { pocket in
+                PocketMoneyRow(pocket: pocket, auth: auth)
+            }
         }
     }
-    
+        
     private var emptyList: some View {
         HStack {
             VStack {
@@ -102,62 +104,110 @@ struct SavingMoneyView: View {
 }
 
 struct PocketMoneyRow: View {
-    @State var isPresented = false
+    @State var isPresentedEdit = false
+    @State var isPresentedAddFunds = false
     let pocket: PocketMoney
     let auth: AuthManager
     
     var body: some View {
+        VStack {
+            pocketInfo
+            
             VStack {
-                HStack(spacing: 0) {
-                    ZStack {
-                        Image(systemName: "wand.and.stars")
-                            .font(.system(size: 30, weight: .heavy))
-//                            .foregroundColor(Color("purpleColor"))
-                            .foregroundColor(ColorConstants.secondary)
-                    }
-                    
-                    VStack {
-                        Text(pocket.name).font(.title)
-                        Text("\(pocket.amount)₴").font(.subheadline)
-                    }
-                    .padding(.leading, 10)
-                    
-                    Spacer()
-                    
-                    HStack(spacing: 20) {
-                        Button {
-//                            auth.updatePocketMoney(updatePocket: pocket, updatedName: "123", updatedAmount: "123")
-                            isPresented = true
-                        } label: {
-                            NavigationLink(destination: SavingMoneyEditView(pocket: pocket), isActive: $isPresented) {
-                                Image(systemName: "pencil.circle.fill")
-                            }
-                        }
-                        .font(.system(size: 20, weight: .heavy))
-                        .foregroundColor(Color("purpleColor"))
-                        
-                        Button {
-                            auth.deletePocketMoney(deletePocket: pocket)
-                        } label: {
-                            Image(systemName: "trash.fill")
-                        }
-                        .font(.system(size: 20, weight: .heavy))
-                        .foregroundColor(Color("purpleColor"))
-                    }
-
-                }
-                
-                Divider()
-                    .background(ColorConstants.secondary)
-                    .padding(.leading, 60)
-                    .padding(.bottom, 8)
+                CustomProgressView(pocket: pocket)
             }
-            .padding(.leading, 20)
-            .padding(.trailing, 20)
-        
+            .padding()
+            .animation(Animation.easeInOut(duration: 0.7))
+            
+            Divider()
+                .background(ColorConstants.secondary)
+                .padding(8)
+        }
+        .padding(.leading, 20)
+        .padding(.trailing, 20)
+    }
+    
+    var pocketInfo: some View {
+        HStack(spacing: 0) {
+            ZStack {
+                Image(systemName: "wand.and.stars")
+                    .font(.system(size: 20, weight: .heavy))
+                    .foregroundColor(ColorConstants.secondary)
+            }
+            
+            VStack(alignment: .leading) {
+                Text(pocket.name).font(.title)
+                Text("\(pocket.amountFormatted) / \(pocket.goalFormatted) ₴").font(.subheadline).lineLimit(nil)
+            }
+            .padding(.leading, 10)
+            
+            Spacer()
+            
+            HStack(spacing: 20) {
+                Button {
+                    isPresentedAddFunds = true
+                } label: {
+                    NavigationLink(destination: AddFundsToPocketMoneyView(viewModel: AddFundsToPocketMoneyViewModel(), pocket: pocket), isActive: $isPresentedAddFunds) {
+                        Image(systemName: "plus.circle.fill")
+                    }
+                }
+                Button {
+                    isPresentedEdit = true
+                } label: {
+                    NavigationLink(destination: SavingMoneyEditView(pocket: pocket), isActive: $isPresentedEdit) {
+                        Image(systemName: "pencil.circle.fill")
+                    }
+                }
+            }
+            .font(.system(size: 20, weight: .heavy))
+            .foregroundColor(Color("purpleColor"))
+            .padding(.trailing, 45)
+            
+            
+            Button {
+                auth.deletePocketMoney(deletePocket: pocket)
+            } label: {
+                Image(systemName: "trash.fill")
+            }
+            .font(.system(size: 20, weight: .heavy))
+            .foregroundColor(Color.red)
+            
+        }
     }
 }
 
+struct CustomProgressView: View {
+    let pocket: PocketMoney
+    var percent: Double {
+        pocket.transferedAmount / pocket.goalAmount
+    }
+    
+    var body: some View {
+        ZStack(alignment: .leading) {
+            
+            Capsule()
+                .fill(LinearGradient(gradient: .init(colors:
+                                                        [Color("progressLeft"), Color("progressRight")]), startPoint: .leading, endPoint: .trailing))
+                .frame(width: calculatePercent(), height: 20)
+            
+            ZStack(alignment: .trailing) {
+                Capsule().fill(Color.black.opacity(0.08)).frame(height: 20)
+                Text(String(format: "%.0f", percent * 100) + "%")
+                    .font(.caption)
+                    .foregroundColor(Color("percentColor").opacity(0.75))
+                    .padding(.trailing)
+            }
+        }
+        .padding()
+        .background(Color("txtColor"))
+        .cornerRadius(16)
+    }
+    
+    func calculatePercent() -> CGFloat {
+        let width = UIScreen.main.bounds.width - 72
+        return width * pocket.transferedAmount / pocket.goalAmount
+    }
+}
 
 struct SavingMoneyView_Previews: PreviewProvider {
     static var previews: some View {

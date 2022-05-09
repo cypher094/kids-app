@@ -12,6 +12,9 @@
 		B4186025280ED5A40089E60F /* CustomPocketMoneyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4186024280ED5A40089E60F /* CustomPocketMoneyButton.swift */; };
 		B4186027280EDB090089E60F /* savings.json in Resources */ = {isa = PBXBuildFile; fileRef = B4186026280EDB090089E60F /* savings.json */; };
 		B4186029281008360089E60F /* CardBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4186028281008360089E60F /* CardBackView.swift */; };
+		B421199028252D2F00E8575C /* AddFundsToPocketMoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421198F28252D2F00E8575C /* AddFundsToPocketMoneyView.swift */; };
+		B421199328252E4C00E8575C /* AddFundsToPocketMoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421199228252E4C00E8575C /* AddFundsToPocketMoneyViewModel.swift */; };
+		B421199528292C4F00E8575C /* maintanance.json in Resources */ = {isa = PBXBuildFile; fileRef = B421199428292C4F00E8575C /* maintanance.json */; };
 		B4367836280DAD8900189041 /* loadingPurple.json in Resources */ = {isa = PBXBuildFile; fileRef = B4367835280DAD8900189041 /* loadingPurple.json */; };
 		B436783A280DB18500189041 /* loadingSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = B4367839280DB18500189041 /* loadingSuccess.json */; };
 		B436783C280DE68B00189041 /* MathGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436783B280DE68B00189041 /* MathGame.swift */; };
@@ -135,6 +138,9 @@
 		B4186024280ED5A40089E60F /* CustomPocketMoneyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPocketMoneyButton.swift; sourceTree = "<group>"; };
 		B4186026280EDB090089E60F /* savings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = savings.json; sourceTree = "<group>"; };
 		B4186028281008360089E60F /* CardBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackView.swift; sourceTree = "<group>"; };
+		B421198F28252D2F00E8575C /* AddFundsToPocketMoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFundsToPocketMoneyView.swift; sourceTree = "<group>"; };
+		B421199228252E4C00E8575C /* AddFundsToPocketMoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFundsToPocketMoneyViewModel.swift; sourceTree = "<group>"; };
+		B421199428292C4F00E8575C /* maintanance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = maintanance.json; sourceTree = "<group>"; };
 		B4367835280DAD8900189041 /* loadingPurple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingPurple.json; sourceTree = "<group>"; };
 		B4367839280DB18500189041 /* loadingSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingSuccess.json; sourceTree = "<group>"; };
 		B436783B280DE68B00189041 /* MathGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathGame.swift; sourceTree = "<group>"; };
@@ -266,6 +272,15 @@
 			children = (
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		B421199128252DB900E8575C /* Add funds to pocket money */ = {
+			isa = PBXGroup;
+			children = (
+				B421198F28252D2F00E8575C /* AddFundsToPocketMoneyView.swift */,
+				B421199228252E4C00E8575C /* AddFundsToPocketMoneyViewModel.swift */,
+			);
+			path = "Add funds to pocket money";
 			sourceTree = "<group>";
 		};
 		B444C8D42812C6C400628BFC /* Currency */ = {
@@ -454,6 +469,7 @@
 		B49B1992281C6DB7004A0DEC /* Pocket Money */ = {
 			isa = PBXGroup;
 			children = (
+				B421199128252DB900E8575C /* Add funds to pocket money */,
 				B49B1993281C6E0D004A0DEC /* Create Pocket Money */,
 				B4622526280D8A080020B810 /* SavingMoneyView.swift */,
 				B4EE52CF28229B1E004CF786 /* SavingMoneyEditView.swift */,
@@ -648,6 +664,7 @@
 				B49B197D28194248004A0DEC /* pig1.json */,
 				B4367839280DB18500189041 /* loadingSuccess.json */,
 				B4186026280EDB090089E60F /* savings.json */,
+				B421199428292C4F00E8575C /* maintanance.json */,
 				B4F8BC662703769D0028D2EF /* kidView1.json */,
 				B49B1989281C2D10004A0DEC /* flyingMoney.json */,
 			);
@@ -743,6 +760,7 @@
 				B49B198A281C2D10004A0DEC /* flyingMoney.json in Resources */,
 				B4F8BC692703769E0028D2EF /* pocketMoney.json in Resources */,
 				B4F8BC272701FA270028D2EF /* Preview Assets.xcassets in Resources */,
+				B421199528292C4F00E8575C /* maintanance.json in Resources */,
 				B4F8BC4D27023A2B0028D2EF /* loadingView.json in Resources */,
 				B4F8BC49270234F60028D2EF /* save.json in Resources */,
 				B43A7E122706274700244A76 /* kidView4.json in Resources */,
@@ -782,6 +800,7 @@
 				B4F8BC332702114F0028D2EF /* SignInView.swift in Sources */,
 				B4EE52C82820082A004CF786 /* CharityView.swift in Sources */,
 				B4F8BC5F270360B20028D2EF /* Loading.swift in Sources */,
+				B421199328252E4C00E8575C /* AddFundsToPocketMoneyViewModel.swift in Sources */,
 				B461D40E27DB7960003ACBE8 /* Data.swift in Sources */,
 				B47AAA9A2811A2B20072B748 /* SignInViewModel.swift in Sources */,
 				B4EE52CC28201A82004CF786 /* CharityTransferView.swift in Sources */,
@@ -797,6 +816,7 @@
 				B444C8DB2812F1C500628BFC /* TransferSaveViewModel.swift in Sources */,
 				B4D3626227EA14BD004A37DA /* SideMenuViewModel.swift in Sources */,
 				B4F8BC3D270219CB0028D2EF /* HomeView.swift in Sources */,
+				B421199028252D2F00E8575C /* AddFundsToPocketMoneyView.swift in Sources */,
 				B4F8BC202701FA240028D2EF /* KidsApp.swift in Sources */,
 				B4E767C2281743A200CF976B /* ResetPasswordView.swift in Sources */,
 				B4F8BC3A2702197D0028D2EF /* AuthManager.swift in Sources */,

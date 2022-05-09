@@ -1,38 +1,30 @@
 //
-//  CardTransfer.swift
+//  AddFundsToPocketMoney.swift
 //  KidsApp
 //
-//  Created by Oleh Haidar on 18.04.2022.
+//  Created by Oleh Haidar on 06.05.2022.
 //
 
 import SwiftUI
 
-struct CardTransfer: View {
+struct AddFundsToPocketMoneyView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var auth: AuthManager
-    @ObservedObject var viewModel: CardTransferViewModel
+    @ObservedObject var viewModel: AddFundsToPocketMoneyViewModel
     @Namespace var animation
-    @FocusState var amountIsFocused: Bool
+    let pocket: PocketMoney
     
     var body: some View {
         ZStack {
             VStack {
                 headerView
                 cardView
-                cardNumberAndAmount
+                amountInput
                 sendButton
                 Spacer()
             }
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    Spacer()
-                    Button("Done") {
-                        amountIsFocused = false
-                    }
-                }
-            }
             if viewModel.isLoading {
                 LoadingTransfer()
             }
@@ -51,7 +43,7 @@ struct CardTransfer: View {
                 }
                 .padding(.bottom, 10)
                 
-                Text("Withdraw funds")
+                Text("Transfering funds")
                     .font(.system(size: 40, weight: .heavy))
                     .foregroundColor(.primary)
                 
@@ -75,10 +67,16 @@ struct CardTransfer: View {
             
             HStack {
                 VStack(alignment: .leading) {
-                    Text("To card")
+                    Text("To pocket money")
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
                     
+//                    VStack(alignment: .center) {
+//                        LottieView(fileName: "pocketMoney")
+//                            .frame(width: 350, height: 350)
+//                            .padding(.bottom, -100)
+//                            .padding(.top, -50)
+//                    }
                 }
                 Spacer()
             }
@@ -87,14 +85,10 @@ struct CardTransfer: View {
         }
     }
     
-    private var cardNumberAndAmount: some View {
+    private var amountInput: some View {
         VStack {
-            CustomTF(image: "creditcard.fill", title: "CARD NUMBER TO WITHDRAW", value: $viewModel.cardNumberToWithdraw, animation: animation)
-                .keyboardType(.numberPad)
-                .focused($amountIsFocused)
             AmountTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $viewModel.amountToWithdraw, animation: animation)
                 .keyboardType(.numberPad)
-                .focused($amountIsFocused)
         }
     }
     
@@ -105,28 +99,22 @@ struct CardTransfer: View {
                 Button(action: {
                     viewModel.isLoading = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        auth.addFundsToPocketMoney(updatePocket: pocket, transferedAmount: pocket.transferedAmount + viewModel.amountToWithdraw)
                         auth.updateBalance(balance: auth.card!.balance - viewModel.amountToWithdraw)
+                        presentationMode.wrappedValue.dismiss()
                     }
                 }) {
                     HStack(spacing: 10) {
-                        Text("SEND FUNDS")
+                        Text("ADD FUNDS TO POCKET")
                             .fontWeight(.heavy)
-                        Image(systemName: "arrow.right")
-                            .font(.title2)
                     }
                     .modifier(CustomButtonModifier())
-                    .opacity(!viewModel.isFiledsEmpty ? 1 : 0.6)
+                    .opacity(!viewModel.isFiledEmpty ? 1 : 0.6)
                 }
-                .disabled(viewModel.isFiledsEmpty || auth.card!.balance - viewModel.amountToWithdraw < 0)
+                .disabled(viewModel.isFiledEmpty || auth.card!.balance - viewModel.amountToWithdraw < 0)
             }
         }
         .padding()
         .padding(.trailing)
-    }
-}
-
-struct CardTransfer_Previews: PreviewProvider {
-    static var previews: some View {
-        CardTransfer(viewModel: CardTransferViewModel())
     }
 }

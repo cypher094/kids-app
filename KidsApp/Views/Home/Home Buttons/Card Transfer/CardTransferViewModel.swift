@@ -10,10 +10,10 @@ import Foundation
 class CardTransferViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var cardNumberToWithdraw = ""
-    @Published var amountToWithdraw = ""
+    @Published var amountToWithdraw = 0.0
     
     var isFiledsEmpty: Bool {
         cardNumberToWithdraw.isEmpty ||
-        amountToWithdraw.isEmpty
+        amountToWithdraw == 0
     }
 }

@@ -38,6 +38,10 @@ struct CurrencyRates: View {
             .padding()
             .padding(.leading)
             
+            if viewModel.currencyList.isEmpty && viewModel.currencyList1.isEmpty {
+                LoadingMaintanance()
+            }
+            
             ScrollView {
                 LazyVStack {
                     ForEach(viewModel.currencyList, id: \.self) { currency in

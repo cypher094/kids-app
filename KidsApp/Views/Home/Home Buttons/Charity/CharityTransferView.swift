@@ -66,7 +66,7 @@ struct CharityTransferView: View {
             
             HStack {
                 VStack(alignment: .leading) {
-                    Text("To card")
+                    Text("To charity")
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
                     
@@ -80,7 +80,7 @@ struct CharityTransferView: View {
     
     private var amountInput: some View {
         VStack {
-            CustomTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $viewModel.amountToWithdraw, animation: animation)
+            AmountTF(image: "banknote.fill", title: "AMOUNT IN ₴", value: $viewModel.amountToWithdraw, animation: animation)
                 .keyboardType(.numberPad)
         }
     }
@@ -92,7 +92,7 @@ struct CharityTransferView: View {
                 Button(action: {
                     viewModel.isLoading = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        auth.updateBalance(balance: auth.card!.balance - Double(viewModel.amountToWithdraw)!)
+                        auth.updateBalance(balance: auth.card!.balance - viewModel.amountToWithdraw)
                         presentationMode.wrappedValue.dismiss()
                     }
                 }) {
@@ -105,7 +105,7 @@ struct CharityTransferView: View {
                     .modifier(CustomButtonModifier())
                     .opacity(!viewModel.isFiledEmpty ? 1 : 0.6)
                 }
-                .disabled(viewModel.isFiledEmpty || auth.card!.balance - Double(viewModel.amountToWithdraw)! < 0)
+                .disabled(viewModel.isFiledEmpty || auth.card!.balance - viewModel.amountToWithdraw < 0)
             }
         }
         .padding()

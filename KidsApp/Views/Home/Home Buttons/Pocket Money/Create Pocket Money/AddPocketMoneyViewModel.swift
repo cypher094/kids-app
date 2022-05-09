@@ -10,10 +10,10 @@ import Foundation
 class AddPocketMoneyViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var goalText = ""
-    @Published var amount = ""
+    @Published var amount: Double = 0
     
     var isFiledsEmpty: Bool {
         goalText.isEmpty ||
-        amount.isEmpty
+        amount == 0
     }
 }
