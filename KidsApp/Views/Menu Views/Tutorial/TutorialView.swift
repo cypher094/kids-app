@@ -14,9 +14,11 @@ struct OnBoardingStep {
 }
 
 private let onBoardingSteps = [
-    OnBoardingStep(lottie: "kidView1", title: "Text1", description: "Text1"),
-    OnBoardingStep(lottie: "kidView3", title: "Text2", description: "Text2"),
-    OnBoardingStep(lottie: "kidView4", title: "Text3", description: "Text3")
+    OnBoardingStep(lottie: "kidView1", title: "Clover - App for kids", description: "We will help you dive into the banking industry."),
+    OnBoardingStep(lottie: "kidView3", title: "Credit card", description: "We will be able to send and receive funds from other people."),
+    OnBoardingStep(lottie: "pig", title: "Reach the goal", description: "You could use pocket money to save money."),
+    OnBoardingStep(lottie: "kidView2", title: "Have a problem?", description: "Do not worry. Write to our chat bot then our agent will contact with you."),
+    OnBoardingStep(lottie: "kidView4", title: "Welcome to Clover", description: "Try it yourself.")
 ]
 
 class TutorialViewModel: ObservableObject {
@@ -50,7 +52,7 @@ struct TutorialView: View {
                 ForEach(0..<onBoardingSteps.count) { value in
                     VStack(spacing: 20) {
                         LottieView(fileName: onBoardingSteps[value].lottie)
-                            .frame(width: 400, height: 400)
+                            .frame(width: 350, height: 350)
                         
                         Text(onBoardingSteps[value].title)
                             .font(.system(size: 40, weight: .heavy))
@@ -103,7 +105,7 @@ struct TutorialView: View {
                     Button(action: {
                         self.currentStep = onBoardingSteps.count - 1
                     }) {
-                        Text(currentStep == 2 ? "" : "Skip")
+                        Text(currentStep == 4 ? "" : "Skip")
                             .fontWeight(.heavy)
                             .foregroundColor(Color("purpleColor"))
                             .padding()

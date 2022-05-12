@@ -10,18 +10,19 @@ import SwiftUI
 struct CardInfoView: View {
     @EnvironmentObject var auth: AuthManager
     @State var changePin = false
+    @State var toggleIsOn = false
     
     var body: some View {
         VStack(alignment: .leading) {
-//            ProgressView()
             cardInfo
+//            toggleBlockCard
             changePinButton
         }
     }
     
     private var cardInfo: some View {
         VStack {
-            HStack(alignment: .firstTextBaseline, spacing: 16) {
+            HStack(alignment: .firstTextBaseline, spacing: 4) {
                 Text("\(auth.card?.balance ?? 0, specifier: "%.2f")")
                     .font(.system(size: 40, weight: Font.Weight.bold, design: Font.Design.rounded))
                     .foregroundColor(.white)
@@ -76,6 +77,27 @@ struct CardInfoView: View {
                     .modifier(CustomButtonModifier())
                 }
             }
+        }
+    }
+    
+    private var toggleBlockCard: some View {
+        VStack {
+//            HStack {
+//                Text("Status: ")
+//                    .fontWeight(.heavy)
+//                Text(toggleIsOn ? "ON" : "OFF")
+//                    .fontWeight(.semibold)
+//            }
+//
+            Toggle(
+                isOn: $toggleIsOn,
+                label: {
+                    Text("BLOCK CARD")
+                        .font(.system(size: 16, weight: Font.Weight.semibold, design: Font.Design.rounded))
+                        .foregroundColor(.white)
+                })
+            .padding()
+            .toggleStyle(SwitchToggleStyle(tint: Color.purple))
         }
     }
 }
