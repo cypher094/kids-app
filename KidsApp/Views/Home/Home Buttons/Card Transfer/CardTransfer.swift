@@ -75,7 +75,7 @@ struct CardTransfer: View {
             
             HStack {
                 VStack(alignment: .leading) {
-                    Text("To card")
+                    Text("To card (card number)")
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
                     

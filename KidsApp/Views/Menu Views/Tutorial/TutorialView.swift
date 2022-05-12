@@ -17,7 +17,7 @@ private let onBoardingSteps = [
     OnBoardingStep(lottie: "kidView1", title: "Clover - App for kids", description: "We will help you dive into the banking industry."),
     OnBoardingStep(lottie: "kidView3", title: "Credit card", description: "We will be able to send and receive funds from other people."),
     OnBoardingStep(lottie: "pig", title: "Reach the goal", description: "You could use pocket money to save money."),
-    OnBoardingStep(lottie: "kidView2", title: "Have a problem?", description: "Do not worry. Write to our chat bot then our agent will contact with you."),
+    OnBoardingStep(lottie: "kidView2", title: "Have a problem?", description: "Write to our chat bot then our agent will contact with you."),
     OnBoardingStep(lottie: "kidView4", title: "Welcome to Clover", description: "Try it yourself.")
 ]
 

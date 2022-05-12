@@ -40,18 +40,18 @@ struct CurrencyRates: View {
             
             if viewModel.currencyList.isEmpty && viewModel.currencyList1.isEmpty {
                 LoadingMaintanance()
-            }
-            
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.currencyList, id: \.self) { currency in
-                        CurrencyRatesListRow(string: "\(viewModel.amount) \(viewModel.base) =", currency: currency)
+            } else {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.currencyList, id: \.self) { currency in
+                            CurrencyRatesListRow(string: "\(viewModel.amount) \(viewModel.base) =", currency: currency)
+                        }
                     }
                 }
-            }
-            
-            ForEach(viewModel.currencyList1, id: \.self) { currency in
-                Text("\(viewModel.amount) \(viewModel.base) = \(currency)")
+                
+                ForEach(viewModel.currencyList1, id: \.self) { currency in
+                    Text("\(viewModel.amount) \(viewModel.base) = \(currency)")
+                }
             }
         }
         .onAppear() {
