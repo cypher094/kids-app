@@ -86,11 +86,11 @@ struct AmountTF: View {
             HStack(alignment: .bottom) {
                 Image(systemName: image)
                     .font(.system(size: 22))
-                    .foregroundColor(value == nil ? .gray : .primary)
+                    .foregroundColor(value == 0 ? .gray : .primary)
                     .frame(width: 35)
                 
                 VStack(alignment: .leading, spacing: 6) {
-                    if value != nil {
+                    if value != 0 {
                         Text(title)
                             .font(.caption)
                             .fontWeight(.heavy)
@@ -99,12 +99,13 @@ struct AmountTF: View {
                     }
                     
                     ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
-                        if value == nil {
+                        if value == 0 {
                             Text(title)
                                 .font(.caption)
                                 .fontWeight(.heavy)
                                 .foregroundColor(.gray)
                                 .matchedGeometryEffect(id: title, in: animation)
+                                .hidden()
                         }
                         TextField("", value: $value, formatter: formatter)
                             .disableAutocorrection(true)
@@ -112,17 +113,17 @@ struct AmountTF: View {
                     }
                 }
             }
-            if value == nil {
+            if value == 0 {
                 Divider()
             }
         }
         .padding(.horizontal)
         .padding(.vertical, 10)
         
-        .background(Color("txtColor").opacity(value != nil ? 1 : 0))
+        .background(Color("txtColor").opacity(value != 0 ? 1 : 0))
         .cornerRadius(16)
-        .shadow(color: Color.black.opacity(value == nil ? 0 : 0.05), radius: 5, x: -5, y: -5)
-        .shadow(color: Color.black.opacity(value == nil ? 0 : 0.1), radius: 5, x: 5, y: 5)
+        .shadow(color: Color.black.opacity(value == 0 ? 0 : 0.05), radius: 5, x: -5, y: -5)
+        .shadow(color: Color.black.opacity(value == 0 ? 0 : 0.1), radius: 5, x: 5, y: 5)
         .padding(.top)
         .padding(.horizontal)
         .animation(.linear)

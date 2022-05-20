@@ -86,10 +86,6 @@ struct CardDetailTopBarView: View {
             
             Spacer()
             
-//            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-//                Image(systemName: "slider.vertical.3")
-//                    .padding(.all, 20)
-//            })
         }
         .foregroundColor(.white)
         .padding(.top, 64)

@@ -165,7 +165,10 @@ struct PocketMoneyRow: View {
             
             
             Button {
-                auth.deletePocketMoney(deletePocket: pocket)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    auth.deletePocketMoney(deletePocket: pocket)
+                    auth.updateBalance(balance: auth.card!.balance + pocket.transferedAmount)
+                }
             } label: {
                 Image(systemName: "trash.fill")
             }
