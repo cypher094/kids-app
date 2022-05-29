@@ -92,7 +92,7 @@ class AuthManager: ObservableObject {
             }
             
             DispatchQueue.main.async {
-                self.addUser(User(firstName: firstName, lastName: lastName, email: email, city: city, school: school, age: age, phoneNumber: phoneNumber, pinCode: "1212"))
+                self.addUser(User(firstName: firstName, lastName: lastName, email: email, city: city, school: school, age: age, phoneNumber: phoneNumber, pinCode: ""))
                 self.addCardInfo(CreditCard(number: "4141609013210591", company: "Visa", expirationDate: "10/24", cvv: "999", balance: 500.00))
                 self.sync()
             }

@@ -68,8 +68,13 @@ struct CardInfoView: View {
                     changePin = true
                 }) {
                     HStack(spacing: 10) {
-                        Text("CHANGE PIN")
-                            .fontWeight(.heavy)
+                        if auth.user?.pinCode == "" {
+                            Text("CREATE PIN")
+                                .fontWeight(.heavy)
+                        } else {
+                            Text("CHANGE PIN")
+                                .fontWeight(.heavy)
+                        }
                         
                         Image(systemName: "arrow.right")
                             .font(.title2)

@@ -24,14 +24,20 @@ struct Verification: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var code: [String] = []
+    @State var isLoading = false
     
     var body: some View {
-        VStack {
-            headerView
-            dots
-            Spacer()
-            NumberPad(codes: $code)
-                .padding(.bottom, 20)
+        ZStack {
+            VStack {
+                headerView
+                dots
+                Spacer()
+                NumberPad(codes: $code, loading: $isLoading)
+                    .padding(.bottom, 20)
+            }
+            if isLoading {
+                LoadingCorrect()
+            }
         }
     }
     private var headerView: some View {
@@ -85,6 +91,7 @@ struct NumberPad: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var auth: AuthManager
     @Binding var codes: [String]
+    @Binding var loading: Bool
     
     var body: some View {
         VStack(alignment: . leading, spacing: 20) {
@@ -102,7 +109,9 @@ struct NumberPad: View {
                                     
                                     NotificationCenter.default.post(name: NSNotification.Name("Success"), object: nil)
                                     
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    loading = true
+
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                         codes.removeAll()
                                         presentationMode.wrappedValue.dismiss()
                                     }
