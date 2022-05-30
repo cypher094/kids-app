@@ -14,7 +14,7 @@ class CurrencyRatesViewModel: ObservableObject {
     @Published var base = "USD"
     
     func makeRequestUAH(currencies: [String] = ["UAH"]) {
-        apiRequest(url: "https://api.exchangerate.host/latest?base=\(base)&amount=\(amount)") { currency in
+        apiRequest(url: "https://api.exchangerate.host/latest") { currency in
             var tempList = [String]()
             
             for currency in currency.rates {
@@ -26,8 +26,8 @@ class CurrencyRatesViewModel: ObservableObject {
         }
     }
     
-    func makeRequest(showAll: Bool, currencies: [String] = ["GBP", "EUR", "PLN", "AUD", "CZK", "GEL", "TRY", "SEK", "CAD", "JPY"]) {
-        apiRequest(url: "https://api.exchangerate.host/latest?base=\(base)&amount=\(amount)") { [self] currency in
+    func makeRequest(showAll: Bool, currencies: [String] = ["GBP", "EUR", "PLN", "AUD", "CZK", "GEL", "TRY", "SEK", "CAD", "JPY", "SZL", "KZT"]) {
+        apiRequest(url: "https://api.exchangerate.host/latest") { [self] currency in
             var tempList = [String]()
             
             for currency in currency.rates {
